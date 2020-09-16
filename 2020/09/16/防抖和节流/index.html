@@ -123,7 +123,7 @@
 <p>到这里，已经把防抖实现了，现在给出定义：</p>
 <p><strong>对于短时间内连续触发的事件（如上面的mousemove事件），防抖的含义就是让某个时间期限（如上面的1000毫秒）内，事件处理函数只执行一次。</strong></p>
 <blockquote>
-<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8b86b09daf0">节流和防抖</a>。</p>
+<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
 </blockquote>
 <h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>所谓节流，就是指<strong>连续触发事件但是在设定的延迟时间只执行一次函数</strong>，节流会稀释函数的执行频率。</p>
 <p>对于上面的mousemove事件，可设计如下的节流函数，在持续触发事件的过程中，count函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。</p>
@@ -132,7 +132,7 @@
 <p><img src="https://img.rruu.net/image/5f6213ac52cc7" alt="alt"></p>
 <p>从上面的动图可以看出，如果在灰色区域一直移动鼠标，那么会以1s的时间间隔，逐渐计数。</p>
 <blockquote>
-<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8b86b09daf0">节流和防抖</a>。</p>
+<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
 </blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖和节流都是前端性能优化的方式，防抖是控制次数，而节流是控制频率。一种常见的应用场景是浏览器的搜索引擎，对于搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求，防抖和节流可以有效避免浏览器向服务器发出过多无用的请求。</p>
  
