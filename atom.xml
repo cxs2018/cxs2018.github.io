@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-16T08:28:22.188Z</updated>
+  <updated>2020-09-16T11:50:07.041Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>欢迎</title>
+    <link href="http://example.com/2020/09/16/%E6%AC%A2%E8%BF%8E/"/>
+    <id>http://example.com/2020/09/16/%E6%AC%A2%E8%BF%8E/</id>
+    <published>2020-09-16T11:47:47.000Z</published>
+    <updated>2020-09-16T11:50:07.041Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;欢迎大家来到我的个人网站&quot;&gt;&lt;a href=&quot;#欢迎大家来到我的个人网站&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生活" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
     <title>字节面试题1</title>
     <link href="http://example.com/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/"/>
     <id>http://example.com/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</id>
     <published>2020-09-16T08:21:00.000Z</published>
-    <updated>2020-09-16T08:28:22.188Z</updated>
+    <updated>2020-09-16T11:45:41.096Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;用css2和css3分别写一下垂直居中和水平居中&quot;&gt;&lt;a href=&quot;#用css2和css3分别写一下垂直居中和水平居中&quot; class=&quot;headerlink&quot; title=&quot;用css2和css3分别写一下垂直居中和水平居中&quot;&gt;&lt;/a&gt;用css2和css3分别写一下垂直居中和水平居中&lt;/h2&gt;&lt;p&gt;css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。&lt;/p&gt;
@@ -33,70 +58,10 @@
     
     
     
-    
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://example.com/2020/09/16/test/"/>
-    <id>http://example.com/2020/09/16/test/</id>
-    <published>2020-09-16T00:37:30.000Z</published>
-    <updated>2020-09-16T00:37:57.513Z</updated>
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;测试用&quot;&gt;&lt;a href=&quot;#测试用&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>firstblog</title>
-    <link href="http://example.com/2020/09/15/firstblog/"/>
-    <id>http://example.com/2020/09/15/firstblog/</id>
-    <published>2020-09-15T14:07:01.000Z</published>
-    <updated>2020-09-16T01:39:29.447Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;我的第一个博客&quot;&gt;&lt;a href=&quot;#我的第一个博客&quot; class=&quot;headerlink&quot; title=&quot;我的第一个博客&quot;&gt;&lt;/a&gt;我的第一个博客&lt;/h1&gt;&lt;h2 id=&quot;welcome&quot;&gt;&lt;a href=&quot;#welcome&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="测试" scheme="http://example.com/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2020/09/15/hello-world/"/>
-    <id>http://example.com/2020/09/15/hello-world/</id>
-    <published>2020-09-15T13:20:58.455Z</published>
-    <updated>2020-09-16T08:28:08.426Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;</summary>
-    
-    
-    
+    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
