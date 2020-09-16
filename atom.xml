@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-16T00:37:57.513Z</updated>
+  <updated>2020-09-16T08:21:43.256Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字节面试题1</title>
+    <link href="http://example.com/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/"/>
+    <id>http://example.com/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</id>
+    <published>2020-09-16T08:21:00.000Z</published>
+    <updated>2020-09-16T08:21:43.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;用css2和css3分别写一下垂直居中和水平居中&quot;&gt;&lt;a href=&quot;#用css2和css3分别写一下垂直居中和水平居中&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>test</title>
