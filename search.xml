@@ -58,9 +58,22 @@
       </tags>
   </entry>
   <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>防抖和节流</title>
     <url>/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：</p>
+<a id="more"></a>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#count</span> &#123;</span></span><br><span class="line">            height: 150px;</span><br><span class="line">            line-height: 150px;</span><br><span class="line">            text-align: center;</span><br><span class="line"><span class="css">            <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#ccc</span>;</span></span><br><span class="line">            font-size: 80px;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;count&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> num = <span class="number">1</span>;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;count&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            oDiv.innerHTML = num++;</span><br><span class="line">        &#125;</span><br><span class="line">        oDiv.onmousemove = count;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在上述代码中，div 元素绑定了 mousemove 事件，当鼠标在 div（灰色）区域中移动的时候会持续地去触发该事件导致频繁执行函数。效果如下:</p>
 <p><img src="https://img.rruu.net/image/5f6213ad7d3cb" alt="alt"></p>
@@ -97,18 +110,6 @@
       </categories>
       <tags>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
 </search>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-16T14:34:26.875Z</updated>
+  <updated>2020-09-16T14:38:34.684Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,16 +21,10 @@
     <link href="http://example.com/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/"/>
     <id>http://example.com/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</id>
     <published>2020-09-16T12:36:25.000Z</published>
-    <updated>2020-09-16T14:34:26.875Z</updated>
+    <updated>2020-09-16T14:38:34.684Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;性能优化&quot;&gt;&lt;a href=&quot;#性能优化&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;性能优化&quot;&gt;&lt;a href=&quot;#性能优化&quot; class=&quot;headerlink&quot; title=&quot;性能优化&quot;&gt;&lt;/a&gt;性能优化&lt;/h2&gt;&lt;p&gt;防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：&lt;/p&gt;</summary>
     
     
     
