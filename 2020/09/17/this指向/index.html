@@ -202,20 +202,17 @@
 </ul>
 <p>下面我们来看看文章开头的例子，我们来分析一下那段代码的执行过程：</p>
 <ol>
-<li>在定义obj的时候，fn对应的闭包就执行了，返回其中的函数，执行闭包中代码时，显然应用不了new绑定(因为没有出现new关键字)，显式绑定也没有（没有出现call、apply或bind关键字），隐式绑定有没有？很显然没有，因为没有出现XX.fn()，所以这里应用的就是默认绑定了，非严格模式下this绑定到了window上(浏览器执行环境)。<strong>这里很容易被迷惑的就是以为this指向的是obj，一定要注意，除非是箭头函数，否则this跟词法作用域是两回事，一定要牢记在心。</strong></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.number * = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<p>window.number的值是10（var number定义的全局变量是挂在window上的）。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number = number * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-<p>number的值是NaN，注意我们这边定义了一个number，但是没有赋值，number的值是undefined，Number(undefined)-&gt;NaN。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<li>在定义obj的时候，fn对应的闭包就执行了，返回其中的函数，执行闭包中代码时，显然应用不了new绑定(因为没有出现new关键字)，显式绑定也没有（没有出现call、apply或bind关键字），隐式绑定有没有？很显然没有，因为没有出现XX.fn()，所以这里应用的就是默认绑定了，非严格模式下this绑定到了window上(浏览器执行环境)。<strong>这里很容易被迷惑的就是以为this指向的是obj，一定要注意，除非是箭头函数，否则this跟词法作用域是两回事，一定要牢记在心。</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.number * = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+window.number的值是10（var number定义的全局变量是挂在window上的）。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number = number * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+number的值是NaN，注意我们这边定义了一个number，但是没有赋值，number的值是undefined，Number(undefined)-&gt;NaN。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number = <span class="number">3</span>;</span><br></pre></td></tr></table></figure></li>
 <li>myFun.call(null)：我们前面说了，call的第一个参数传null，调用的是默认绑定。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="built_in">this</span>.number;</span><br><span class="line">    <span class="built_in">this</span>.number *= <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(num);</span><br><span class="line">    number *= <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 执行时：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">this</span>.number; <span class="comment">//num=10，此时this指向的是window</span></span><br><span class="line"><span class="built_in">this</span>.number * = <span class="number">2</span>;     <span class="comment">//window.number = 20</span></span><br><span class="line"><span class="built_in">console</span>.log(num);      <span class="comment">//输出结果为10</span></span><br><span class="line">number *= <span class="number">3</span>;           <span class="comment">//number=9，这个number对应的闭包中的number，闭包中的number的是3</span></span><br><span class="line"><span class="built_in">console</span>.log(number);   <span class="comment">//输出的结果是9</span></span><br></pre></td></tr></table></figure></li>
 <li>obj.fn()：应用了隐式绑定，fn中的this对应的是obj。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">this</span>.number;<span class="comment">//num = 3，此时this指向的是obj</span></span><br><span class="line"><span class="built_in">this</span>.number *= <span class="number">2</span>;     <span class="comment">//obj.number = 6</span></span><br><span class="line"><span class="built_in">console</span>.log(num);     <span class="comment">//输出结果为3</span></span><br><span class="line">number *= <span class="number">3</span>;          <span class="comment">//number=27，这个number对应的闭包中的number;闭包中的number的此时是9</span></span><br><span class="line"><span class="built_in">console</span>.log(number);  <span class="comment">//输出的结果是27</span></span><br></pre></td></tr></table></figure></li>
 <li>最后一步console.log(window.number)输出的结果是20。因此在严格模式下，那段代码控制台输出的结果为：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">20</span></span><br></pre></td></tr></table></figure>
-撒花撒花，结束了，恭喜坚持读完的小伙伴们，你们成功get到了this这个知识点，但是想要完全掌握，还是要多回顾和练习。如果你们有什么问题，也欢迎评论区留言，大家一起进步。</li>
+
+</li>
 </ol>
+<p>撒花撒花，结束了，恭喜坚持读完的小伙伴们，你们成功get到了this这个知识点，但是想要完全掌握，还是要多回顾和练习。如果你们有什么问题，也欢迎评论区留言，大家一起进步。</p>
 <p><img src="https://img.rruu.net/image/5f632f82491c1" alt="alt"></p>
  
       <!-- reward -->
@@ -299,6 +296,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            手撕代码之call、apply和bind
+          
+        </div>
+      </a>
     
     
       <a href="/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="article-nav-link">
