@@ -117,7 +117,7 @@
 <p>是不是感觉脑阔疼，没事，我们一个一个来梳理清楚。</p>
 <h2 id="默认绑定"><a href="#默认绑定" class="headerlink" title="默认绑定"></a>默认绑定</h2><p>默认绑定，在不能应用其它绑定规则时使用的默认规则，通常是独立函数调用，来看下面的例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Hello, &#x27;</span>, <span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Tom&#x27;</span>;</span><br><span class="line">sayHi();</span><br></pre></td></tr></table></figure>
-<p>在调用sayHi()时，应用了默认绑定，this指向全局对象（非严格模式下），严格模式下，this指向undefined，undefined上没有this对象，会抛出错误。上面的代码，如果在浏览器环境中运行，那么结果就是 Hello, Tom，但是如果在node环境中运行，结果就是       Hello, undefined，这是因为node中name并不是挂在全局对象上的。</p>
+<p>在调用sayHi()时，应用了默认绑定，this指向全局对象（非严格模式下），严格模式下，this指向undefined，undefined上没有this对象，会抛出错误。上面的代码，如果在浏览器环境中运行，那么结果就是 Hello, Tom，但是如果在node环境中运行，结果就是Hello, undefined，这是因为node中name并不是挂在全局对象上的。</p>
 <blockquote>
 <p>本文中，如不特殊说明，默认为浏览器环境执行结果。</p>
 </blockquote>
@@ -142,7 +142,7 @@
 <li>第三条虽然也是在setTimeout的回调中，但是我们可以看出，这是执行的是person2.sayHi()使用的是隐式绑定，因此这是this指向的是person2，跟当前的作用域没有任何关系。</li>
 </ul>
 <p>读到这里，或许你已经有点疲倦了，但是答应我，别放弃，好吗？再坚持一下，就可以掌握这个知识点了。</p>
-<p><img src="https://img.rruu.net/image/5f6320775d016" alt="alt"></p>
+<p><img src="https://s1.ax1x.com/2020/09/18/wfHnY9.png" alt="alt"></p>
 <h2 id="显式绑定"><a href="#显式绑定" class="headerlink" title="显式绑定"></a>显式绑定</h2><p>显式绑定比较好理解，就是通过call、apply和bind的方式，显式的指定this所指向的对象。</p>
 <blockquote>
 <p>注意:《你不知道的Javascript》中将bind单独作为硬绑定讲解。</p>
@@ -213,7 +213,7 @@ number的值是NaN，注意我们这边定义了一个number，但是没有赋�
 </li>
 </ol>
 <p>撒花撒花，结束了，恭喜坚持读完的小伙伴们，你们成功get到了this这个知识点，但是想要完全掌握，还是要多回顾和练习。如果你们有什么问题，也欢迎评论区留言，大家一起进步。</p>
-<p><img src="https://img.rruu.net/image/5f632f82491c1" alt="alt"></p>
+<p><img src="https://s1.ax1x.com/2020/09/18/wfHuWR.png" alt="alt"></p>
  
       <!-- reward -->
       
