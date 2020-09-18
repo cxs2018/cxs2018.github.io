@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    前端性能优化 |  流苏飘动，凤虚御风
+    从闭包说起 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,7 +50,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-前端性能优化"
+  id="post-从闭包说起"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -61,15 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  前端性能优化
+  从闭包说起
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="article-date">
-  <time datetime="2020-09-18T03:08:20.000Z" itemprop="datePublished">2020-09-18</time>
+      <a href="/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/" class="article-date">
+  <time datetime="2020-09-18T09:16:32.000Z" itemprop="datePublished">2020-09-18</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.6k</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -104,70 +104,34 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
-<li><p>减少请求数量</p>
-</li>
-<li><p>减小资源大小</p>
-</li>
-<li><p>优化网络连接</p>
-</li>
-<li><p>优化资源加载</p>
-</li>
-<li><p>减少重绘回流</p>
-</li>
-<li><p>使用性能更好的API</p>
-</li>
-<li><p>webpack优化</p>
+  <h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>输出结果为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。</p>
 <a id="more"></a>
-<h2 id="减小请求资源大小或数量"><a href="#减小请求资源大小或数量" class="headerlink" title="减小请求资源大小或数量"></a>减小请求资源大小或数量</h2></li>
-<li><p>尽量和并压缩css和js文件，例如将css文件和并为一个，将js合并为一个。<br>原因：主要是为了减少http请求次数以及减少请求资源的大小。<br>打包工具：webpack、gulp、grunt……</p>
-</li>
-<li><p>尽量使用字体图标或者SVG图标来代替传统png图，因为字体图标或者SVG图标是矢量图，是代码编写出来的，放大缩小不会变形，而且渲染速度快。</p>
-</li>
-<li><p>采用图片的懒加载（延迟加载）。<br>目的：为了减少页面第一次加载过程中http的请求次数。<br>具体步骤：<br>1、页面开始加载时不去发送http请求，而是放置一张占位图;<br>2、当页面加载完时，并且图片在可视区域再去请求加载图片信息.</p>
-</li>
-<li><p>能用css做的效果，不要用js做，能用原生js做的，不要轻易去使用第三方插件，避免引入第三方大量的库，而自己却只是用里面的一个小功能。</p>
-</li>
-<li><p>使用雪碧图（精灵图），把所有相对较小的资源图片，绘制在一张大图上，只需要将大图下载下来，然后利用，使用图片定位来将小图展现在页面中（background-position: 百分比, 数值）。</p>
-</li>
-<li><p>减少对cookie的使用，最主要的就是要减少本地cookie存储内容的大小，因为客户端操作cookie的时候，这些信息总是在客户端和服务端传递，如果设置不当，每次发送一个请求都会携带cookie。</p>
-</li>
-<li><p>前端与后端进行数据交互时，对于多项数据尽可能基于json格式来进行传送，相对于使用xml来说传输更有优势，因为json格式数据处理方便，资源偏小。</p>
-</li>
-<li><p>前端与后端协商，合理使用keep-alive。</p>
-</li>
-<li><p>前端与服务器协商，使用响应资源的压缩。</p>
-</li>
-<li><p>避免使用iframe，因为使用iframe不仅不好管控样式，而且相当于在本页面又嵌套其他页面，还要加载这些嵌套页面的资源，使得性能消耗变大。</p>
-</li>
-<li><p>在基于ajax的get请求进行数据交互的时候，根据需求可以让其产生缓存（注意：这个缓存不是我们常看到的304状态码，去浏览器本地取数据），这样在下一次从相同地址获取是数据时，取得就是上一次缓存的数据（注意：很少使用，一般都会清空，根据需求来做）。</p>
-</li>
+<h2 id="追问1"><a href="#追问1" class="headerlink" title="追问1"></a>追问1</h2><p>如果我们约定，用箭头（-&gt;）表示其前后的两次输出之间有1秒的时间间隔，而逗号（,）表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</p>
+<ul>
+<li>A: 5-&gt;5-&gt;5-&gt;5-&gt;5-&gt;5</li>
+<li>B: 5-&gt;5,5,5,5,5</li>
 </ul>
-<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ul>
-<li>在js中尽量减少闭包的使用，因为使用闭包后，闭包所在的上下文不会被释放。</li>
-<li>减少对DOM操作，主要是减少DOM的重绘与回流（重排）。<br>关于重排（回流）的分离读写：如果需要设置多个样式，把设置样式全放在一起设置，不要一条一条的设置，使用文档碎片或者字符串拼接做数据绑定（DOM的动态创建）。</li>
-<li>在js中避免嵌套循环和“死循环”，因为一旦遇到死循环，浏览器就会直接卡掉。</li>
-<li>减少css表达式的使用。</li>
-<li>减少元素标签作为最后一个选择对象，因为css选择器解析规则是从右往左解析的。</li>
-<li>尽量将一个动画元素单独设置为一个图层（避免重绘或者回流的大小），注意：图层不要过多设置，否则不但效果没有达到反而更差了。</li>
-<li>在js封装过程中，尽量做到低耦合高内聚，减少页面的冗余代码。</li>
-<li>css中设置定位后，最好使用z-index改变盒子的层级，让盒子不在相同的平面上。</li>
-<li>css导入的时候尽量减少@import导入式，因为@import是同步操作，只有把对应的样式导入后，才会继续向下执行其他的代码，而link是异步的操作。</li>
-<li>使用window.requestAnimationFrame(js的帧动画)代替传统的定时器动画，如果想使用每隔一段时间执行动画，应该避免使用setInterval，尽量使用setTimeout代替setInterval定时器，因为setInterval定时器存在弊端：可能造成两个动画间隔时间缩短。</li>
-<li>尽量减少使用递归，避免死递归，如果一定要使用递归建议使用尾递归。</li>
-<li>基于script标签引用js文件时，可以使用defer或者async来异步加载。</li>
-<li>在事件绑定中，尽可能使用事件委托，减少循环给DOM元素绑定事件处理函数。</li>
-<li>减少Flash的使用。</li>
-</ul>
-<h2 id="存储优化"><a href="#存储优化" class="headerlink" title="存储优化"></a>存储优化</h2><ul>
-<li>结合后端，利用浏览器的缓存技术，做一些缓存（让后端返回304，告诉浏览器去本地拉取数据，可以让一些不太会改变的静态资源做缓存，比如一些图片，js文件，css文件</li>
-<li>利用h5的新特性（localStorage、sessionStorage）做一些简单数据的存储，避免向后台请求数据或者说在离线状态下做一些数据展示。</li>
-</ul>
-<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
-<li>采用异步编程和延迟分批加载获取页面中的数据，使用异步加载是数据主要是为了避免浏览器失去响应，如果你使用同步，加载数据很大并且很慢，那么页面会在一段时间内处于阻塞状态。<br>目的：为了解决请求数据不耽搁渲染，提高页面的渲染效率。<br>解决方法：动态绑定数据区域，先隐藏，等数据返回并且绑定后再让其显示，延迟分批加载类似图片懒加载，以减少第一次页面加载时候的http请求次数。</li>
-<li>如果页面有出现音视频标签，可以不让页面加载的时候去加载这些资源（将音视频的preload设置为none即可），否则第一次加载会很慢，在页面加载完成后，并且音视频要播放的时候再去加载音视频资源。</li>
-</ul>
-<p>如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
+<p>选A还是选B呢，这就要求面试者对定时器的工作机制非常熟悉，在循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后同时触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B 。</p>
+<h2 id="追问2"><a href="#追问2" class="headerlink" title="追问2"></a>追问2</h2><p>如果期望代码的输出变成：5-&gt;0,1,2,3,4，该怎么改造代码？熟悉闭包的同学很快能给出下面的解决办法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123; </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>巧妙的利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题。但这对于初学者来说可能不太好懂，有没有更直观的做法？当然有，我们只需要对循环体稍做手脚，让负责输出的那段代码能拿到每次循环的 i 值即可。该怎么做呢？利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征，不难改造出下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> output = <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    output(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<h2 id="追问3"><a href="#追问3" class="headerlink" title="追问3"></a>追问3</h2><p>还是最初的那道题，如果将var改成let，会发生什么？</p>
+<p>let是ES6块级作用域中的概念，用let代替var后，会发现代码在实际运行中报错，这是因为最后那个输出使用的 i 在其所在的作用域中并不存在，i 只存在于for循环内部。</p>
+<h2 id="追问4"><a href="#追问4" class="headerlink" title="追问4"></a>追问4</h2><p>如果期望代码的输出变成 0-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5，并且要求原有的代码块中的循环和两处console.log不变，该怎么改造代码？新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概是为了避免钻牛角尖的同学陷进去，因为 JS 中的定时器触发时机有可能是不确定的）。</p>
+<p>看到这里，有些同学会给出下面的可行解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span> * j));  <span class="comment">// 这里修改 0~4 的定时器时间</span></span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 这里增加定时器，超时设置为 5 秒</span></span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;, <span class="number">1000</span> * i);</span><br></pre></td></tr></table></figure>
+<p>不得不承认，这种做法虽然粗暴有效，但是不算是能额外加分的方案。如果把这次的需求抽象为：在系列异步操作完成（每次循环都产生了 1 个异步操作）之后，再做其他的事情，代码该怎么组织？聪明的你是不是想起了什么？对，就是 Promise，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;   <span class="comment">// 这里 i 的声明不能改成 let，如果要改该怎么做？</span></span><br><span class="line">    (<span class="function">(<span class="params">j</span>) =&gt;</span> &#123;</span><br><span class="line">        tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">                resolve();  <span class="comment">// 这里一定要 resolve，否则代码不会按预期 work</span></span><br><span class="line">            &#125;, <span class="number">1000</span> * j);   <span class="comment">// 定时器的超时时间逐步增加</span></span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);   </span><br></pre></td></tr></table></figure>
+<p>当然，上面的代码还能进一步简化，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 这里存放异步操作的 Promise</span></span><br><span class="line"><span class="keyword">const</span> output = <span class="function">(<span class="params">i</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 生成全部的异步操作</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步操作完成之后，输出最后的 i</span></span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样看是不是逻辑清楚多了，使用 Promise 处理异步代码比回调机制让代码可读性更高，但是使用 Promise 的问题也很明显，即如果没有处理 Promise 的 reject，会导致错误被丢进黑洞，这显然是我们不愿看到的。</p>
+<h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
  
       <!-- reward -->
       
@@ -238,7 +202,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,19 +215,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            从闭包说起
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/" class="article-nav-link">
+      <a href="/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">手撕代码之call、apply和bind</div>
+        <div class="article-nav-title">前端性能优化</div>
       </a>
     
   </nav>
