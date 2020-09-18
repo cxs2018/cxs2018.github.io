@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字节面试题1</title>
     <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
     <content><![CDATA[<h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
@@ -67,6 +55,18 @@
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
