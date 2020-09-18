@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-17T15:58:48.522Z</updated>
+  <updated>2020-09-18T00:24:26.123Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/"/>
     <id>http://example.com/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</id>
     <published>2020-09-17T14:20:11.000Z</published>
-    <updated>2020-09-17T15:58:48.522Z</updated>
+    <updated>2020-09-18T00:24:26.123Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;三兄弟的作用&quot;&gt;&lt;a href=&quot;#三兄弟的作用&quot; class=&quot;headerlink&quot; title=&quot;三兄弟的作用&quot;&gt;&lt;/a&gt;三兄弟的作用&lt;/h2&gt;&lt;p&gt;call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：&lt;/p&gt;
