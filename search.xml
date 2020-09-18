@@ -1,6 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>前端性能优化</title>
+    <url>/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
+<li><p>减少请求数量</p>
+</li>
+<li><p>减小资源大小</p>
+</li>
+<li><p>优化网络连接</p>
+</li>
+<li><p>优化资源加载</p>
+</li>
+<li><p>减少重绘回流</p>
+</li>
+<li><p>使用性能更好的API</p>
+</li>
+<li><p>webpack优化</p>
+<a id="more"></a>
+<h2 id="减小请求资源大小或数量"><a href="#减小请求资源大小或数量" class="headerlink" title="减小请求资源大小或数量"></a>减小请求资源大小或数量</h2></li>
+<li><p>尽量和并压缩css和js文件，例如将css文件和并为一个，将js合并为一个。<br>原因：主要是为了减少http请求次数以及减少请求资源的大小。<br>打包工具：webpack、gulp、grunt……</p>
+</li>
+<li><p>尽量使用字体图标或者SVG图标来代替传统png图，因为字体图标或者SVG图标是矢量图，是代码编写出来的，放大缩小不会变形，而且渲染速度快。</p>
+</li>
+<li><p>采用图片的懒加载（延迟加载）。<br>目的：为了减少页面第一次加载过程中http的请求次数。<br>具体步骤：<br>1、页面开始加载时不去发送http请求，而是放置一张占位图;<br>2、当页面加载完时，并且图片在可视区域再去请求加载图片信息.</p>
+</li>
+<li><p>能用css做的效果，不要用js做，能用原生js做的，不要轻易去使用第三方插件，避免引入第三方大量的库，而自己却只是用里面的一个小功能。</p>
+</li>
+<li><p>使用雪碧图（精灵图），把所有相对较小的资源图片，绘制在一张大图上，只需要将大图下载下来，然后利用，使用图片定位来将小图展现在页面中（background-position: 百分比, 数值）。</p>
+</li>
+<li><p>减少对cookie的使用，最主要的就是要减少本地cookie存储内容的大小，因为客户端操作cookie的时候，这些信息总是在客户端和服务端传递，如果设置不当，每次发送一个请求都会携带cookie。</p>
+</li>
+<li><p>前端与后端进行数据交互时，对于多项数据尽可能基于json格式来进行传送，相对于使用xml来说传输更有优势，因为json格式数据处理方便，资源偏小。</p>
+</li>
+<li><p>前端与后端协商，合理使用keep-alive。</p>
+</li>
+<li><p>前端与服务器协商，使用响应资源的压缩。</p>
+</li>
+<li><p>避免使用iframe，因为使用iframe不仅不好管控样式，而且相当于在本页面又嵌套其他页面，还要加载这些嵌套页面的资源，使得性能消耗变大。</p>
+</li>
+<li><p>在基于ajax的get请求进行数据交互的时候，根据需求可以让其产生缓存（注意：这个缓存不是我们常看到的304状态码，去浏览器本地取数据），这样在下一次从相同地址获取是数据时，取得就是上一次缓存的数据（注意：很少使用，一般都会清空，根据需求来做）。</p>
+</li>
+</ul>
+<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ul>
+<li>在js中尽量减少闭包的使用，因为使用闭包后，闭包所在的上下文不会被释放。</li>
+<li>减少对DOM操作，主要是减少DOM的重绘与回流（重排）。<br>关于重排（回流）的分离读写：如果需要设置多个样式，把设置样式全放在一起设置，不要一条一条的设置，使用文档碎片或者字符串拼接做数据绑定（DOM的动态创建）。</li>
+<li>在js中避免嵌套循环和“死循环”，因为一旦遇到死循环，浏览器就会直接卡掉。</li>
+<li>减少css表达式的使用。</li>
+<li>减少元素标签作为最后一个选择对象，因为css选择器解析规则是从右往左解析的。</li>
+<li>尽量将一个动画元素单独设置为一个图层（避免重绘或者回流的大小），注意：图层不要过多设置，否则不但效果没有达到反而更差了。</li>
+<li>在js封装过程中，尽量做到低耦合高内聚，减少页面的冗余代码。</li>
+<li>css中设置定位后，最好使用z-index改变盒子的层级，让盒子不在相同的平面上。</li>
+<li>css导入的时候尽量减少@import导入式，因为@import是同步操作，只有把对应的样式导入后，才会继续向下执行其他的代码，而link是异步的操作。</li>
+<li>使用window.requestAnimationFrame(js的帧动画)代替传统的定时器动画，如果想使用每隔一段时间执行动画，应该避免使用setInterval，尽量使用setTimeout代替setInterval定时器，因为setInterval定时器存在弊端：可能造成两个动画间隔时间缩短。</li>
+<li>尽量减少使用递归，避免死递归，如果一定要使用递归建议使用尾递归。</li>
+<li>基于script标签引用js文件时，可以使用defer或者async来异步加载。</li>
+<li>在事件绑定中，尽可能使用事件委托，减少循环给DOM元素绑定事件处理函数。</li>
+<li>减少Flash的使用。</li>
+</ul>
+<h2 id="存储优化"><a href="#存储优化" class="headerlink" title="存储优化"></a>存储优化</h2><ul>
+<li>结合后端，利用浏览器的缓存技术，做一些缓存（让后端返回304，告诉浏览器去本地拉取数据，可以让一些不太会改变的静态资源做缓存，比如一些图片，js文件，css文件</li>
+<li>利用h5的新特性（localStorage、sessionStorage）做一些简单数据的存储，避免向后台请求数据或者说在离线状态下做一些数据展示。</li>
+</ul>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
+<li>采用异步编程和延迟分批加载获取页面中的数据，使用异步加载是数据主要是为了避免浏览器失去响应，如果你使用同步，加载数据很大并且很慢，那么页面会在一段时间内处于阻塞状态。<br>目的：为了解决请求数据不耽搁渲染，提高页面的渲染效率。<br>解决方法：动态绑定数据区域，先隐藏，等数据返回并且绑定后再让其显示，延迟分批加载类似图片懒加载，以减少第一次页面加载时候的http请求次数。</li>
+<li>如果页面有出现音视频标签，可以不让页面加载的时候去加载这些资源（将音视频的preload设置为none即可），否则第一次加载会很慢，在页面加载完成后，并且音视频要播放的时候再去加载音视频资源。</li>
+</ul>
+<p>如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手撕代码之call、apply和bind</title>
+    <url>/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</url>
+    <content><![CDATA[<h2 id="三兄弟的作用"><a href="#三兄弟的作用" class="headerlink" title="三兄弟的作用"></a>三兄弟的作用</h2><p>call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> language = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is the best language in the world!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//谁是世界上最好的语言？</span></span><br><span class="line">language.getName();</span><br><span class="line">language.getName.call(weber);</span><br><span class="line">language.getName.apply(weber);</span><br><span class="line">language.getName.bind(weber)();</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码，结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">java is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="三兄弟的区别"><a href="#三兄弟的区别" class="headerlink" title="三兄弟的区别"></a>三兄弟的区别</h2><ul>
+<li>call、apply和bind方法接收的第一个参数都是要绑定的this对象。</li>
+<li>apply方法的第二个参数是一个参数数组，call和bind方法的第二个及之后的参数作为函数实参按顺序传入。</li>
+<li>bind方法不会立即调用，call和apply方法都会立即调用。</li>
+</ul>
+<p>来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> developer = &#123;</span><br><span class="line">    getSkills: <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    skiller: [<span class="string">&quot;HTML&quot;</span>]</span><br><span class="line">&#125;;</span><br><span class="line">developer.getSkills.call(weber, <span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br><span class="line">developer.getSkills.apply(weber, [<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>]);</span><br><span class="line">developer.getSkills.bind(weber)(<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码，结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br></pre></td></tr></table></figure>
+<h2 id="call方法的模拟实现"><a href="#call方法的模拟实现" class="headerlink" title="call方法的模拟实现"></a>call方法的模拟实现</h2><p>首先要理清思路：</p>
+<ul>
+<li>函数定义在哪里？call方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
+<li>函数接收参数？绑定函数被调用时只传入第二个参数及之后的参数。</li>
+<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
+</ul>
+<p>理清了思路，开撸：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>); <span class="comment">//获取实参</span></span><br><span class="line">    <span class="keyword">const</span> res = cxt.fn(...args); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="apply方法的模拟实现"><a href="#apply方法的模拟实现" class="headerlink" title="apply方法的模拟实现"></a>apply方法的模拟实现</h2><p>apply方法实现的思路与call方法基本相同，我们只需要对参数进行不同处理即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">arguments</span>[<span class="number">1</span>] ? cxt.fn(...arguments[<span class="number">1</span>]) : cxt.fn(); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="bind方法的模拟实现"><a href="#bind方法的模拟实现" class="headerlink" title="bind方法的模拟实现"></a>bind方法的模拟实现</h2><p>首先要理清思路：</p>
+<ul>
+<li>函数定义在哪里？bind方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
+<li>函数接收参数？bind方法返回一个绑定函数，最终调用需要传入函数实参和绑定函数的实参。</li>
+<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
+</ul>
+<p>我模拟实现的bind方法代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="built_in">this</span> + <span class="string">&quot;isn&#x27;t a function!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> _this = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//处理函数使用new的情况</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span> <span class="keyword">instanceof</span> fn ? <span class="keyword">new</span> _this(...args, ...arguments) : _this.myApply(context, args.concat(...arguments));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>更多bind方法的实现详见：<br><a href="https://segmentfault.com/a/1190000017091983">面试官问：能否模拟实现JS的bind方法？</a><br><a href="https://www.jianshu.com/p/9d75886102a7">bind方法的实现</a></p>
+<p>经测试，模拟实现的myCall、myApply和myBind方法和call、apply和bind方法效果一致。到这里，我们已经模拟实现了自己的三兄弟方法，如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字节面试题1</title>
     <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
     <content><![CDATA[<h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
@@ -67,51 +187,6 @@
       </categories>
       <tags>
         <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>手撕代码之call、apply和bind</title>
-    <url>/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</url>
-    <content><![CDATA[<h2 id="三兄弟的作用"><a href="#三兄弟的作用" class="headerlink" title="三兄弟的作用"></a>三兄弟的作用</h2><p>call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> language = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is the best language in the world!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//谁是世界上最好的语言？</span></span><br><span class="line">language.getName();</span><br><span class="line">language.getName.call(weber);</span><br><span class="line">language.getName.apply(weber);</span><br><span class="line">language.getName.bind(weber)();</span><br></pre></td></tr></table></figure>
-<p>执行上面的代码，结果为：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">java is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="三兄弟的区别"><a href="#三兄弟的区别" class="headerlink" title="三兄弟的区别"></a>三兄弟的区别</h2><ul>
-<li>call、apply和bind方法接收的第一个参数都是要绑定的this对象。</li>
-<li>apply方法的第二个参数是一个参数数组，call和bind方法的第二个及之后的参数作为函数实参按顺序传入。</li>
-<li>bind方法不会立即调用，call和apply方法都会立即调用。</li>
-</ul>
-<p>来看下面的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> developer = &#123;</span><br><span class="line">    getSkills: <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    skiller: [<span class="string">&quot;HTML&quot;</span>]</span><br><span class="line">&#125;;</span><br><span class="line">developer.getSkills.call(weber, <span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br><span class="line">developer.getSkills.apply(weber, [<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>]);</span><br><span class="line">developer.getSkills.bind(weber)(<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>执行上面的代码，结果为：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br></pre></td></tr></table></figure>
-<h2 id="call方法的模拟实现"><a href="#call方法的模拟实现" class="headerlink" title="call方法的模拟实现"></a>call方法的模拟实现</h2><p>首先要理清思路：</p>
-<ul>
-<li>函数定义在哪里？call方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
-<li>函数接收参数？绑定函数被调用时只传入第二个参数及之后的参数。</li>
-<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
-</ul>
-<p>理清了思路，开撸：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>); <span class="comment">//获取实参</span></span><br><span class="line">    <span class="keyword">const</span> res = cxt.fn(...args); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="apply方法的模拟实现"><a href="#apply方法的模拟实现" class="headerlink" title="apply方法的模拟实现"></a>apply方法的模拟实现</h2><p>apply方法实现的思路与call方法基本相同，我们只需要对参数进行不同处理即可。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">arguments</span>[<span class="number">1</span>] ? cxt.fn(...arguments[<span class="number">1</span>]) : cxt.fn(); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="bind方法的模拟实现"><a href="#bind方法的模拟实现" class="headerlink" title="bind方法的模拟实现"></a>bind方法的模拟实现</h2><p>首先要理清思路：</p>
-<ul>
-<li>函数定义在哪里？bind方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
-<li>函数接收参数？bind方法返回一个绑定函数，最终调用需要传入函数实参和绑定函数的实参。</li>
-<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
-</ul>
-<p>我模拟实现的bind方法代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="built_in">this</span> + <span class="string">&quot;isn&#x27;t a function!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> _this = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//处理函数使用new的情况</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span> <span class="keyword">instanceof</span> fn ? <span class="keyword">new</span> _this(...args, ...arguments) : _this.myApply(context, args.concat(...arguments));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>更多bind方法的实现详见：<br><a href="https://segmentfault.com/a/1190000017091983">面试官问：能否模拟实现JS的bind方法？</a><br><a href="https://www.jianshu.com/p/9d75886102a7">bind方法的实现</a></p>
-<p>经测试，模拟实现的myCall、myApply和myBind方法和call、apply和bind方法效果一致。到这里，我们已经模拟实现了自己的三兄弟方法，如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -260,7 +335,8 @@
 <ol>
 <li>在定义obj的时候，fn对应的闭包就执行了，返回其中的函数，执行闭包中代码时，显然应用不了new绑定(因为没有出现new关键字)，显式绑定也没有（没有出现call、apply或bind关键字），隐式绑定有没有？很显然没有，因为没有出现XX.fn()，所以这里应用的就是默认绑定了，非严格模式下this绑定到了window上(浏览器执行环境)。<strong>这里很容易被迷惑的就是以为this指向的是obj，一定要注意，除非是箭头函数，否则this跟词法作用域是两回事，一定要牢记在心。</strong><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">this</span>.number * = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 window.number的值是10（var number定义的全局变量是挂在window上的）。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">number = number * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-number的值是NaN，注意我们这边定义了一个number，但是没有赋值，number的值是undefined，Number(undefined)-&gt;NaN。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">number = <span class="number">3</span>;</span><br></pre></td></tr></table></figure></li>
+number的值是NaN，注意我们这边定义了一个number，但是没有赋值，number的值是undefined，Number(undefined)-&gt;NaN。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">number = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+number的值被赋值成3。</li>
 <li>myFun.call(null)：我们前面说了，call的第一个参数传null，调用的是默认绑定。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="built_in">this</span>.number;</span><br><span class="line">    <span class="built_in">this</span>.number *= <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(num);</span><br><span class="line">    number *= <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(number);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 执行时：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">this</span>.number; <span class="comment">//num=10，此时this指向的是window</span></span><br><span class="line"><span class="built_in">this</span>.number * = <span class="number">2</span>;     <span class="comment">//window.number = 20</span></span><br><span class="line"><span class="built_in">console</span>.log(num);      <span class="comment">//输出结果为10</span></span><br><span class="line">number *= <span class="number">3</span>;           <span class="comment">//number=9，这个number对应的闭包中的number，闭包中的number的是3</span></span><br><span class="line"><span class="built_in">console</span>.log(number);   <span class="comment">//输出的结果是9</span></span><br></pre></td></tr></table></figure></li>
 <li>obj.fn()：应用了隐式绑定，fn中的this对应的是obj。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="built_in">this</span>.number;<span class="comment">//num = 3，此时this指向的是obj</span></span><br><span class="line"><span class="built_in">this</span>.number *= <span class="number">2</span>;     <span class="comment">//obj.number = 6</span></span><br><span class="line"><span class="built_in">console</span>.log(num);     <span class="comment">//输出结果为3</span></span><br><span class="line">number *= <span class="number">3</span>;          <span class="comment">//number=27，这个number对应的闭包中的number;闭包中的number的此时是9</span></span><br><span class="line"><span class="built_in">console</span>.log(number);  <span class="comment">//输出的结果是27</span></span><br></pre></td></tr></table></figure></li>
