@@ -1,81 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>前端性能优化</title>
-    <url>/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
-<li><p>减少请求数量</p>
-</li>
-<li><p>减小资源大小</p>
-</li>
-<li><p>优化网络连接</p>
-</li>
-<li><p>优化资源加载</p>
-</li>
-<li><p>减少重绘回流</p>
-</li>
-<li><p>使用性能更好的API</p>
-</li>
-<li><p>webpack优化</p>
-<a id="more"></a>
-<h2 id="减小请求资源大小或数量"><a href="#减小请求资源大小或数量" class="headerlink" title="减小请求资源大小或数量"></a>减小请求资源大小或数量</h2></li>
-<li><p>尽量和并压缩css和js文件，例如将css文件和并为一个，将js合并为一个。<br>原因：主要是为了减少http请求次数以及减少请求资源的大小。<br>打包工具：webpack、gulp、grunt……</p>
-</li>
-<li><p>尽量使用字体图标或者SVG图标来代替传统png图，因为字体图标或者SVG图标是矢量图，是代码编写出来的，放大缩小不会变形，而且渲染速度快。</p>
-</li>
-<li><p>采用图片的懒加载（延迟加载）。<br>目的：为了减少页面第一次加载过程中http的请求次数。<br>具体步骤：<br>1、页面开始加载时不去发送http请求，而是放置一张占位图;<br>2、当页面加载完时，并且图片在可视区域再去请求加载图片信息.</p>
-</li>
-<li><p>能用css做的效果，不要用js做，能用原生js做的，不要轻易去使用第三方插件，避免引入第三方大量的库，而自己却只是用里面的一个小功能。</p>
-</li>
-<li><p>使用雪碧图（精灵图），把所有相对较小的资源图片，绘制在一张大图上，只需要将大图下载下来，然后利用，使用图片定位来将小图展现在页面中（background-position: 百分比, 数值）。</p>
-</li>
-<li><p>减少对cookie的使用，最主要的就是要减少本地cookie存储内容的大小，因为客户端操作cookie的时候，这些信息总是在客户端和服务端传递，如果设置不当，每次发送一个请求都会携带cookie。</p>
-</li>
-<li><p>前端与后端进行数据交互时，对于多项数据尽可能基于json格式来进行传送，相对于使用xml来说传输更有优势，因为json格式数据处理方便，资源偏小。</p>
-</li>
-<li><p>前端与后端协商，合理使用keep-alive。</p>
-</li>
-<li><p>前端与服务器协商，使用响应资源的压缩。</p>
-</li>
-<li><p>避免使用iframe，因为使用iframe不仅不好管控样式，而且相当于在本页面又嵌套其他页面，还要加载这些嵌套页面的资源，使得性能消耗变大。</p>
-</li>
-<li><p>在基于ajax的get请求进行数据交互的时候，根据需求可以让其产生缓存（注意：这个缓存不是我们常看到的304状态码，去浏览器本地取数据），这样在下一次从相同地址获取是数据时，取得就是上一次缓存的数据（注意：很少使用，一般都会清空，根据需求来做）。</p>
-</li>
-</ul>
-<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ul>
-<li>在js中尽量减少闭包的使用，因为使用闭包后，闭包所在的上下文不会被释放。</li>
-<li>减少对DOM操作，主要是减少DOM的重绘与回流（重排）。<br>关于重排（回流）的分离读写：如果需要设置多个样式，把设置样式全放在一起设置，不要一条一条的设置，使用文档碎片或者字符串拼接做数据绑定（DOM的动态创建）。</li>
-<li>在js中避免嵌套循环和“死循环”，因为一旦遇到死循环，浏览器就会直接卡掉。</li>
-<li>减少css表达式的使用。</li>
-<li>减少元素标签作为最后一个选择对象，因为css选择器解析规则是从右往左解析的。</li>
-<li>尽量将一个动画元素单独设置为一个图层（避免重绘或者回流的大小），注意：图层不要过多设置，否则不但效果没有达到反而更差了。</li>
-<li>在js封装过程中，尽量做到低耦合高内聚，减少页面的冗余代码。</li>
-<li>css中设置定位后，最好使用z-index改变盒子的层级，让盒子不在相同的平面上。</li>
-<li>css导入的时候尽量减少@import导入式，因为@import是同步操作，只有把对应的样式导入后，才会继续向下执行其他的代码，而link是异步的操作。</li>
-<li>使用window.requestAnimationFrame(js的帧动画)代替传统的定时器动画，如果想使用每隔一段时间执行动画，应该避免使用setInterval，尽量使用setTimeout代替setInterval定时器，因为setInterval定时器存在弊端：可能造成两个动画间隔时间缩短。</li>
-<li>尽量减少使用递归，避免死递归，如果一定要使用递归建议使用尾递归。</li>
-<li>基于script标签引用js文件时，可以使用defer或者async来异步加载。</li>
-<li>在事件绑定中，尽可能使用事件委托，减少循环给DOM元素绑定事件处理函数。</li>
-<li>减少Flash的使用。</li>
-</ul>
-<h2 id="存储优化"><a href="#存储优化" class="headerlink" title="存储优化"></a>存储优化</h2><ul>
-<li>结合后端，利用浏览器的缓存技术，做一些缓存（让后端返回304，告诉浏览器去本地拉取数据，可以让一些不太会改变的静态资源做缓存，比如一些图片，js文件，css文件</li>
-<li>利用h5的新特性（localStorage、sessionStorage）做一些简单数据的存储，避免向后台请求数据或者说在离线状态下做一些数据展示。</li>
-</ul>
-<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
-<li>采用异步编程和延迟分批加载获取页面中的数据，使用异步加载是数据主要是为了避免浏览器失去响应，如果你使用同步，加载数据很大并且很慢，那么页面会在一段时间内处于阻塞状态。<br>目的：为了解决请求数据不耽搁渲染，提高页面的渲染效率。<br>解决方法：动态绑定数据区域，先隐藏，等数据返回并且绑定后再让其显示，延迟分批加载类似图片懒加载，以减少第一次页面加载时候的http请求次数。</li>
-<li>如果页面有出现音视频标签，可以不让页面加载的时候去加载这些资源（将音视频的preload设置为none即可），否则第一次加载会很慢，在页面加载完成后，并且音视频要播放的时候再去加载音视频资源。</li>
-</ul>
-<p>如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>从闭包说起</title>
     <url>/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/</url>
     <content><![CDATA[<h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
@@ -106,49 +31,6 @@
 <h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>防抖和节流</title>
-    <url>/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：</p>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #count &#123;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            line-height: <span class="number">150</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #fff;</span><br><span class="line">            background-color: #ccc;</span><br><span class="line">            font-size: <span class="number">80</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;count&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;count&quot;</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            oDiv.innerHTML = num++;</span><br><span class="line">        &#125;</span><br><span class="line">        oDiv.onmousemove = count;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在上述代码中，div 元素绑定了 mousemove 事件，当鼠标在 div（灰色）区域中移动的时候会持续地去触发该事件导致频繁执行函数。效果如下:</p>
-<p><img src="https://img.rruu.net/image/5f6213ad7d3cb" alt="alt"></p>
-<p>可以看到，在没有通过其它操作的情况下，函数被频繁地执行导致页面上数据变化特别快。所以，接下来让我们来看看防抖和节流是如何去解决这个问题的。</p>
-<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms，然后：</p>
-<ul>
-<li>如果在200ms内没有再次触发滚动事件，那么就执行函数</li>
-<li>如果在200ms内再次触发滚动事件，那么当前的计时取消，重新开始计时</li>
-</ul>
-<blockquote>
-<p>如果短时间内大量触发同一事件，只会执行一次函数。</p>
-</blockquote>
-<p>可设计如下的防抖函数，使得触发事件后count函数不会立即执行，而是在1s后执行，如果在1s内又触发了事件，则会重新计算函数执行时间。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timer)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer); <span class="comment">//延迟时间内再次触发则清空计时器</span></span><br><span class="line">        &#125;</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay); <span class="comment">//开启新的计时器</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = debounce(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><img src="https://img.rruu.net/image/5f6213ab32fab" alt="alt"></p>
-<p>到这里，已经把防抖实现了，现在给出定义：</p>
-<p><strong>对于短时间内连续触发的事件（如上面的mousemove事件），防抖的含义就是让某个时间期限（如上面的1000毫秒）内，事件处理函数只执行一次。</strong></p>
-<blockquote>
-<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
-</blockquote>
-<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>所谓节流，就是指<strong>连续触发事件但是在设定的延迟时间只执行一次函数</strong>，节流会稀释函数的执行频率。</p>
-<p>对于上面的mousemove事件，可设计如下的节流函数，在持续触发事件的过程中，count函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span>; <span class="comment">//设置一个状态位来表示fn函数是否处于工作状态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(!valid) <span class="keyword">return</span> <span class="literal">false</span>； <span class="comment">//fn函数不工作</span></span><br><span class="line">        valid = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//工作时间，执行fn函数并且在间隔期内把状态位设为无效 </span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">            fn(); </span><br><span class="line">            valid = <span class="literal">true</span>; </span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = throttle(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<p><img src="https://img.rruu.net/image/5f6213ac52cc7" alt="alt"></p>
-<p>从上面的动图可以看出，如果在灰色区域一直移动鼠标，那么会以1s的时间间隔，逐渐计数。</p>
-<blockquote>
-<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖和节流都是前端性能优化的方式，防抖是控制次数，而节流是控制频率。一种常见的应用场景是浏览器的搜索引擎，对于搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求，防抖和节流可以有效避免浏览器向服务器发出过多无用的请求。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -260,15 +142,224 @@
       </tags>
   </entry>
   <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+    <title>前端性能优化</title>
+    <url>/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
+<li><p>减少请求数量</p>
+</li>
+<li><p>减小资源大小</p>
+</li>
+<li><p>优化网络连接</p>
+</li>
+<li><p>优化资源加载</p>
+</li>
+<li><p>减少重绘回流</p>
+</li>
+<li><p>使用性能更好的API</p>
+</li>
+<li><p>webpack优化</p>
+<a id="more"></a>
+<h2 id="减小请求资源大小或数量"><a href="#减小请求资源大小或数量" class="headerlink" title="减小请求资源大小或数量"></a>减小请求资源大小或数量</h2></li>
+<li><p>尽量和并压缩css和js文件，例如将css文件和并为一个，将js合并为一个。<br>原因：主要是为了减少http请求次数以及减少请求资源的大小。<br>打包工具：webpack、gulp、grunt……</p>
+</li>
+<li><p>尽量使用字体图标或者SVG图标来代替传统png图，因为字体图标或者SVG图标是矢量图，是代码编写出来的，放大缩小不会变形，而且渲染速度快。</p>
+</li>
+<li><p>采用图片的懒加载（延迟加载）。<br>目的：为了减少页面第一次加载过程中http的请求次数。<br>具体步骤：<br>1、页面开始加载时不去发送http请求，而是放置一张占位图;<br>2、当页面加载完时，并且图片在可视区域再去请求加载图片信息.</p>
+</li>
+<li><p>能用css做的效果，不要用js做，能用原生js做的，不要轻易去使用第三方插件，避免引入第三方大量的库，而自己却只是用里面的一个小功能。</p>
+</li>
+<li><p>使用雪碧图（精灵图），把所有相对较小的资源图片，绘制在一张大图上，只需要将大图下载下来，然后利用，使用图片定位来将小图展现在页面中（background-position: 百分比, 数值）。</p>
+</li>
+<li><p>减少对cookie的使用，最主要的就是要减少本地cookie存储内容的大小，因为客户端操作cookie的时候，这些信息总是在客户端和服务端传递，如果设置不当，每次发送一个请求都会携带cookie。</p>
+</li>
+<li><p>前端与后端进行数据交互时，对于多项数据尽可能基于json格式来进行传送，相对于使用xml来说传输更有优势，因为json格式数据处理方便，资源偏小。</p>
+</li>
+<li><p>前端与后端协商，合理使用keep-alive。</p>
+</li>
+<li><p>前端与服务器协商，使用响应资源的压缩。</p>
+</li>
+<li><p>避免使用iframe，因为使用iframe不仅不好管控样式，而且相当于在本页面又嵌套其他页面，还要加载这些嵌套页面的资源，使得性能消耗变大。</p>
+</li>
+<li><p>在基于ajax的get请求进行数据交互的时候，根据需求可以让其产生缓存（注意：这个缓存不是我们常看到的304状态码，去浏览器本地取数据），这样在下一次从相同地址获取是数据时，取得就是上一次缓存的数据（注意：很少使用，一般都会清空，根据需求来做）。</p>
+</li>
+</ul>
+<h2 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h2><ul>
+<li>在js中尽量减少闭包的使用，因为使用闭包后，闭包所在的上下文不会被释放。</li>
+<li>减少对DOM操作，主要是减少DOM的重绘与回流（重排）。<br>关于重排（回流）的分离读写：如果需要设置多个样式，把设置样式全放在一起设置，不要一条一条的设置，使用文档碎片或者字符串拼接做数据绑定（DOM的动态创建）。</li>
+<li>在js中避免嵌套循环和“死循环”，因为一旦遇到死循环，浏览器就会直接卡掉。</li>
+<li>减少css表达式的使用。</li>
+<li>减少元素标签作为最后一个选择对象，因为css选择器解析规则是从右往左解析的。</li>
+<li>尽量将一个动画元素单独设置为一个图层（避免重绘或者回流的大小），注意：图层不要过多设置，否则不但效果没有达到反而更差了。</li>
+<li>在js封装过程中，尽量做到低耦合高内聚，减少页面的冗余代码。</li>
+<li>css中设置定位后，最好使用z-index改变盒子的层级，让盒子不在相同的平面上。</li>
+<li>css导入的时候尽量减少@import导入式，因为@import是同步操作，只有把对应的样式导入后，才会继续向下执行其他的代码，而link是异步的操作。</li>
+<li>使用window.requestAnimationFrame(js的帧动画)代替传统的定时器动画，如果想使用每隔一段时间执行动画，应该避免使用setInterval，尽量使用setTimeout代替setInterval定时器，因为setInterval定时器存在弊端：可能造成两个动画间隔时间缩短。</li>
+<li>尽量减少使用递归，避免死递归，如果一定要使用递归建议使用尾递归。</li>
+<li>基于script标签引用js文件时，可以使用defer或者async来异步加载。</li>
+<li>在事件绑定中，尽可能使用事件委托，减少循环给DOM元素绑定事件处理函数。</li>
+<li>减少Flash的使用。</li>
+</ul>
+<h2 id="存储优化"><a href="#存储优化" class="headerlink" title="存储优化"></a>存储优化</h2><ul>
+<li>结合后端，利用浏览器的缓存技术，做一些缓存（让后端返回304，告诉浏览器去本地拉取数据，可以让一些不太会改变的静态资源做缓存，比如一些图片，js文件，css文件</li>
+<li>利用h5的新特性（localStorage、sessionStorage）做一些简单数据的存储，避免向后台请求数据或者说在离线状态下做一些数据展示。</li>
+</ul>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><ul>
+<li>采用异步编程和延迟分批加载获取页面中的数据，使用异步加载是数据主要是为了避免浏览器失去响应，如果你使用同步，加载数据很大并且很慢，那么页面会在一段时间内处于阻塞状态。<br>目的：为了解决请求数据不耽搁渲染，提高页面的渲染效率。<br>解决方法：动态绑定数据区域，先隐藏，等数据返回并且绑定后再让其显示，延迟分批加载类似图片懒加载，以减少第一次页面加载时候的http请求次数。</li>
+<li>如果页面有出现音视频标签，可以不让页面加载的时候去加载这些资源（将音视频的preload设置为none即可），否则第一次加载会很慢，在页面加载完成后，并且音视频要播放的时候再去加载音视频资源。</li>
+</ul>
+<p>如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>赋值、浅拷贝和深拷贝</title>
+    <url>/2020/09/19/%E8%B5%8B%E5%80%BC%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <content><![CDATA[<h2 id="赋值（Copy）"><a href="#赋值（Copy）" class="headerlink" title="赋值（Copy）"></a>赋值（Copy）</h2><p>赋值是将某一数值或对象赋给某个变量的过程，分为两类:</p>
+<ul>
+<li>基本数据类型：赋值，赋值之后两个变量互不影响。</li>
+<li>引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响。</li>
+</ul>
+<p>来看下面两个例子：<br>先看基本数据类型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">&quot;java&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//java</span></span><br><span class="line">a = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// javascript</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// java</span></span><br></pre></td></tr></table></figure>
+<p>上面代码的输出为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">java</span><br><span class="line">javascript</span><br><span class="line">java</span><br></pre></td></tr></table></figure>
+<p>如果是引用数据类型呢？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love javascript&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = a;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br></pre></td></tr></table></figure>
+<p>上面代码的输出为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love javascript&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这时候改变a的值，像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a.name = <span class="string">&quot;java&quot;</span>;</span><br><span class="line">a.book.title = <span class="string">&quot;I love java&quot;</span>;</span><br><span class="line">a.book.price = <span class="number">55</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br></pre></td></tr></table></figure>
+<p>输出的结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">55</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">55</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到a和b的值都改变了，但是通常在开发中我们并不希望改变变量 a 之后会影响到变量 b，这时就需要用到浅拷贝和深拷贝。</p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。<br><img src="https://s1.ax1x.com/2020/09/19/w50M2d.png" alt="alt"></p>
+<p>上图中，SourceObj 是原对象，其中包含基本类型属性 field1 和引用类型属性 refObj。浅拷贝之后基本类型数据  field2 和 filed1 是不同属性，互不影响。但引用类型 refObj 仍然是同一个，改变之后会对另一个对象产生影响。</p>
+<p>那么浅拷贝有哪些应用场景呢？</p>
+<ul>
+<li><p>Object.assign()<br>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象，它将返回目标对象，来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">a.name = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line">a.book.title = <span class="string">&quot;I love javascript&quot;</span>;</span><br><span class="line">a.book.price = <span class="number">55</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码改变对象 a 之后，对象 b 的基本属性保持不变。但是当改变对象 a 中的对象 book 时，对象 b 也跟着发生了变化，因为它们指向的是同一块内存地址。</p>
+</li>
+<li><p>展开语法Spread</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123;...a&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">a.name = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line">a.book.title = <span class="string">&quot;I love javascript&quot;</span>;</span><br><span class="line">a.book.price = <span class="number">55</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>通过代码可以看出实际效果和 Object.assign() 是一样的。</p>
+</li>
+<li><p>Array.prototype.slice()<br>slice() 方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）决定的原数组的浅拷贝，原始数组不会被改变。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">0</span>, <span class="string">&quot;1&quot;</span>, [<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line"><span class="keyword">let</span> b = a.slice(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// [&quot;1&quot;, [2, 3]]</span></span><br><span class="line">a[<span class="number">1</span>] = <span class="string">&quot;99&quot;</span>;</span><br><span class="line">a[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// [0, &quot;99&quot;, [4, 3]]</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//  [&quot;1&quot;, [4, 3]]</span></span><br></pre></td></tr></table></figure>
+<p>通过，改变 a[1] 之后 b[0] 的值并没有发生变化，但改变 a[2][0] 之后，相应的 b[1][0] 的值也发生变化。说明 slice() 方法是浅拷贝，相应的还有concat等，在实际工作中使用数组对象等引用数据类型时要特别注意。</p>
+</li>
+<li><p>jQuery.extend()</p>
+</li>
+</ul>
+<p>使用jQuery语法前记得先引入jQuery，来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;;</span><br><span class="line">$.extend(b, a); <span class="comment">//jQuery.extend(b, a);</span></span><br><span class="line"><span class="built_in">console</span>.log(a); </span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book : &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book : &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">a.name = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line">a.book.title = <span class="string">&quot;I love javascript&quot;</span>;</span><br><span class="line">a.book.price = <span class="number">55</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;,</span></span><br><span class="line"><span class="comment">//     book : &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book : &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>深拷贝会拷贝所有的属性，并拷贝属性指向的动态分配的内存。当对象和它所引用的对象一起拷贝时即发生深拷贝。深拷贝相比于浅拷贝速度较慢并且花销较大。拷贝前后两个对象互不影响。</p>
+<p><img src="https://s1.ax1x.com/2020/09/19/w5jYPf.png" alt="alt"></p>
+<p>那么深拷贝有什么使用场景呢？</p>
+<ul>
+<li>JSON.parse(JSON.stringify(object))<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;I love java&quot;</span>,</span><br><span class="line">        price: <span class="number">45</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a));</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line">a.name = <span class="string">&quot;javascript&quot;</span>;</span><br><span class="line">a.book.title = <span class="string">&quot;I love javascript&quot;</span>;</span><br><span class="line">a.book.price = <span class="number">55</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love javascript&quot;,</span></span><br><span class="line"><span class="comment">//         price: 55</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;java&quot;,</span></span><br><span class="line"><span class="comment">//     book: &#123;</span></span><br><span class="line"><span class="comment">//         title: &quot;I love java&quot;,</span></span><br><span class="line"><span class="comment">//         price: 45</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+完全改变变量 a 之后对 b 没有任何影响，这就是深拷贝的魔力。那么对数组深拷贝效果如何？来看下面的例子：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = [<span class="number">0</span>, <span class="string">&quot;1&quot;</span>, [<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify( a.slice(<span class="number">1</span>) ));</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// [&quot;1&quot;, [2, 3]]</span></span><br><span class="line">a[<span class="number">1</span>] = <span class="string">&quot;99&quot;</span>;</span><br><span class="line">a[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// [0, &quot;99&quot;, [4, 3]]</span></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//  [&quot;1&quot;, [2, 3]]</span></span><br></pre></td></tr></table></figure>
+可以发现，对数组深拷贝之后，改变原数组不会影响到拷贝之后的数组。但是这种方法有如下的几个问题：</li>
+<li>会忽略 undefined</li>
+<li>会忽略 symbol</li>
+<li>不能序列化函数</li>
+<li>不能解决循环引用的对象</li>
+<li>不能正确处理new Date()</li>
+<li>不能处理正则</li>
+</ul>
+<p>undefined、symbol 和函数这三种情况，会直接忽略：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">    a: <span class="literal">undefined</span>,</span><br><span class="line">    b: <span class="built_in">Symbol</span>(<span class="string">&quot;javascript&quot;</span>),</span><br><span class="line">    c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">// 	name: &quot;javascript&quot;, </span></span><br><span class="line"><span class="comment">// 	a: undefined, </span></span><br><span class="line"><span class="comment">//      b: Symbol(javascript), </span></span><br><span class="line"><span class="comment">//      c: ƒ ()</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br><span class="line"><span class="built_in">console</span>.log(newObj);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>循环引用情况下，会报错：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        c: <span class="number">2</span>,</span><br><span class="line">   		d: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.a = obj.b;</span><br><span class="line">obj.b.c = obj.a;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br><span class="line"><span class="comment">// Uncaught TypeError: Converting circular structure to JSON</span></span><br></pre></td></tr></table></figure>
+<p>new Date() 情况下，转换结果不正确:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// Sat Sep 19 2020 15:29:37 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(<span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line"><span class="comment">// &quot;&quot;2020-09-19T07:29:50.597Z&quot;&quot;</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(<span class="keyword">new</span> <span class="built_in">Date</span>()));</span><br><span class="line"><span class="comment">// &quot;2020-09-19T07:30:14.480Z&quot;</span></span><br></pre></td></tr></table></figure>
+<p>将 new Date() 的结果转换为字符串或时间戳就ok了：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = (<span class="keyword">new</span> <span class="built_in">Date</span>()).valueOf();</span><br><span class="line"><span class="built_in">console</span>.log(date);</span><br><span class="line"><span class="comment">// 1600500782999</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(date);</span><br><span class="line"><span class="comment">// &quot;1600500782999&quot;</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(date));</span><br><span class="line"><span class="comment">// 1600500782999</span></span><br></pre></td></tr></table></figure>
+<p>正则情况下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">    a: <span class="regexp">/&#x27;456&#x27;/</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;, </span></span><br><span class="line"><span class="comment">//     a: /&#x27;456&#x27;/</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     name: &quot;javascript&quot;, </span></span><br><span class="line"><span class="comment">//     a: &#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">和原数据是否指向同一对象</th>
+<th align="center">第一层数据为基本数据类型</th>
+<th align="center">原数据中包含子对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">赋值</td>
+<td align="center">是</td>
+<td align="center">改变会使原数据一同改变</td>
+<td align="center">改变会使原数据一同改变</td>
+</tr>
+<tr>
+<td align="center">浅拷贝</td>
+<td align="center">否</td>
+<td align="center">改变不会使原数据一同改变</td>
+<td align="center">改变会使原数据一同改变</td>
+</tr>
+<tr>
+<td align="center">深拷贝</td>
+<td align="center">否</td>
+<td align="center">改变不会使原数据一同改变</td>
+<td align="center">改变不会使原数据一同改变</td>
+</tr>
+</tbody></table>
+<p>到这里，赋值、浅拷贝和深拷贝我们已经梳理完毕了，如果你有任何的问题，欢迎评论区留言，你的支持是我前进最大的动力。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防抖和节流</title>
+    <url>/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #count &#123;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            line-height: <span class="number">150</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #fff;</span><br><span class="line">            background-color: #ccc;</span><br><span class="line">            font-size: <span class="number">80</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;count&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;count&quot;</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            oDiv.innerHTML = num++;</span><br><span class="line">        &#125;</span><br><span class="line">        oDiv.onmousemove = count;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，div 元素绑定了 mousemove 事件，当鼠标在 div（灰色）区域中移动的时候会持续地去触发该事件导致频繁执行函数。效果如下:</p>
+<p><img src="https://img.rruu.net/image/5f6213ad7d3cb" alt="alt"></p>
+<p>可以看到，在没有通过其它操作的情况下，函数被频繁地执行导致页面上数据变化特别快。所以，接下来让我们来看看防抖和节流是如何去解决这个问题的。</p>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms，然后：</p>
+<ul>
+<li>如果在200ms内没有再次触发滚动事件，那么就执行函数</li>
+<li>如果在200ms内再次触发滚动事件，那么当前的计时取消，重新开始计时</li>
+</ul>
+<blockquote>
+<p>如果短时间内大量触发同一事件，只会执行一次函数。</p>
+</blockquote>
+<p>可设计如下的防抖函数，使得触发事件后count函数不会立即执行，而是在1s后执行，如果在1s内又触发了事件，则会重新计算函数执行时间。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timer)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer); <span class="comment">//延迟时间内再次触发则清空计时器</span></span><br><span class="line">        &#125;</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay); <span class="comment">//开启新的计时器</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = debounce(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://img.rruu.net/image/5f6213ab32fab" alt="alt"></p>
+<p>到这里，已经把防抖实现了，现在给出定义：</p>
+<p><strong>对于短时间内连续触发的事件（如上面的mousemove事件），防抖的含义就是让某个时间期限（如上面的1000毫秒）内，事件处理函数只执行一次。</strong></p>
+<blockquote>
+<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
+</blockquote>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>所谓节流，就是指<strong>连续触发事件但是在设定的延迟时间只执行一次函数</strong>，节流会稀释函数的执行频率。</p>
+<p>对于上面的mousemove事件，可设计如下的节流函数，在持续触发事件的过程中，count函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span>; <span class="comment">//设置一个状态位来表示fn函数是否处于工作状态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(!valid) <span class="keyword">return</span> <span class="literal">false</span>； <span class="comment">//fn函数不工作</span></span><br><span class="line">        valid = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//工作时间，执行fn函数并且在间隔期内把状态位设为无效 </span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">            fn(); </span><br><span class="line">            valid = <span class="literal">true</span>; </span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = throttle(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="https://img.rruu.net/image/5f6213ac52cc7" alt="alt"></p>
+<p>从上面的动图可以看出，如果在灰色区域一直移动鼠标，那么会以1s的时间间隔，逐渐计数。</p>
+<blockquote>
+<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖和节流都是前端性能优化的方式，防抖是控制次数，而节流是控制频率。一种常见的应用场景是浏览器的搜索引擎，对于搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求，防抖和节流可以有效避免浏览器向服务器发出过多无用的请求。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -391,6 +482,18 @@ number的值被赋值成3。</li>
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
