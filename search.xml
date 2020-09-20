@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>从闭包说起</title>
+    <url>/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/</url>
+    <content><![CDATA[<h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>输出结果为:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。</p>
+<a id="more"></a>
+<h2 id="追问1"><a href="#追问1" class="headerlink" title="追问1"></a>追问1</h2><p>如果我们约定，用箭头（-&gt;）表示其前后的两次输出之间有1秒的时间间隔，而逗号（,）表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</p>
+<ul>
+<li>A: 5-&gt;5-&gt;5-&gt;5-&gt;5-&gt;5</li>
+<li>B: 5-&gt;5,5,5,5,5</li>
+</ul>
+<p>选A还是选B呢，这就要求面试者对定时器的工作机制非常熟悉，在循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后同时触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B 。</p>
+<h2 id="追问2"><a href="#追问2" class="headerlink" title="追问2"></a>追问2</h2><p>如果期望代码的输出变成：5-&gt;0,1,2,3,4，该怎么改造代码？熟悉闭包的同学很快能给出下面的解决办法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123; </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>巧妙的利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题。但这对于初学者来说可能不太好懂，有没有更直观的做法？当然有，我们只需要对循环体稍做手脚，让负责输出的那段代码能拿到每次循环的 i 值即可。该怎么做呢？利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征，不难改造出下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> output = <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    output(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<h2 id="追问3"><a href="#追问3" class="headerlink" title="追问3"></a>追问3</h2><p>还是最初的那道题，如果将var改成let，会发生什么？</p>
+<p>let是ES6块级作用域中的概念，用let代替var后，会发现代码在实际运行中报错，这是因为最后那个输出使用的 i 在其所在的作用域中并不存在，i 只存在于for循环内部。</p>
+<h2 id="追问4"><a href="#追问4" class="headerlink" title="追问4"></a>追问4</h2><p>如果期望代码的输出变成 0-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5，并且要求原有的代码块中的循环和两处console.log不变，该怎么改造代码？新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概是为了避免钻牛角尖的同学陷进去，因为 JS 中的定时器触发时机有可能是不确定的）。</p>
+<p>看到这里，有些同学会给出下面的可行解：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span> * j));  <span class="comment">// 这里修改 0~4 的定时器时间</span></span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 这里增加定时器，超时设置为 5 秒</span></span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;, <span class="number">1000</span> * i);</span><br></pre></td></tr></table></figure>
+<p>不得不承认，这种做法虽然粗暴有效，但是不算是能额外加分的方案。如果把这次的需求抽象为：在系列异步操作完成（每次循环都产生了 1 个异步操作）之后，再做其他的事情，代码该怎么组织？聪明的你是不是想起了什么？对，就是 Promise，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;   <span class="comment">// 这里 i 的声明不能改成 let，如果要改该怎么做？</span></span><br><span class="line">    (<span class="function">(<span class="params">j</span>) =&gt;</span> &#123;</span><br><span class="line">        tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">                resolve();  <span class="comment">// 这里一定要 resolve，否则代码不会按预期 work</span></span><br><span class="line">            &#125;, <span class="number">1000</span> * j);   <span class="comment">// 定时器的超时时间逐步增加</span></span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);   </span><br></pre></td></tr></table></figure>
+<p>当然，上面的代码还能进一步简化，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 这里存放异步操作的 Promise</span></span><br><span class="line"><span class="keyword">const</span> output = <span class="function">(<span class="params">i</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 生成全部的异步操作</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步操作完成之后，输出最后的 i</span></span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样看是不是逻辑清楚多了，使用 Promise 处理异步代码比回调机制让代码可读性更高，但是使用 Promise 的问题也很明显，即如果没有处理 Promise 的 reject，会导致错误被丢进黑洞，这显然是我们不愿看到的。</p>
+<h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端性能优化</title>
     <url>/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
@@ -76,45 +115,6 @@
       </tags>
   </entry>
   <entry>
-    <title>从闭包说起</title>
-    <url>/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/</url>
-    <content><![CDATA[<h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<p>输出结果为:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。</p>
-<a id="more"></a>
-<h2 id="追问1"><a href="#追问1" class="headerlink" title="追问1"></a>追问1</h2><p>如果我们约定，用箭头（-&gt;）表示其前后的两次输出之间有1秒的时间间隔，而逗号（,）表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</p>
-<ul>
-<li>A: 5-&gt;5-&gt;5-&gt;5-&gt;5-&gt;5</li>
-<li>B: 5-&gt;5,5,5,5,5</li>
-</ul>
-<p>选A还是选B呢，这就要求面试者对定时器的工作机制非常熟悉，在循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后同时触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B 。</p>
-<h2 id="追问2"><a href="#追问2" class="headerlink" title="追问2"></a>追问2</h2><p>如果期望代码的输出变成：5-&gt;0,1,2,3,4，该怎么改造代码？熟悉闭包的同学很快能给出下面的解决办法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123; </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<p>巧妙的利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题。但这对于初学者来说可能不太好懂，有没有更直观的做法？当然有，我们只需要对循环体稍做手脚，让负责输出的那段代码能拿到每次循环的 i 值即可。该怎么做呢？利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征，不难改造出下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> output = <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    output(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<h2 id="追问3"><a href="#追问3" class="headerlink" title="追问3"></a>追问3</h2><p>还是最初的那道题，如果将var改成let，会发生什么？</p>
-<p>let是ES6块级作用域中的概念，用let代替var后，会发现代码在实际运行中报错，这是因为最后那个输出使用的 i 在其所在的作用域中并不存在，i 只存在于for循环内部。</p>
-<h2 id="追问4"><a href="#追问4" class="headerlink" title="追问4"></a>追问4</h2><p>如果期望代码的输出变成 0-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5，并且要求原有的代码块中的循环和两处console.log不变，该怎么改造代码？新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概是为了避免钻牛角尖的同学陷进去，因为 JS 中的定时器触发时机有可能是不确定的）。</p>
-<p>看到这里，有些同学会给出下面的可行解：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span> * j));  <span class="comment">// 这里修改 0~4 的定时器时间</span></span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 这里增加定时器，超时设置为 5 秒</span></span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;, <span class="number">1000</span> * i);</span><br></pre></td></tr></table></figure>
-<p>不得不承认，这种做法虽然粗暴有效，但是不算是能额外加分的方案。如果把这次的需求抽象为：在系列异步操作完成（每次循环都产生了 1 个异步操作）之后，再做其他的事情，代码该怎么组织？聪明的你是不是想起了什么？对，就是 Promise，来看下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;   <span class="comment">// 这里 i 的声明不能改成 let，如果要改该怎么做？</span></span><br><span class="line">    (<span class="function">(<span class="params">j</span>) =&gt;</span> &#123;</span><br><span class="line">        tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">                resolve();  <span class="comment">// 这里一定要 resolve，否则代码不会按预期 work</span></span><br><span class="line">            &#125;, <span class="number">1000</span> * j);   <span class="comment">// 定时器的超时时间逐步增加</span></span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);   </span><br></pre></td></tr></table></figure>
-<p>当然，上面的代码还能进一步简化，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 这里存放异步操作的 Promise</span></span><br><span class="line"><span class="keyword">const</span> output = <span class="function">(<span class="params">i</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 生成全部的异步操作</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步操作完成之后，输出最后的 i</span></span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样看是不是逻辑清楚多了，使用 Promise 处理异步代码比回调机制让代码可读性更高，但是使用 Promise 的问题也很明显，即如果没有处理 Promise 的 reject，会导致错误被丢进黑洞，这显然是我们不愿看到的。</p>
-<h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字节面试题1</title>
     <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
     <content><![CDATA[<h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
@@ -169,84 +169,6 @@
       </categories>
       <tags>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>手撕代码之call、apply和bind</title>
-    <url>/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</url>
-    <content><![CDATA[<h2 id="三兄弟的作用"><a href="#三兄弟的作用" class="headerlink" title="三兄弟的作用"></a>三兄弟的作用</h2><p>call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> language = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is the best language in the world!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//谁是世界上最好的语言？</span></span><br><span class="line">language.getName();</span><br><span class="line">language.getName.call(weber);</span><br><span class="line">language.getName.apply(weber);</span><br><span class="line">language.getName.bind(weber)();</span><br></pre></td></tr></table></figure>
-<p>执行上面的代码，结果为：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">java is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="三兄弟的区别"><a href="#三兄弟的区别" class="headerlink" title="三兄弟的区别"></a>三兄弟的区别</h2><ul>
-<li>call、apply和bind方法接收的第一个参数都是要绑定的this对象。</li>
-<li>apply方法的第二个参数是一个参数数组，call和bind方法的第二个及之后的参数作为函数实参按顺序传入。</li>
-<li>bind方法不会立即调用，call和apply方法都会立即调用。</li>
-</ul>
-<p>来看下面的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> developer = &#123;</span><br><span class="line">    getSkills: <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    skiller: [<span class="string">&quot;HTML&quot;</span>]</span><br><span class="line">&#125;;</span><br><span class="line">developer.getSkills.call(weber, <span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br><span class="line">developer.getSkills.apply(weber, [<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>]);</span><br><span class="line">developer.getSkills.bind(weber)(<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>执行上面的代码，结果为：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br></pre></td></tr></table></figure>
-<h2 id="call方法的模拟实现"><a href="#call方法的模拟实现" class="headerlink" title="call方法的模拟实现"></a>call方法的模拟实现</h2><p>首先要理清思路：</p>
-<ul>
-<li>函数定义在哪里？call方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
-<li>函数接收参数？绑定函数被调用时只传入第二个参数及之后的参数。</li>
-<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
-</ul>
-<p>理清了思路，开撸：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>); <span class="comment">//获取实参</span></span><br><span class="line">    <span class="keyword">const</span> res = cxt.fn(...args); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="apply方法的模拟实现"><a href="#apply方法的模拟实现" class="headerlink" title="apply方法的模拟实现"></a>apply方法的模拟实现</h2><p>apply方法实现的思路与call方法基本相同，我们只需要对参数进行不同处理即可。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">arguments</span>[<span class="number">1</span>] ? cxt.fn(...arguments[<span class="number">1</span>]) : cxt.fn(); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="bind方法的模拟实现"><a href="#bind方法的模拟实现" class="headerlink" title="bind方法的模拟实现"></a>bind方法的模拟实现</h2><p>首先要理清思路：</p>
-<ul>
-<li>函数定义在哪里？bind方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
-<li>函数接收参数？bind方法返回一个绑定函数，最终调用需要传入函数实参和绑定函数的实参。</li>
-<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
-</ul>
-<p>我模拟实现的bind方法代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="built_in">this</span> + <span class="string">&quot;isn&#x27;t a function!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> _this = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//处理函数使用new的情况</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span> <span class="keyword">instanceof</span> fn ? <span class="keyword">new</span> _this(...args, ...arguments) : _this.myApply(context, args.concat(...arguments));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>更多bind方法的实现详见：<br><a href="https://segmentfault.com/a/1190000017091983">面试官问：能否模拟实现JS的bind方法？</a><br><a href="https://www.jianshu.com/p/9d75886102a7">bind方法的实现</a></p>
-<p>经测试，模拟实现的myCall、myApply和myBind方法和call、apply和bind方法效果一致。到这里，我们已经模拟实现了自己的三兄弟方法，如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新的征程</title>
-    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
-<a id="more"></a>
-<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery的等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
-<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
-<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
-<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
-<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
-<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
-<p>像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
-<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -320,6 +242,84 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手撕代码之call、apply和bind</title>
+    <url>/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</url>
+    <content><![CDATA[<h2 id="三兄弟的作用"><a href="#三兄弟的作用" class="headerlink" title="三兄弟的作用"></a>三兄弟的作用</h2><p>call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> language = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is the best language in the world!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//谁是世界上最好的语言？</span></span><br><span class="line">language.getName();</span><br><span class="line">language.getName.call(weber);</span><br><span class="line">language.getName.apply(weber);</span><br><span class="line">language.getName.bind(weber)();</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码，结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">java is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="三兄弟的区别"><a href="#三兄弟的区别" class="headerlink" title="三兄弟的区别"></a>三兄弟的区别</h2><ul>
+<li>call、apply和bind方法接收的第一个参数都是要绑定的this对象。</li>
+<li>apply方法的第二个参数是一个参数数组，call和bind方法的第二个及之后的参数作为函数实参按顺序传入。</li>
+<li>bind方法不会立即调用，call和apply方法都会立即调用。</li>
+</ul>
+<p>来看下面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> developer = &#123;</span><br><span class="line">    getSkills: <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(...args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    skiller: [<span class="string">&quot;HTML&quot;</span>]</span><br><span class="line">&#125;;</span><br><span class="line">developer.getSkills.call(weber, <span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br><span class="line">developer.getSkills.apply(weber, [<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>]);</span><br><span class="line">developer.getSkills.bind(weber)(<span class="string">&quot;HTML5&quot;</span>, <span class="string">&quot;CSS3&quot;</span>, <span class="string">&quot;javascript&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码，结果为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br><span class="line">HTML5 CSS3 javascript</span><br></pre></td></tr></table></figure>
+<h2 id="call方法的模拟实现"><a href="#call方法的模拟实现" class="headerlink" title="call方法的模拟实现"></a>call方法的模拟实现</h2><p>首先要理清思路：</p>
+<ul>
+<li>函数定义在哪里？call方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
+<li>函数接收参数？绑定函数被调用时只传入第二个参数及之后的参数。</li>
+<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
+</ul>
+<p>理清了思路，开撸：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>); <span class="comment">//获取实参</span></span><br><span class="line">    <span class="keyword">const</span> res = cxt.fn(...args); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="apply方法的模拟实现"><a href="#apply方法的模拟实现" class="headerlink" title="apply方法的模拟实现"></a>apply方法的模拟实现</h2><p>apply方法实现的思路与call方法基本相同，我们只需要对参数进行不同处理即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;not function&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> cxt = context || <span class="built_in">window</span>;</span><br><span class="line">    cxt.fn = <span class="built_in">this</span>; <span class="comment">// 将当前被调用的方法定义在cxt.fn上，为了能以对象调用的形式绑定this</span></span><br><span class="line">    <span class="keyword">const</span> res = <span class="built_in">arguments</span>[<span class="number">1</span>] ? cxt.fn(...arguments[<span class="number">1</span>]) : cxt.fn(); <span class="comment">//以对象调用的形式调用fn，此时this指向cxt，也就是传入的需要绑定的this指向</span></span><br><span class="line">    <span class="keyword">delete</span> cxt.fn; <span class="comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="bind方法的模拟实现"><a href="#bind方法的模拟实现" class="headerlink" title="bind方法的模拟实现"></a>bind方法的模拟实现</h2><p>首先要理清思路：</p>
+<ul>
+<li>函数定义在哪里？bind方法是可以被所有方法调用的，所以毫无疑问要定义在Function的原型上。</li>
+<li>函数接收参数？bind方法返回一个绑定函数，最终调用需要传入函数实参和绑定函数的实参。</li>
+<li>如何显式绑定this？如果调用者函数，被某一个对象所拥有，那么该函数在调用时，内部的this指向该对象。</li>
+</ul>
+<p>我模拟实现的bind方法代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&quot;function&quot;</span>) &#123; <span class="comment">//验证当前被调用的是否是方法</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="built_in">this</span> + <span class="string">&quot;isn&#x27;t a function!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> _this = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">const</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//处理函数使用new的情况</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span> <span class="keyword">instanceof</span> fn ? <span class="keyword">new</span> _this(...args, ...arguments) : _this.myApply(context, args.concat(...arguments));</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>更多bind方法的实现详见：<br><a href="https://segmentfault.com/a/1190000017091983">面试官问：能否模拟实现JS的bind方法？</a><br><a href="https://www.jianshu.com/p/9d75886102a7">bind方法的实现</a></p>
+<p>经测试，模拟实现的myCall、myApply和myBind方法和call、apply和bind方法效果一致。到这里，我们已经模拟实现了自己的三兄弟方法，如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新的征程</title>
+    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
+<a id="more"></a>
+<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
+<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
+<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
+<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
+<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
+<p><a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
+<p>像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
+<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
