@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-20T08:38:36.327Z</updated>
+  <updated>2020-09-20T12:42:49.811Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>集合</title>
+    <link href="http://example.com/2020/09/20/%E9%9B%86%E5%90%88/"/>
+    <id>http://example.com/2020/09/20/%E9%9B%86%E5%90%88/</id>
+    <published>2020-09-20T12:33:37.000Z</published>
+    <updated>2020-09-20T12:42:49.811Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Set类的模拟实现&quot;&gt;&lt;a href=&quot;#Set类的模拟实现&quot; class=&quot;headerlink&quot; title=&quot;Set类的模拟实现&quot;&gt;&lt;/a&gt;Set类的模拟实现&lt;/h2&gt;&lt;p&gt;虽然ES2015给我们提供了原生的Set类，但是并没有实现并集、交集、差集、子集等数学运算，这里我们模拟实现自己的Set类。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>新的征程</title>

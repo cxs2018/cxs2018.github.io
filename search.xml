@@ -40,63 +40,6 @@
       </tags>
   </entry>
   <entry>
-    <title>字节面试题1</title>
-    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
-    <content><![CDATA[<h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
-<ul>
-<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
-<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
-<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
-<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
-<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
-<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
-<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
-<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
-<li>传输层协议：TCP协议、UDP协议</li>
-<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
-<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
-<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
-<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
-<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
-<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
-<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
-<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
-<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
-<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
-<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
-<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
-<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
-<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
-<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
-<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
-<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
-</blockquote>
-</li>
-<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
-<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
-<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
-<p>注：需要服务器端的页面进行相应的配合</p>
-</blockquote>
-</li>
-<li>通过修改document.domain来跨子域</li>
-<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
-<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
-<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
-<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
-<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
-<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端性能优化</title>
     <url>/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h2 id="前端性能优化七大手段"><a href="#前端性能优化七大手段" class="headerlink" title="前端性能优化七大手段"></a>前端性能优化七大手段</h2><ul>
@@ -163,6 +106,63 @@
 <li>如果页面有出现音视频标签，可以不让页面加载的时候去加载这些资源（将音视频的preload设置为none即可），否则第一次加载会很慢，在页面加载完成后，并且音视频要播放的时候再去加载音视频资源。</li>
 </ul>
 <p>如果你有任何的问题，欢迎评论区留言，你的支持是我前进的最大动力。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字节面试题1</title>
+    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
+    <content><![CDATA[<h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
+<ul>
+<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
+<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
+<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
+<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
+<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
+<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
+<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
+<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
+<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
+<li>传输层协议：TCP协议、UDP协议</li>
+<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
+<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
+<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
+<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
+<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
+<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
+<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
+<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
+<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
+<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
+<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
+<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
+<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
+<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
+<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
+<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
+</blockquote>
+</li>
+<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
+<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
+<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
+<p>注：需要服务器端的页面进行相应的配合</p>
+</blockquote>
+</li>
+<li>通过修改document.domain来跨子域</li>
+<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
+<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
+<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
+<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
+<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
+<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -290,82 +290,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>新的征程</title>
-    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
-<a id="more"></a>
-<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
-<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
-<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
-<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>防抖和节流</title>
-    <url>/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
-    <content><![CDATA[<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：</p>
-<a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #count &#123;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            line-height: <span class="number">150</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #fff;</span><br><span class="line">            background-color: #ccc;</span><br><span class="line">            font-size: <span class="number">80</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;count&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;count&quot;</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            oDiv.innerHTML = num++;</span><br><span class="line">        &#125;</span><br><span class="line">        oDiv.onmousemove = count;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在上述代码中，div 元素绑定了 mousemove 事件，当鼠标在 div（灰色）区域中移动的时候会持续地去触发该事件导致频繁执行函数。效果如下:</p>
-<p><img src="https://s1.ax1x.com/2020/09/20/wTEIun.gif" alt="alt"></p>
-<p>可以看到，在没有通过其它操作的情况下，函数被频繁地执行导致页面上数据变化特别快。所以，接下来让我们来看看防抖和节流是如何去解决这个问题的。</p>
-<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms，然后：</p>
-<ul>
-<li>如果在200ms内没有再次触发滚动事件，那么就执行函数</li>
-<li>如果在200ms内再次触发滚动事件，那么当前的计时取消，重新开始计时</li>
-</ul>
-<blockquote>
-<p>如果短时间内大量触发同一事件，只会执行一次函数。</p>
-</blockquote>
-<p>可设计如下的防抖函数，使得触发事件后count函数不会立即执行，而是在1s后执行，如果在1s内又触发了事件，则会重新计算函数执行时间。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timer)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer); <span class="comment">//延迟时间内再次触发则清空计时器</span></span><br><span class="line">        &#125;</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay); <span class="comment">//开启新的计时器</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = debounce(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>效果如下：<br><img src="https://s1.ax1x.com/2020/09/20/wTAL6A.gif" alt="alt"></p>
-<p>到这里，已经把防抖实现了，现在给出定义：</p>
-<p><strong>对于短时间内连续触发的事件（如上面的mousemove事件），防抖的含义就是让某个时间期限（如上面的1000毫秒）内，事件处理函数只执行一次。</strong></p>
-<blockquote>
-<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
-</blockquote>
-<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>所谓节流，就是指<strong>连续触发事件但是在设定的延迟时间只执行一次函数</strong>，节流会稀释函数的执行频率。</p>
-<p>对于上面的mousemove事件，可设计如下的节流函数，在持续触发事件的过程中，count函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span>; <span class="comment">//设置一个状态位来表示fn函数是否处于工作状态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(!valid) <span class="keyword">return</span> <span class="literal">false</span>； <span class="comment">//fn函数不工作</span></span><br><span class="line">        valid = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//工作时间，执行fn函数并且在间隔期内把状态位设为无效 </span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">            fn(); </span><br><span class="line">            valid = <span class="literal">true</span>; </span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = throttle(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<p><img src="https://s1.ax1x.com/2020/09/20/wTAOOI.gif" alt="alt"></p>
-<p>从上面的动图可以看出，如果在灰色区域一直移动鼠标，那么会以1s的时间间隔，逐渐计数。</p>
-<blockquote>
-<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖和节流都是前端性能优化的方式，防抖是控制次数，而节流是控制频率。一种常见的应用场景是浏览器的搜索引擎，对于搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求，防抖和节流可以有效避免浏览器向服务器发出过多无用的请求。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>赋值、浅拷贝和深拷贝</title>
     <url>/2020/09/19/%E8%B5%8B%E5%80%BC%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
     <content><![CDATA[<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>赋值是将某一数值或对象赋给某个变量的过程，分为两类:</p>
@@ -460,6 +384,97 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新的征程</title>
+    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
+<a id="more"></a>
+<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
+<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
+<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
+<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防抖和节流</title>
+    <url>/2020/09/16/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+    <content><![CDATA[<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>防抖和节流都是前端性能优化的方式。在前端开发中，我们经常会需要绑定一些持续触发的事件，如input、scroll、mousemove、resize等，但有些时候我们并不希望在事件持续触发的过程中那么频繁地去执行函数，这时候我们就会用到防抖和节流，让我们先看一个简单的例子：</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #count &#123;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            line-height: <span class="number">150</span>px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #fff;</span><br><span class="line">            background-color: #ccc;</span><br><span class="line">            font-size: <span class="number">80</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;count&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">&quot;count&quot;</span>);</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            oDiv.innerHTML = num++;</span><br><span class="line">        &#125;</span><br><span class="line">        oDiv.onmousemove = count;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在上述代码中，div 元素绑定了 mousemove 事件，当鼠标在 div（灰色）区域中移动的时候会持续地去触发该事件导致频繁执行函数。效果如下:</p>
+<p><img src="https://s1.ax1x.com/2020/09/20/wTEIun.gif" alt="alt"></p>
+<p>可以看到，在没有通过其它操作的情况下，函数被频繁地执行导致页面上数据变化特别快。所以，接下来让我们来看看防抖和节流是如何去解决这个问题的。</p>
+<h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a>防抖（debounce）</h2><p>在第一次触发事件时，不立即执行函数，而是给出一个期限值比如200ms，然后：</p>
+<ul>
+<li>如果在200ms内没有再次触发滚动事件，那么就执行函数</li>
+<li>如果在200ms内再次触发滚动事件，那么当前的计时取消，重新开始计时</li>
+</ul>
+<blockquote>
+<p>如果短时间内大量触发同一事件，只会执行一次函数。</p>
+</blockquote>
+<p>可设计如下的防抖函数，使得触发事件后count函数不会立即执行，而是在1s后执行，如果在1s内又触发了事件，则会重新计算函数执行时间。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (timer)&#123;</span><br><span class="line">            <span class="built_in">clearTimeout</span>(timer); <span class="comment">//延迟时间内再次触发则清空计时器</span></span><br><span class="line">        &#125;</span><br><span class="line">        timer = <span class="built_in">setTimeout</span>(fn, delay); <span class="comment">//开启新的计时器</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = debounce(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>效果如下：<br><img src="https://s1.ax1x.com/2020/09/20/wTAL6A.gif" alt="alt"></p>
+<p>到这里，已经把防抖实现了，现在给出定义：</p>
+<p><strong>对于短时间内连续触发的事件（如上面的mousemove事件），防抖的含义就是让某个时间期限（如上面的1000毫秒）内，事件处理函数只执行一次。</strong></p>
+<blockquote>
+<p>还有一种防抖函数，触发事件后函数会立即执行，然后延迟时间内不触发事件才能继续执行函数，这里不再赘述，详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
+</blockquote>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p>所谓节流，就是指<strong>连续触发事件但是在设定的延迟时间只执行一次函数</strong>，节流会稀释函数的执行频率。</p>
+<p>对于上面的mousemove事件，可设计如下的节流函数，在持续触发事件的过程中，count函数不会立即执行，并且每 1s 执行一次，在停止触发事件后，函数还会再执行一次。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> valid = <span class="literal">true</span>; <span class="comment">//设置一个状态位来表示fn函数是否处于工作状态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(!valid) <span class="keyword">return</span> <span class="literal">false</span>； <span class="comment">//fn函数不工作</span></span><br><span class="line">        valid = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//工作时间，执行fn函数并且在间隔期内把状态位设为无效 </span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">            fn(); </span><br><span class="line">            valid = <span class="literal">true</span>; </span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = throttle(count, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="https://s1.ax1x.com/2020/09/20/wTAOOI.gif" alt="alt"></p>
+<p>从上面的动图可以看出，如果在灰色区域一直移动鼠标，那么会以1s的时间间隔，逐渐计数。</p>
+<blockquote>
+<p>当然节流函数不止上面这一种实现方案，例如可以完全不借setTimeout，可以把状态位换成时间戳，然后利用时间戳差值是否大于指定间隔时间来做判定。也可以直接将setTimeout返回的标记当做判断条件-判断当前定时器是否存在，如果存在表示还在冷却，并且在执行fn之后消除定时器表示激活，原理都一样。详情请看<a href="https://www.jianshu.com/p/c8b86b09daf0">防抖和节流</a>。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>防抖和节流都是前端性能优化的方式，防抖是控制次数，而节流是控制频率。一种常见的应用场景是浏览器的搜索引擎，对于搜索框input事件，例如要支持输入实时搜索可以使用节流方案（间隔一段时间就必须查询相关内容），或者实现输入间隔大于某个值（如500ms），就当做用户输入完成，然后开始搜索，具体使用哪种方案要看业务需求，防抖和节流可以有效避免浏览器向服务器发出过多无用的请求。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集合</title>
+    <url>/2020/09/20/%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<h2 id="Set类的模拟实现"><a href="#Set类的模拟实现" class="headerlink" title="Set类的模拟实现"></a>Set类的模拟实现</h2><p>虽然ES2015给我们提供了原生的Set类，但是并没有实现并集、交集、差集、子集等数学运算，这里我们模拟实现自己的Set类。</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Set</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果元素在集合中，返回true，否则返回false</span></span><br><span class="line">    has(element) &#123;</span><br><span class="line">        <span class="keyword">return</span> element <span class="keyword">in</span> <span class="built_in">this</span>.items;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向集合添加一个元素</span></span><br><span class="line">    add(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.items[element] = element;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从集合移除一个元素</span></span><br><span class="line">    <span class="keyword">delete</span>(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="built_in">this</span>.items[element];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 移除集合中的所有元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回集合所包含元素的数量。它与数组的length属性类似</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="built_in">this</span>.items).length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回一个包含集合中所有值（元素）的数组</span></span><br><span class="line">    values() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.values(<span class="built_in">this</span>.items);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 并集</span></span><br><span class="line">    union(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> unionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        otherSet.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> unionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交集</span></span><br><span class="line">    intersection(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span>  i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (otherSet.has(values[i])) &#123;</span><br><span class="line">                intersectionSet.add(values[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改进版交集</span></span><br><span class="line">    intersectionPlus(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">const</span> otherValues = otherSet.values();</span><br><span class="line">        <span class="keyword">let</span> biggerSet = values;</span><br><span class="line">        <span class="keyword">let</span> smallerSet = otherValues;</span><br><span class="line">        <span class="keyword">if</span> (otherValues.length - values.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            biggerSet = otherValues;</span><br><span class="line">            smallerSet = values;</span><br><span class="line">        &#125;</span><br><span class="line">        smallerSet.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (biggerSet.includes(value)) &#123;</span><br><span class="line">                intersectionSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 差集</span></span><br><span class="line">    difference(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> differenceSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                differenceSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> differenceSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 子集</span></span><br><span class="line">    isSubsetOf(otherSet) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size() &gt; otherSet.size()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> isSubset = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">this</span>.values().every(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                isSubset = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> isSubset;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里就不再演示这些方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
