@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-20T12:42:49.811Z</updated>
+  <updated>2020-09-21T03:36:14.535Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>字典</title>
+    <link href="http://example.com/2020/09/21/%E5%AD%97%E5%85%B8/"/>
+    <id>http://example.com/2020/09/21/%E5%AD%97%E5%85%B8/</id>
+    <published>2020-09-21T03:26:28.000Z</published>
+    <updated>2020-09-21T03:36:14.535Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Dictionary类的模拟实现&quot;&gt;&lt;a href=&quot;#Dictionary类的模拟实现&quot; class=&quot;headerlink&quot; title=&quot;Dictionary类的模拟实现&quot;&gt;&lt;/a&gt;Dictionary类的模拟实现&lt;/h2&gt;&lt;p&gt;与Set类类似，ECMAScript 2015同样包含了一个Map类的实现，即我们所说的字典，下面我们以ECMAScript 2015中Map类的实现为基础，模拟实现自己的Dictionary类。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>集合</title>
