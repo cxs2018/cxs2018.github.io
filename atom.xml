@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-09-21T08:28:00.909Z</updated>
+  <updated>2020-09-23T07:43:23.110Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉搜索树</title>
+    <link href="http://example.com/2020/09/23/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+    <id>http://example.com/2020/09/23/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</id>
+    <published>2020-09-23T07:38:13.000Z</published>
+    <updated>2020-09-23T07:43:23.110Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;二叉搜索树&quot;&gt;&lt;a href=&quot;#二叉搜索树&quot; class=&quot;headerlink&quot; title=&quot;二叉搜索树&quot;&gt;&lt;/a&gt;二叉搜索树&lt;/h2&gt;&lt;p&gt;二叉树中的节点最多只能有两个子节点：一个是左侧子节点，另一个是右侧子节点。而二叉搜索树（BST）是二叉树的一种，但是只允许你在左侧节点存储（比父节点）小的值，在右侧节点存储（比父节点）大的值。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>链表</title>
