@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">274</span>
+            <span class="post-count">275</span>
         </span>
     </span>
 
@@ -112,7 +112,7 @@
 <h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
 <h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
  
       <!-- reward -->
       
