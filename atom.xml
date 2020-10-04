@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-04T14:03:38.704Z</updated>
+  <updated>2020-10-04T14:38:25.719Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>link和import</title>
+    <link href="http://example.com/2020/10/04/link%E5%92%8Cimport/"/>
+    <id>http://example.com/2020/10/04/link%E5%92%8Cimport/</id>
+    <published>2020-10-04T14:13:55.000Z</published>
+    <updated>2020-10-04T14:38:25.719Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;HTML引入CSS样式的四种方式&quot;&gt;&lt;a href=&quot;#HTML引入CSS样式的四种方式&quot; class=&quot;headerlink&quot; title=&quot;HTML引入CSS样式的四种方式&quot;&gt;&lt;/a&gt;HTML引入CSS样式的四种方式&lt;/h2&gt;&lt;p&gt;内联样式、内部样式和外部样式我们就不多说了，下面来看看 @import 引入 CSS 样式的方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在内部样式中使用 @import：&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;css&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;@import&lt;/span&gt; url(style.css);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>DOMContentLoaded和load</title>
@@ -399,28 +421,6 @@
 &lt;li&gt;&lt;p&gt;使用性能更好的API&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;webpack优化&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>手撕代码之call、apply和bind</title>
-    <link href="http://example.com/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/"/>
-    <id>http://example.com/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/</id>
-    <published>2020-09-17T14:20:11.000Z</published>
-    <updated>2020-09-18T00:32:59.589Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;三兄弟的作用&quot;&gt;&lt;a href=&quot;#三兄弟的作用&quot; class=&quot;headerlink&quot; title=&quot;三兄弟的作用&quot;&gt;&lt;/a&gt;三兄弟的作用&lt;/h2&gt;&lt;p&gt;call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; language = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    name: &lt;span class=&quot;string&quot;&gt;&amp;quot;java&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    getName: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;`&lt;span class=&quot;subst&quot;&gt;$&amp;#123;&lt;span class=&quot;built_in&quot;&gt;this&lt;/span&gt;.name&amp;#125;&lt;/span&gt; is the best language in the world!`&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; weber = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    name: &lt;span class=&quot;string&quot;&gt;&amp;quot;javascript&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//谁是世界上最好的语言？&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;language.getName();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;language.getName.call(weber);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;language.getName.apply(weber);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;language.getName.bind(weber)();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;执行上面的代码，结果为：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;java is the best language &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the world!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javascript is the best language &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the world!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javascript is the best language &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the world!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;javascript is the best language &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the world!&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
