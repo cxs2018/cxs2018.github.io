@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>DOMContentLoaded和load</title>
+    <url>/2020/10/04/DOMContentLoaded%E5%92%8Cload/</url>
+    <content><![CDATA[<h2 id="DOMContentLoaded"><a href="#DOMContentLoaded" class="headerlink" title="DOMContentLoaded"></a>DOMContentLoaded</h2><p>MDN的解释：当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发，而无需等待样式表、图像和子框架的完成加载。</p>
+<a id="more"></a>
+<p>通俗点说，DOMContentLoaded 事件在 html 文档加载完毕，并且 html 所引用的内联 js、以及外链 js 的同步代码都执行完毕后触发。</p>
+<blockquote>
+<p>注意如果 js 采用 async 和 defer 链接时，此时 js 会异步下载，并不会阻塞页面 DOM 解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
+</blockquote>
+<h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><p>MDN的解释：load 应该仅用于检测一个完全加载的页面，当一个资源及其依赖资源已完成加载时，将触发load事件。</p>
+<p>也就是当页面 DOM 结构中的 js、css、图片，以及 js 异步加载的 js、css 、图片都加载完成之后，才会触发 load 事件。所以 DOMContentLoaded 事件触发在 load 事件之前。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>async和defer</title>
     <url>/2020/10/04/async%E5%92%8Cdefer/</url>
     <content><![CDATA[<h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
