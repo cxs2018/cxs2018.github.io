@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-05T09:37:33.735Z</updated>
+  <updated>2020-10-05T09:39:51.769Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://example.com/2020/10/05/HTML/"/>
     <id>http://example.com/2020/10/05/HTML/</id>
     <published>2020-10-05T08:15:56.000Z</published>
-    <updated>2020-10-05T09:37:33.735Z</updated>
+    <updated>2020-10-05T09:39:51.769Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;DOCTYPE&quot;&gt;&lt;a href=&quot;#DOCTYPE&quot; class=&quot;headerlink&quot; title=&quot;DOCTYPE&quot;&gt;&lt;/a&gt;DOCTYPE&lt;/h2&gt;&lt;p&gt;DOCTYPE</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;DOCTYPE&quot;&gt;&lt;a href=&quot;#DOCTYPE&quot; class=&quot;headerlink&quot; title=&quot;DOCTYPE&quot;&gt;&lt;/a&gt;DOCTYPE&lt;/h2&gt;&lt;p&gt;DOCTYPE 是一种标准通用标记语言（SGML）的文档类型声明，目的是告诉浏览器的解析器要使用什么样的文档类型定义（DTD）来解析文档。目前浏览器的文档解析类型有三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quirks mode（怪异模式）：在怪异模式下，排版会模拟 Navigator 4 与 Internet Explorer 5 的非标准行为。如果没有声明DOCTYPE，默认就是这个模式。&lt;/li&gt;
+&lt;li&gt;Almost standards mode（接近标准模式）：只有少数的怪异行为被实现。&lt;/li&gt;
+&lt;li&gt;Standard mode（标准模式）：浏览器使用 W3C 的标准解析渲染页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;!DOCTYPE&amp;gt;&lt;/code&gt;声明必须是 HTML 文档的第一行，位于 html 标签之前。HTML5只规定了一种格式&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     
