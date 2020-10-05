@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-04T14:38:25.719Z</updated>
+  <updated>2020-10-05T03:09:37.106Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>圣杯布局和双飞翼布局</title>
+    <link href="http://example.com/2020/10/05/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/"/>
+    <id>http://example.com/2020/10/05/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</id>
+    <published>2020-10-05T02:56:02.000Z</published>
+    <updated>2020-10-05T03:09:37.106Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;圣杯布局和双飞翼布局都是常见的&lt;strong&gt;两边定宽，中间自适应&lt;/strong&gt;的三栏布局。这两种布局方式的关键是怎么样才能使得在伸缩浏览器窗口的时候让中间的子元素宽度改变。可以适应浏览器的宽度变化使用百分比设置宽度再合适不过，所以我们要将中间子元素的宽度设置为 100%，左边和右边的子元素设置为固定的宽度。这里我们要注意的是，&lt;strong&gt;中间栏要在放在文档流前面以优先渲染&lt;/strong&gt;。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>link和import</title>
@@ -389,38 +408,6 @@
 &lt;p&gt;输出结果为:&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端性能优化</title>
-    <link href="http://example.com/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <id>http://example.com/2020/09/18/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</id>
-    <published>2020-09-18T03:08:20.000Z</published>
-    <updated>2020-09-18T03:44:34.824Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前端性能优化七大手段&quot;&gt;&lt;a href=&quot;#前端性能优化七大手段&quot; class=&quot;headerlink&quot; title=&quot;前端性能优化七大手段&quot;&gt;&lt;/a&gt;前端性能优化七大手段&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;减少请求数量&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;减小资源大小&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;优化网络连接&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;优化资源加载&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;减少重绘回流&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;使用性能更好的API&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;webpack优化&lt;/p&gt;</summary>
     
     
     
