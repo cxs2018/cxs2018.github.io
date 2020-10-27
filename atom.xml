@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-05T09:39:51.769Z</updated>
+  <updated>2020-10-27T12:17:22.670Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何实现一个new</title>
+    <link href="http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/"/>
+    <id>http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/</id>
+    <published>2020-10-27T11:42:41.000Z</published>
+    <updated>2020-10-27T12:17:22.670Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;new做了什么&quot;&gt;&lt;a href=&quot;#new做了什么&quot; class=&quot;headerlink&quot; title=&quot;new做了什么&quot;&gt;&lt;/a&gt;new做了什么&lt;/h2&gt;&lt;p&gt;官方的解释：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何实现一个深拷贝</title>
+    <link href="http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/"/>
+    <id>http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/</id>
+    <published>2020-10-27T11:02:10.000Z</published>
+    <updated>2020-10-27T11:41:06.991Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;深拷贝的简单实现&quot;&gt;&lt;a href=&quot;#深拷贝的简单实现&quot; class=&quot;headerlink&quot; title=&quot;深拷贝的简单实现&quot;&gt;&lt;/a&gt;深拷贝的简单实现&lt;/h2&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cloneDeep&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;source, hash = new WeakMap()&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source === &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source === &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;RegExp&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;RegExp&lt;/span&gt;(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; source !== &lt;span class=&quot;string&quot;&gt;&amp;quot;object&amp;quot;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; source;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (hash.has(source)) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; hash.get(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; target = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; source.__proto__.constructor;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    hash.set(source, target);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; key &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; source) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.prototype.hasOwnProperty.call(source, key)) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            target[key] = cloneDeep(source[key], hash);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; target;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML</title>
@@ -365,56 +403,6 @@
     
     
     <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新的征程</title>
-    <link href="http://example.com/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/"/>
-    <id>http://example.com/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</id>
-    <published>2020-09-20T07:38:44.000Z</published>
-    <updated>2020-09-20T08:38:36.327Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;大四&quot;&gt;&lt;a href=&quot;#大四&quot; class=&quot;headerlink&quot; title=&quot;大四&quot;&gt;&lt;/a&gt;大四&lt;/h2&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="生活" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-    <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>尾调用和尾递归</title>
-    <link href="http://example.com/2020/09/20/%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92/"/>
-    <id>http://example.com/2020/09/20/%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92/</id>
-    <published>2020-09-20T07:00:35.000Z</published>
-    <updated>2020-09-20T07:35:36.656Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;尾调用&quot;&gt;&lt;a href=&quot;#尾调用&quot; class=&quot;headerlink&quot; title=&quot;尾调用&quot;&gt;&lt;/a&gt;尾调用&lt;/h2&gt;&lt;p&gt;尾调用是函数式编程中一个很重要的概念，当一个函数执行时的最后一个步骤是返回另一个函数的调用，这就叫做尾调用。函数调用可以是下面方式中的任意一种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;函数调用：func(···)&lt;/li&gt;
-&lt;li&gt;方法调用：obj.method(···)&lt;/li&gt;
-&lt;li&gt;call调用：func.call(···)&lt;/li&gt;
-&lt;li&gt;apply调用：func.apply(···)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;并且只有下列表达式会包含尾调用：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;条件操作符：? :&lt;/li&gt;
-&lt;li&gt;逻辑或：||&lt;/li&gt;
-&lt;li&gt;逻辑与：&amp;amp;&amp;amp;&lt;/li&gt;
-&lt;li&gt;逗号：,</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
