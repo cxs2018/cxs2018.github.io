@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-27T12:17:22.670Z</updated>
+  <updated>2021-01-01T16:05:57.154Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回首2020，启航2021</title>
+    <link href="http://example.com/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/"/>
+    <id>http://example.com/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/</id>
+    <published>2021-01-01T15:06:58.000Z</published>
+    <updated>2021-01-01T16:05:57.154Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;回首2020&quot;&gt;&lt;a href=&quot;#回首2020&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生活" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="随笔" scheme="http://example.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>如何实现一个new</title>
@@ -377,25 +402,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;字典&quot;&gt;&lt;a href=&quot;#字典&quot; class=&quot;headerlink&quot; title=&quot;字典&quot;&gt;&lt;/a&gt;字典&lt;/h2&gt;&lt;p&gt;我们已经知道，集合表示一组互不相同的元素（不重复的元素）。在字典中，存储的是[键, 值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值, 值]的形式存储元素，字典则以[键, 值]的形式来存储元素。字典也称作&lt;strong&gt;映射&lt;/strong&gt;、&lt;strong&gt;符号表&lt;/strong&gt;或&lt;strong&gt;关联数组&lt;/strong&gt;。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>集合</title>
-    <link href="http://example.com/2020/09/20/%E9%9B%86%E5%90%88/"/>
-    <id>http://example.com/2020/09/20/%E9%9B%86%E5%90%88/</id>
-    <published>2020-09-20T12:33:37.000Z</published>
-    <updated>2020-09-21T07:21:10.453Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;集合&quot;&gt;&lt;a href=&quot;#集合&quot; class=&quot;headerlink&quot; title=&quot;集合&quot;&gt;&lt;/a&gt;集合&lt;/h2&gt;&lt;p&gt;集合是由一种&lt;strong&gt;无序&lt;/strong&gt;且&lt;strong&gt;唯一&lt;/strong&gt;（即不能重复）的项组成的。&lt;/p&gt;</summary>
     
     
     
