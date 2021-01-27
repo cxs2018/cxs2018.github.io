@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-01T16:05:57.154Z</updated>
+  <updated>2021-01-27T08:49:36.620Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,20 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>React Hooks</title>
+    <link href="http://example.com/2021/01/27/React-Hooks/"/>
+    <id>http://example.com/2021/01/27/React-Hooks/</id>
+    <published>2021-01-27T08:41:43.000Z</published>
+    <updated>2021-01-27T08:49:36.620Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;React-Hooks&quot;&gt;&lt;a href=&quot;#React-Hooks&quot; class=&quot;headerlink&quot; title=&quot;React Hooks&quot;&gt;&lt;/a&gt;React Hooks&lt;/h2&gt;&lt;p&gt;Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="React" scheme="http://example.com/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>回首2020，启航2021</title>
     <link href="http://example.com/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/"/>
     <id>http://example.com/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/</id>
     <published>2021-01-01T15:06:58.000Z</published>
-    <updated>2021-01-01T16:05:57.154Z</updated>
+    <updated>2021-01-27T08:49:43.258Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;回首2020&quot;&gt;&lt;a href=&quot;#回首2020&quot; class=&quot;headerlink&quot;</summary>
-        
-      
+    <summary type="html">&lt;h2 id=&quot;回首2020&quot;&gt;&lt;a href=&quot;#回首2020&quot; class=&quot;headerlink&quot; title=&quot;回首2020&quot;&gt;&lt;/a&gt;回首2020&lt;/h2&gt;&lt;p&gt;2020年，我们经历了一次全球流行的传染病，至今新冠病毒仍在国外肆虐，国内疫情也时有反复，在此艰难的环境下，我们每个人都在奋力前行。&lt;/p&gt;</summary>
     
     
     
@@ -383,25 +396,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;散列表&quot;&gt;&lt;a href=&quot;#散列表&quot; class=&quot;headerlink&quot; title=&quot;散列表&quot;&gt;&lt;/a&gt;散列表&lt;/h2&gt;&lt;p&gt;散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做&lt;strong&gt;散列函数&lt;/strong&gt;，存放记录的数组叫做散列表。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字典</title>
-    <link href="http://example.com/2020/09/21/%E5%AD%97%E5%85%B8/"/>
-    <id>http://example.com/2020/09/21/%E5%AD%97%E5%85%B8/</id>
-    <published>2020-09-21T03:26:28.000Z</published>
-    <updated>2020-09-21T07:21:31.131Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;字典&quot;&gt;&lt;a href=&quot;#字典&quot; class=&quot;headerlink&quot; title=&quot;字典&quot;&gt;&lt;/a&gt;字典&lt;/h2&gt;&lt;p&gt;我们已经知道，集合表示一组互不相同的元素（不重复的元素）。在字典中，存储的是[键, 值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值, 值]的形式存储元素，字典则以[键, 值]的形式来存储元素。字典也称作&lt;strong&gt;映射&lt;/strong&gt;、&lt;strong&gt;符号表&lt;/strong&gt;或&lt;strong&gt;关联数组&lt;/strong&gt;。&lt;/p&gt;</summary>
     
     
     
