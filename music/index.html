@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何实现一个new |  流苏飘动，凤虚御风
+    music |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,8 +50,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-如何实现一个new"
-  class="article article-type-post"
+  id="about-"
+  class="article article-type-about"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -61,62 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何实现一个new
+  music
 </h1>
  
 
     </header>
-     
-    <div class="article-meta">
-      <a href="/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/" class="article-date">
-  <time datetime="2020-10-27T11:42:41.000Z" itemprop="datePublished">2020-10-27</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-  </div>
-  
-<div class="word_count">
-    <span class="post-time">
-        <span class="post-meta-item-icon">
-            <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">525</span>
-        </span>
-    </span>
-
-    <span class="post-time">
-        &nbsp; | &nbsp;
-        <span class="post-meta-item-icon">
-            <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
-        </span>
-    </span>
-</div>
- 
-    </div>
-      
-    <div class="tocbot"></div>
-
-
-
-
-  
+       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h2><p>官方的解释：</p>
-<a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new 关键字会进行如下的操作：</span><br><span class="line">1. 创建一个空的简单JavaScript对象（即&#123;&#125;）；</span><br><span class="line">2. 链接该对象（设置该对象的constructor）到另一个对象；</span><br><span class="line">3. 将步骤1新创建的对象作为this的上下文；</span><br><span class="line">4. 如果该函数没有返回对象，则返回this。</span><br><span class="line"></span><br><span class="line">当代码 new Foo(...) 执行时，会发生以下事情：</span><br><span class="line">1. 一个继承自 Foo.prototype 的新对象被创建；</span><br><span class="line">2. 使用指定的参数调用构造函数 Foo，并将 this 绑定到新创建的对象。new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况。</span><br><span class="line">3. 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）</span><br></pre></td></tr></table></figure>
-<p>即 new 操作符其实做了这些事情：</p>
-<ol>
-<li>创建一个新对象；</li>
-<li>将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；</li>
-<li>执行构造函数中的代码（为这个新对象添加属性） ；</li>
-<li>如果构造函数没有显式返回一个对象，就返回步骤1创建的新对象，否则返回构造函数的结果。<h2 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNew</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> constr = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(constr.prototype);</span><br><span class="line">    <span class="keyword">const</span> result = constr.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> result <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-测试如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// var person = new Person(&#x27;cxs&#x27;, 21, &#x27;Front-end developer&#x27;);</span></span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// cxs</span></span><br><span class="line">person.sayName();        <span class="comment">// cxs</span></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-显式返回对象的情况：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        love: <span class="string">&quot;前端&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.love); <span class="comment">// 前端</span></span><br></pre></td></tr></table></figure></li>
-</ol>
- 
+  <h2 id="音乐播放"><a href="#音乐播放" class="headerlink" title="音乐播放"></a>音乐播放</h2> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -186,36 +139,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/music/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-
     </footer>
   </div>
 
    
-  <nav class="article-nav">
-    
-      <a href="/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            回首2020，启航2021
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">如何实现一个深拷贝</div>
-      </a>
-    
-  </nav>
-
    
 <!-- valine评论 -->
 <div id="vcomments-box">
@@ -267,7 +199,7 @@
 </style>
 
  
-     
+   
 </article>
 
 </section>
@@ -431,23 +363,6 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
-
-
-<script src="/js/tocbot.min.js"></script>
-
-<script>
-  tocbot.init({
-    tocSelector: '.tocbot',
-    contentSelector: '.article-entry',
-    headingSelector: 'h1, h2, h3, h4, h5, h6',
-    hasInnerContainers: true,
-    scrollSmooth: true,
-    scrollContainer: 'main',
-    positionFixedSelector: '.tocbot',
-    positionFixedClass: 'is-position-fixed',
-    fixedSidebarOffset: 'auto'
-  });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
