@@ -145,6 +145,62 @@
     
     
     <article
+  id="post-队列"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/09/21/%E9%98%9F%E5%88%97/"
+    >队列</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/09/21/%E9%98%9F%E5%88%97/" class="article-date">
+  <time datetime="2020-09-21T07:22:54.000Z" itemprop="datePublished">2020-09-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列是遵循<strong>先进先出</strong>（FIFO，也称为先来先服务）原则的一组有序的项。队列在尾部添加新元素，并从顶部移除元素。最新添加的元素必须排在队列的末尾。</p> 
+      <a class="article-more-link" href="/2020/09/21/%E9%98%9F%E5%88%97/"
+        >阅读更多...</a
+      >
+       
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+</article>
+
+    
+    <article
   id="post-栈"
   class="article article-type-post"
   itemscope
@@ -679,65 +735,6 @@
 </article>
 
     
-    <article
-  id="post-手撕代码之call、apply和bind"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/"
-    >手撕代码之call、apply和bind</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/" class="article-date">
-  <time datetime="2020-09-17T14:20:11.000Z" itemprop="datePublished">2020-09-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="三兄弟的作用"><a href="#三兄弟的作用" class="headerlink" title="三兄弟的作用"></a>三兄弟的作用</h2><p>call、apply和bind三个方法都是为了改变函数运行时上下文(即this指向)而存在的，来看下面的例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> language = &#123;</span><br><span class="line">    name: <span class="string">&quot;java&quot;</span>,</span><br><span class="line">    getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span> is the best language in the world!`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> weber = &#123;</span><br><span class="line">    name: <span class="string">&quot;javascript&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//谁是世界上最好的语言？</span></span><br><span class="line">language.getName();</span><br><span class="line">language.getName.call(weber);</span><br><span class="line">language.getName.apply(weber);</span><br><span class="line">language.getName.bind(weber)();</span><br></pre></td></tr></table></figure>
-<p>执行上面的代码，结果为：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br><span class="line">javascript is the best language <span class="keyword">in</span> the world!</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2020/09/17/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81%E4%B9%8Bcall%E3%80%81apply%E5%92%8Cbind/"
-        >阅读更多...</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-</article>
-
-    
   </article>
   
 
@@ -755,7 +752,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2021
+        2020-2021
         <i class="ri-heart-fill heart_icon"></i> 苏御
       </li>
     </ul>
