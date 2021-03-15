@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何实现一个new |  流苏飘动，凤虚御风
+    小苏刷力扣第1天-No.54螺旋矩阵 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,7 +50,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-如何实现一个new"
+  id="post-小苏刷力扣第1天-No-54螺旋矩阵"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -61,15 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何实现一个new
+  小苏刷力扣第1天-No.54螺旋矩阵
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/" class="article-date">
-  <time datetime="2020-10-27T11:42:41.000Z" itemprop="datePublished">2020-10-27</time>
+      <a href="/2021/03/15/%E5%B0%8F%E8%8B%8F%E5%88%B7%E5%8A%9B%E6%89%A3%E7%AC%AC1%E5%A4%A9-No-54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" class="article-date">
+  <time datetime="2021-03-15T07:38:12.000Z" itemprop="datePublished">2021-03-15</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">525</span>
+            <span class="post-count">450</span>
         </span>
     </span>
 
@@ -104,19 +104,17 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h2><p>官方的解释：</p>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 m 行 n 列的矩阵 matrix ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
 <a id="more"></a>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new 关键字会进行如下的操作：</span><br><span class="line">1. 创建一个空的简单JavaScript对象（即&#123;&#125;）；</span><br><span class="line">2. 链接该对象（设置该对象的constructor）到另一个对象；</span><br><span class="line">3. 将步骤1新创建的对象作为this的上下文；</span><br><span class="line">4. 如果该函数没有返回对象，则返回this。</span><br><span class="line"></span><br><span class="line">当代码 new Foo(...) 执行时，会发生以下事情：</span><br><span class="line">1. 一个继承自 Foo.prototype 的新对象被创建；</span><br><span class="line">2. 使用指定的参数调用构造函数 Foo，并将 this 绑定到新创建的对象。new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况。</span><br><span class="line">3. 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）</span><br></pre></td></tr></table></figure>
-<p>即 new 操作符其实做了这些事情：</p>
-<ol>
-<li>创建一个新对象；</li>
-<li>将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；</li>
-<li>执行构造函数中的代码（为这个新对象添加属性） ；</li>
-<li>如果构造函数没有显式返回一个对象，就返回步骤1创建的新对象，否则返回构造函数的结果。<h2 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNew</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> constr = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(constr.prototype);</span><br><span class="line">    <span class="keyword">const</span> result = constr.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> result <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-测试如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// var person = new Person(&#x27;cxs&#x27;, 21, &#x27;Front-end developer&#x27;);</span></span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// cxs</span></span><br><span class="line">person.sayName();        <span class="comment">// cxs</span></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-显式返回对象的情况：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        love: <span class="string">&quot;前端&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.love); <span class="comment">// 前端</span></span><br></pre></td></tr></table></figure></li>
-</ol>
- 
+<p><img src="/images/ArticlePicture/54.png" alt="spiral-matrix"></p>
+<p>示例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>]]</span><br><span class="line">输出：[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">11</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>m == matrix.length<br>n == matrix[i].length<br>1 &lt;= m, n &lt;= 10<br>-100 &lt;= matrix[i][j] &lt;= 100</p>
+</blockquote>
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> rows = matrix.length;</span><br><span class="line">  <span class="keyword">const</span> columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">const</span> total = rows * columns;</span><br><span class="line">  <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Array</span>(rows).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(columns).fill(<span class="literal">false</span>)); <span class="comment">// 访问数组</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> directionIndex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> row = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> column = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> directions = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">-1</span>], [<span class="number">-1</span>, <span class="number">0</span>]];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; total; i++) &#123;</span><br><span class="line">    result.push(matrix[row][column]);</span><br><span class="line">    visited[row][column] = <span class="literal">true</span>; <span class="comment">// 为访问过的元素设置标志</span></span><br><span class="line">    <span class="keyword">let</span> nextRow = row + directions[directionIndex][<span class="number">0</span>]; <span class="comment">// 获取下一个元素的行坐标</span></span><br><span class="line">    <span class="keyword">let</span> nextColumn = column + directions[directionIndex][<span class="number">1</span>]; <span class="comment">// 获取下一个元素的列坐标</span></span><br><span class="line">    <span class="keyword">if</span> (!(nextRow &gt;= <span class="number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextColumn &gt;= <span class="number">0</span> &amp;&amp; nextColumn &lt; columns &amp;&amp; !visited[nextRow][nextColumn])) &#123;</span><br><span class="line">      directionIndex = (directionIndex + <span class="number">1</span>) % <span class="number">4</span>; <span class="comment">// 顺时针旋转，利用 directions 和 directionIndex 控制元素行列坐标的变化</span></span><br><span class="line">    &#125;</span><br><span class="line">    row += directions[directionIndex][<span class="number">0</span>];</span><br><span class="line">    column += directions[directionIndex][<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">      <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> bottom = matrix.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> total = matrix.length * matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="comment">/* 顺时针螺旋遍历 */</span></span><br><span class="line">  <span class="keyword">while</span> (total &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[top][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    top++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = top; i &lt;= bottom &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[i][right]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    right--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = right; i &gt;= left &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[bottom][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    bottom--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = bottom; i &gt;= top &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[i][left]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -186,12 +184,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/15/%E5%B0%8F%E8%8B%8F%E5%88%B7%E5%8A%9B%E6%89%A3%E7%AC%AC1%E5%A4%A9-No-54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%9B%E6%89%A3/" rel="tag">力扣</a></li></ul>
 
     </footer>
   </div>
@@ -199,19 +197,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            回首2020，启航2021
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="article-nav-link">
+      <a href="/2021/02/21/%E4%B8%80%E6%A0%AA%E8%B5%B6%E8%80%83%E7%9A%84%E9%BA%A6%E5%AD%90/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">如何实现一个深拷贝</div>
+        <div class="article-nav-title">一株赶考的麦子</div>
       </a>
     
   </nav>
