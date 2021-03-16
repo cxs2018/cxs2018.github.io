@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    about |  流苏飘动，凤虚御风
+    力扣挑战赛第2天-No.8字符串转换整数 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,8 +50,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="about-"
-  class="article article-type-about"
+  id="post-力扣挑战赛第2天-No-8字符串转换整数"
+  class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -61,25 +61,86 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  about
+  力扣挑战赛第2天-No.8字符串转换整数
 </h1>
  
 
     </header>
-       
+     
+    <div class="article-meta">
+      <a href="/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/" class="article-date">
+  <time datetime="2021-03-16T09:44:54.000Z" itemprop="datePublished">2021-03-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">381</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
     <div class="article-entry" itemprop="articleBody">
        
-  <blockquote>
-<p>A Frond-end Engineer, live in Beijing, China. </p>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</p>
+<a id="more"></a>
+<p>函数 myAtoi(string s) 的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。<br>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 [−2 ** 31,  2 ** 31 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −2 ** 31 的整数应该被固定为 −2 ** 31 ，大于 2 ** 31 − 1 的整数应该被固定为 2 ** 31 − 1 。</li>
+<li>返回整数作为最终结果。</li>
+</ol>
+<p>示例：</p>
+<pre>
+输入：s = "4193 with words"
+输出：4193
+输入：s = "words and 987"
+输出：0
+输入：s = "   -42"
+输出：-42
+输入：s = "-91283472332"
+输出：-2147483648（-2 ** 31）
+</pre>
+
+<p>注意：</p>
+<pre>
+本题中的空白字符只包括空格字符 ' ' 。
+除前导空格或数字后的其余字符串外，请勿忽略任何其他字符。
+0 <= s.length <= 200
+s 由英文字母（大写和小写）、数字（0-9）、' '、'+'、'-' 和 '.' 组成
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>这里只介绍有限状态机（DFA），类似于编译原理：</p>
+<p>状态转换表：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_excel.png" alt="stateTurnExcel"></p>
+<p>状态转换图：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_pic.png" alt="stateTurnPic"></p>
+<blockquote>
+<p>如遇图片无法显示请访问 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/string-to-integer-atoi/">力扣-字符串转整数</a></p>
 </blockquote>
-<p>姓名：崔学森<br>网名：苏御</p>
-<!-- QQ：[2821436626](https://raw.githubusercontent.com/cxs2018/blog/master/img/qq.png)
-微信：[cxs19990922](https://raw.githubusercontent.com/cxs2018/blog/master/img/wechat.png) -->
-<p>学校：四川大学（大四在读）<br>现居：北京（已返回成都）<br>家乡：河南·驻马店</p>
-<p>爱好：旅游、美食、电影</p>
-<p>联系方式：<a href="mailto:&#x32;&#56;&#50;&#49;&#x34;&#51;&#54;&#x36;&#50;&#54;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#x32;&#56;&#50;&#49;&#x34;&#51;&#54;&#x36;&#50;&#54;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-<p>快乐学习，快乐生活！</p>
-<!-- ![avatar](https://raw.githubusercontent.com/cxs2018/blog/master/img/sy.jpg) --> 
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> myAtoi = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Automation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="string">&#x27;start&#x27;</span>; <span class="comment">// 开始状态</span></span><br><span class="line">      <span class="built_in">this</span>.sign = <span class="number">1</span>; <span class="comment">// 1代表正，0代表负</span></span><br><span class="line">      <span class="built_in">this</span>.res = <span class="number">0</span>; <span class="comment">// 初始数值为0</span></span><br><span class="line">      <span class="comment">/* 定义状态转换表 */</span></span><br><span class="line">      <span class="built_in">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        <span class="comment">//状态，遇到 =&gt; [空格，正负号，字符型数值，其他字符]，会跳到对应的状态</span></span><br><span class="line">        [<span class="string">&#x27;start&#x27;</span>, [<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;signed&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;signed&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;in_number&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;end&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]]</span><br><span class="line">      ]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 获取每种字符对应的即将转换到的状态索引 */</span></span><br><span class="line">    getStateIndex(char) &#123;</span><br><span class="line">      <span class="keyword">if</span> (char === <span class="string">&#x27; &#x27;</span>) &#123; <span class="comment">// 空格</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (char === <span class="string">&#x27;+&#x27;</span> || char === <span class="string">&#x27;-&#x27;</span>) &#123; <span class="comment">//正负号</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">parseInt</span>(char) &gt;= <span class="number">0</span>) &#123; <span class="comment">// 字符型数值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他字符</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 对输入的字符进行状态转换 并处理数据 */</span></span><br><span class="line">    turnAndHandle(char) &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="built_in">this</span>.map.get(<span class="built_in">this</span>.state)[<span class="built_in">this</span>.getStateIndex(char)];</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;in_number&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.res * <span class="number">10</span> + (char - <span class="number">0</span>); <span class="comment">// 计算数值</span></span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.sign === <span class="number">1</span> ? <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) : <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, -<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>)); <span class="comment">// 判断是否溢出</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;signed&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.sign = char === <span class="string">&#x27;+&#x27;</span> ? <span class="number">1</span> : <span class="number">-1</span>; <span class="comment">// 设置正负号</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> automaton = <span class="keyword">new</span> Automation();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> char <span class="keyword">of</span> s) &#123; <span class="comment">// 遍历字符串的每一个字符</span></span><br><span class="line">    automaton.turnAndHandle(char);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> automaton.sign * automaton.res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -149,15 +210,27 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/about/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%9B%E6%89%A3/" rel="tag">力扣</a></li></ul>
+
     </footer>
   </div>
 
    
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-59%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B52/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">力扣挑战赛第2天-No.59螺旋矩阵2</div>
+      </a>
+    
+  </nav>
+
    
 <!-- valine评论 -->
 <div id="vcomments-box">
@@ -209,7 +282,7 @@
 </style>
 
  
-   
+     
 </article>
 
 </section>
@@ -393,6 +466,23 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
