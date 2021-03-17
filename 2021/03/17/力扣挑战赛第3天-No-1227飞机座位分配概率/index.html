@@ -137,9 +137,9 @@
 <li>他有 1 / n 的概率坐到第 i 位乘客的座位，其中 2 &lt;= i &lt;= n - 1，则第 2 到 i - 1 位乘客都能坐到自己的座位上，而当第 i 位乘客来到客舱，发现自己的座位被人（第 1 位乘客）占了，这时他会从剩下的 n - i + 1 随机选择一个座位坐下，因此他面临的情况和第 1 位乘客一样，只不过此时的第一种情况下，正确的座位是第 1 位乘客的座位，所以 f(n)’ = f(n - i + 1)；</li>
 </ul>
 <p>由此可以得到递推式：</p>
-<p>f(n) = 1 / n * (1 + 0 + $\sum_{i=2}^{n-1}$f(n - i + 1))</p>
+<p>f(n) = 1 / n * (1 + 0 + <strong>SUM[2, n-1] </strong>f(n - i + 1))，其中SUM[2, n-1]表示i从2到n-1对后面的式子进行求和</p>
 <p>令 n = n - 1，则</p>
-<p>f(n - 1) = 1 / (n - 1) * (1 + 0 + $\sum_{i=2}^{n-2}$f(n - i))</p>
+<p>f(n - 1) = 1 / (n - 1) * (1 + 0 + <strong>SUM[2, n-2] </strong>f(n - i))</p>
 <p>两式相减得：n * f(n) - (n - 1) * f(n - 1) = f(n - 1)，即 f(n) = f(n - 1) = …… = f(2)</p>
 <p>因此，对任意 n &gt;= 2，有 f(n) = f(2) = 0.5，当 n = 1，f(n) = 1</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> nthPersonGetsNthSeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n === <span class="number">1</span> ? <span class="number">1</span> : <span class="number">.5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
