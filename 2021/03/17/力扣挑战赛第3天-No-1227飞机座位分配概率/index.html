@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    力扣挑战赛第3天-No.115不同的子序列 |  流苏飘动，凤虚御风
+    力扣挑战赛第3天-No.1227飞机座位分配概率 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,7 +50,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-力扣挑战赛第3天-No-115不同的子序列"
+  id="post-力扣挑战赛第3天-No-1227飞机座位分配概率"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -61,15 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  力扣挑战赛第3天-No.115不同的子序列
+  力扣挑战赛第3天-No.1227飞机座位分配概率
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/" class="article-date">
-  <time datetime="2021-03-17T02:18:10.000Z" itemprop="datePublished">2021-03-17</time>
+      <a href="/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-1227%E9%A3%9E%E6%9C%BA%E5%BA%A7%E4%BD%8D%E5%88%86%E9%85%8D%E6%A6%82%E7%8E%87/" class="article-date">
+  <time datetime="2021-03-17T09:44:52.000Z" itemprop="datePublished">2021-03-17</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">164</span>
+            <span class="post-count">178</span>
         </span>
     </span>
 
@@ -104,55 +104,45 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。</p>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有 n 位乘客即将登机，飞机正好有 n 个座位。第一位乘客的票丢了，他随便选了一个座位坐下。</p>
 <a id="more"></a>
-<p>字符串的一个 子序列 是指，通过删除一些（也可以不删除）字符且不干扰剩余字符相对位置所组成的新字符串。（例如，”ACE” 是 “ABCDE” 的一个子序列，而 “AEC” 不是）</p>
-<p>题目数据保证答案符合 32 位带符号整数范围。</p>
+<p>剩下的乘客将会：</p>
+<ul>
+<li>如果他们自己的座位还空着，就坐到自己的座位上，</li>
+<li>当他们自己的座位被占用时，随机选择其他座位</li>
+</ul>
+<p>第 n 位乘客坐在自己的座位上的概率是多少？</p>
 <p>示例：</p>
 <pre>
-输入：s = "babgbag", t = "bag"
-输出：5
-解释：
-如下所示, 有 5 种可以从 s 中得到 "bag" 的方案。 
-(上箭头符号 ^ 表示选取的字母)
-babgbag
-^^ ^
-babgbag
-^^    ^
-babgbag
-^    ^^
-babgbag
-  ^  ^^
-babgbag
-    ^^^
+输入：n = 1
+输出：1.00000
+解释：第一个人只会坐在自己的位置上。
+
+输入: n = 2
+输出: 0.50000
+解释：在第一个人选好座位坐下后，第二个人坐在自己的座位上的概率是 0.5。
 </pre>
 
 <p>注意：</p>
 <pre>
-0 <= s.length, t.length <= 1000
-s 和 t 由英文字母组成
+1 <= n <= 10^5
 </pre>
 
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>动态规划：</p>
-<p>假设 m = s.length，n = t.length，<br>创建二维数组 dp，dp[i][j] 表示在 s[i:] 的子序列中 t[j:] 出现的个数，<br>s[i:] 表示 s 从下标 i 到末尾的子字符串，t[j:] 表示 t 从下标 j 到末尾的子字符串，则有如下推断：</p>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>推导过程：</p>
+<p>设第 n 位乘客坐在自己的座位上的概率为 f(n)</p>
+<p>第一位乘客因票丢失，面临如下情况：</p>
 <ul>
-<li>当 m &lt; n 时，t 一定不是 s 的子序列；</li>
-<li>当 j = n 时，t[j:] 为空字符串，因此对任意 0 &lt;= i &lt;= m，有 d[i][n] = 1;</li>
-<li>当 i = m 时，s[i:] 为空字符串，因此对任意 0 &lt;= j &lt; n，dp[m][j] = 0;</li>
-<li>当 i &lt; m 且 j &lt; n 时：<ol>
-<li>如果 s[i] === s[j]，dp[i][j] 由两部分组成，选择 s[i]，则这部分的子序列数为 dp[i + 1][j + 1]，不选择 s[i]，则这部分的子序列数为 dp[i + 1][j]，因此，dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]；</li>
-<li>如果 s[i] !== s[j]，则 dp[i][j] = dp[i + 1][j];</li>
-</ol>
-</li>
+<li>他有 1 / n 的概率坐到正确的座位，则后面的乘客都会坐到自己的座位上，所以 f(n)’ = 1 / n；</li>
+<li>他有 1 / n 的概率坐到第 n 位乘客的座位，则后面的乘客除了第 n 位都会坐到自己的座位上，而第 n 位乘客只能坐到第 1 位乘客的位置，所以 f(n)’ = 0；</li>
+<li>他有 1 / n 的概率坐到第 i 位乘客的座位，其中 2 &lt;= i &lt;= n - 1，则第 2 到 i - 1 位乘客都能坐到自己的座位上，而当第 i 位乘客来到客舱，发现自己的座位被人（第 1 位乘客）占了，这时他会从剩下的 n - i + 1 随机选择一个座位坐下，因此他面临的情况和第 1 位乘客一样，只不过此时的第一种情况下，正确的座位是第 1 位乘客的座位，所以 f(n)’ = f(n - i + 1)；</li>
 </ul>
-<p>由此可得状态转移方程：</p>
-<pre>
-dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
-         = dp[i + 1][j]                     s[i] !== s[j]
-</pre>
-
-<p>最终 dp[0][0] 即为在 s 的子序列中 t 出现的个数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> numDistinct = <span class="function"><span class="keyword">function</span> (<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> m = s.length;</span><br><span class="line">  <span class="keyword">const</span> n = t.length;</span><br><span class="line">  <span class="keyword">if</span> (m &lt; n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n + <span class="number">1</span>).fill(<span class="number">0</span>));</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">    dp[i][n] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (s[i] === t[j]) &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j + <span class="number">1</span>] + dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
+<p>由此可以得到递推式：</p>
+<p>f(n) = 1 / n * (1 + 0 + $\sum_{i=2}^{n-1}$f(n - i + 1))</p>
+<p>令 n = n - 1，则</p>
+<p>f(n - 1) = 1 / (n - 1) * (1 + 0 + $\sum_{i=2}^{n-2}$f(n - i))</p>
+<p>两式相减得：n * f(n) - (n - 1) * f(n - 1) = f(n - 1)，即 f(n) = f(n - 1) = …… = f(2)</p>
+<p>因此，对任意 n &gt;= 2，有 f(n) = f(2) = 0.5，当 n = 1，f(n) = 1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> nthPersonGetsNthSeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n === <span class="number">1</span> ? <span class="number">1</span> : <span class="number">.5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -222,7 +212,7 @@ dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-1227%E9%A3%9E%E6%9C%BA%E5%BA%A7%E4%BD%8D%E5%88%86%E9%85%8D%E6%A6%82%E7%8E%87/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -235,19 +225,10 @@ dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
    
   <nav class="article-nav">
     
-      <a href="/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-1227%E9%A3%9E%E6%9C%BA%E5%BA%A7%E4%BD%8D%E5%88%86%E9%85%8D%E6%A6%82%E7%8E%87/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            力扣挑战赛第3天-No.1227飞机座位分配概率
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/" class="article-nav-link">
+      <a href="/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">力扣挑战赛第2天-No.8字符串转换整数</div>
+        <div class="article-nav-title">力扣挑战赛第3天-No.115不同的子序列</div>
       </a>
     
   </nav>
