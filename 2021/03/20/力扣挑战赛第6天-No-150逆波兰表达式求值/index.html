@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    力扣挑战赛第5天-No.77组合 |  流苏飘动，凤虚御风
+    力扣挑战赛第6天-No.150逆波兰表达式求值 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,7 +50,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-力扣挑战赛第5天-No-77组合"
+  id="post-力扣挑战赛第6天-No-150逆波兰表达式求值"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -61,15 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  力扣挑战赛第5天-No.77组合
+  力扣挑战赛第6天-No.150逆波兰表达式求值
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-77%E7%BB%84%E5%90%88/" class="article-date">
-  <time datetime="2021-03-19T09:06:29.000Z" itemprop="datePublished">2021-03-19</time>
+      <a href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-150%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" class="article-date">
+  <time datetime="2021-03-20T03:14:46.000Z" itemprop="datePublished">2021-03-20</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">147</span>
+            <span class="post-count">228</span>
         </span>
     </span>
 
@@ -104,24 +104,55 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个整数 n 和 k，返回 1 … n 中所有可能的 k 个数的组合。</p>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>根据 逆波兰表示法，求表达式的值。</p>
 <a id="more"></a>
+<p>有效的算符包括 +、-、*、/ 。每个运算对象可以是整数，也可以是另一个逆波兰表达式。</p>
+<p>整数除法只保留整数部分。<br>给定逆波兰表达式总是有效的。换句话说，表达式总会得出有效数值且不存在除数为 0 的情况。</p>
 <p>示例：</p>
 <pre>
-输入: n = 4, k = 2
-输出:
-[
-  [2,4],
-  [3,4],
-  [2,3],
-  [1,2],
-  [1,3],
-  [1,4],
-]
+输入：tokens = ["2","1","+","3","*"]
+输出：9
+解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9
+
+输入：tokens = ["4","13","5","/","+"]
+输出：6
+解释：该算式转化为常见的中缀算术表达式为：(4 + (13 / 5)) = 6
+
+输入：tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+输出：22
+解释：
+该算式转化为常见的中缀算术表达式为：
+  ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+= ((10 * (6 / (12 * -11))) + 17) + 5
+= ((10 * (6 / -132)) + 17) + 5
+= ((10 * 0) + 17) + 5
+= (0 + 17) + 5
+= 17 + 5
+= 22
 </pre>
 
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>回溯法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">k</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[][]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> combine = <span class="function"><span class="keyword">function</span> (<span class="params">n, k</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> resSet = [];</span><br><span class="line">  <span class="keyword">let</span> eachRes = [];</span><br><span class="line">  <span class="keyword">let</span> backtracking = <span class="function"><span class="keyword">function</span> (<span class="params">startIndex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (eachRes.length === k) &#123;</span><br><span class="line">      resSet.push(eachRes.slice());</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = startIndex; i &lt;= n - (k - eachRes.length) + <span class="number">1</span>; i++) &#123; <span class="comment">// 横向遍历并剪枝</span></span><br><span class="line">      eachRes.push(i);</span><br><span class="line">      backtracking(i + <span class="number">1</span>); <span class="comment">// 递归，纵向遍历</span></span><br><span class="line">      eachRes.pop(); <span class="comment">// 回溯，撤销之前的节点</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  backtracking(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> resSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
+<p>注意：</p>
+<pre>
+1 <= tokens.length <= 104
+tokens[i] 要么是一个算符（"+"、"-"、"*" 或 "/"），要么是一个在范围 [-200, 200] 内的整数
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><pre>
+下面以(a+b)*c为例子进行说明：
+(a+b)*c的逆波兰式为ab+c*，假设计算机把ab+c*按从左到右的顺序压入栈中，
+并且按照遇到运算符就把栈顶两个元素出栈，执行运算，得到的结果再入栈的原则来进行处理，
+那么ab+c*的执行结果如下：
+
+1. a入栈（0位置）
+2. b入栈（1位置）
+3. 遇到运算符“+”，将a和b出栈，执行a+b的操作，得到结果d=a+b，再将d入栈（0位置）
+4. c入栈（1位置）
+5. 遇到运算符“d”，执行d*c的操作，得到结果e，再将e入栈（0位置）
+
+经过以上运算，就可以得到(a+b)*c的运算结果e了。
+</pre>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string[]&#125;</span> <span class="variable">tokens</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> evalRPN = <span class="function"><span class="keyword">function</span> (<span class="params">tokens</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 构建栈类，当然也可以使用数组，因为js中的数组也有push和pop方法 */</span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向栈中插入元素</span></span><br><span class="line">    push(element) &#123;</span><br><span class="line">      <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">      <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取栈的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查栈是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.count == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从栈中弹出元素</span></span><br><span class="line">    pop() &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">this</span>.count--;</span><br><span class="line">      <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">      <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> stack = <span class="keyword">new</span> Stack();</span><br><span class="line">  <span class="keyword">let</span> len = tokens.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (tokens[i] !== <span class="string">&#x27;+&#x27;</span> &amp;&amp; tokens[i] !== <span class="string">&#x27;-&#x27;</span> &amp;&amp; tokens[i] !== <span class="string">&#x27;*&#x27;</span> &amp;&amp; tokens[i] !== <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">      stack.push(<span class="built_in">parseInt</span>(tokens[i]));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> operator2 = stack.pop();</span><br><span class="line">      <span class="keyword">let</span> operator1 = stack.pop();</span><br><span class="line">      <span class="keyword">let</span> result;</span><br><span class="line">      <span class="keyword">switch</span> (tokens[i]) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">          result = operator1 + operator2;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">          result = operator1 - operator2;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">          result = operator1 * operator2;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">          result = <span class="built_in">parseInt</span>(operator1 /  operator2);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      stack.push(result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> stack.pop();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -191,7 +222,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-77%E7%BB%84%E5%90%88/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-150%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -204,19 +235,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-150%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            力扣挑战赛第6天-No.150逆波兰表达式求值
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-1603%E8%AE%BE%E8%AE%A1%E5%81%9C%E8%BD%A6%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+      <a href="/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-77%E7%BB%84%E5%90%88/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">力扣挑战赛第5天-No.1603设计停车系统</div>
+        <div class="article-nav-title">力扣挑战赛第5天-No.77组合</div>
       </a>
     
   </nav>
