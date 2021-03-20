@@ -175,30 +175,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
-<p>示例：</p>
-<pre>
-输入：n = 987
-输出："987"
-
-输入：n = 1234
-输出："1.234"
-
-输入：n = 123456789
-输出："123.456.789"
-
-输入：n = 0
-输出："0"
-</pre>
-
-<p>注意：</p>
-<pre>
-0 <= n < 2^31
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
- 
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p> 
+      <a class="article-more-link" href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
