@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-20T08:53:23.348Z</updated>
+  <updated>2021-03-21T03:38:16.997Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>力扣挑战赛第7天-No.73矩阵置零</title>
+    <link href="http://example.com/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/"/>
+    <id>http://example.com/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/</id>
+    <published>2021-03-21T03:20:32.000Z</published>
+    <updated>2021-03-21T03:38:16.997Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用原地算法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="力扣" scheme="http://example.com/tags/%E5%8A%9B%E6%89%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣挑战赛第6天-No.1556千位分隔数</title>
@@ -369,31 +388,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;深拷贝的简单实现&quot;&gt;&lt;a href=&quot;#深拷贝的简单实现&quot; class=&quot;headerlink&quot; title=&quot;深拷贝的简单实现&quot;&gt;&lt;/a&gt;深拷贝的简单实现&lt;/h2&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cloneDeep&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;source, hash = new WeakMap()&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source === &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source === &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;RegExp&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;RegExp&lt;/span&gt;(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (source &lt;span class=&quot;keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; source !== &lt;span class=&quot;string&quot;&gt;&amp;quot;object&amp;quot;&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; source;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (hash.has(source)) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; hash.get(source);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; target = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; source.__proto__.constructor;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    hash.set(source, target);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; key &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; source) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;built_in&quot;&gt;Object&lt;/span&gt;.prototype.hasOwnProperty.call(source, key)) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            target[key] = cloneDeep(source[key], hash);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; target;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
-    
-    
-    
-    <category term="技术" scheme="http://example.com/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-    <category term="面试" scheme="http://example.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTML</title>
-    <link href="http://example.com/2020/10/05/HTML/"/>
-    <id>http://example.com/2020/10/05/HTML/</id>
-    <published>2020-10-05T08:15:56.000Z</published>
-    <updated>2020-10-05T09:39:51.769Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;DOCTYPE&quot;&gt;&lt;a href=&quot;#DOCTYPE&quot; class=&quot;headerlink&quot; title=&quot;DOCTYPE&quot;&gt;&lt;/a&gt;DOCTYPE&lt;/h2&gt;&lt;p&gt;DOCTYPE 是一种标准通用标记语言（SGML）的文档类型声明，目的是告诉浏览器的解析器要使用什么样的文档类型定义（DTD）来解析文档。目前浏览器的文档解析类型有三种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Quirks mode（怪异模式）：在怪异模式下，排版会模拟 Navigator 4 与 Internet Explorer 5 的非标准行为。如果没有声明DOCTYPE，默认就是这个模式。&lt;/li&gt;
-&lt;li&gt;Almost standards mode（接近标准模式）：只有少数的怪异行为被实现。&lt;/li&gt;
-&lt;li&gt;Standard mode（标准模式）：浏览器使用 W3C 的标准解析渲染页面。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;&amp;lt;!DOCTYPE&amp;gt;&lt;/code&gt;声明必须是 HTML 文档的第一行，位于 html 标签之前。HTML5只规定了一种格式&lt;code&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/code&gt;&lt;/p&gt;</summary>
     
     
     

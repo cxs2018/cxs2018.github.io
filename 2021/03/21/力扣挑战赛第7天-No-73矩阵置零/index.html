@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    力扣挑战赛第6天-No.1556千位分隔数 |  流苏飘动，凤虚御风
+    力扣挑战赛第7天-No.73矩阵置零 |  流苏飘动，凤虚御风
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -50,7 +50,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-力扣挑战赛第6天-No-1556千位分隔数"
+  id="post-力扣挑战赛第7天-No-73矩阵置零"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -61,15 +61,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  力扣挑战赛第6天-No.1556千位分隔数
+  力扣挑战赛第7天-No.73矩阵置零
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/" class="article-date">
-  <time datetime="2021-03-20T08:47:31.000Z" itemprop="datePublished">2021-03-20</time>
+      <a href="/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/" class="article-date">
+  <time datetime="2021-03-21T03:20:32.000Z" itemprop="datePublished">2021-03-21</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">78</span>
+            <span class="post-count">110</span>
         </span>
     </span>
 
@@ -104,31 +104,49 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
+  <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用原地算法。</p>
 <a id="more"></a>
 <p>示例：</p>
 <pre>
-输入：n = 987
-输出："987"
+输入：matrix = [
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+]
+输出：[
+  [1,0,1],
+  [0,0,0],
+  [1,0,1]
+]
 
-输入：n = 1234
-输出："1.234"
-
-输入：n = 123456789
-输出："123.456.789"
-
-输入：n = 0
-输出："0"
+输入：matrix = [
+  [0,1,2,0],
+  [3,4,5,2],
+  [1,3,1,5]
+]
+输出：[
+  [0,0,0,0],
+  [0,4,5,0],
+  [0,3,1,0]
+]
 </pre>
 
 <p>注意：</p>
 <pre>
-0 <= n < 2^31
+m == matrix.length
+n == matrix[0].length
+1 <= m, n <= 200
+-2 ** 31 <= matrix[i][j] <= 2 ** 31 - 1
 </pre>
 
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
- 
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>三重遍历，先标记，再替换，时间复杂度较高，不推荐</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; n; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[i][x] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[i][x] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; m; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[x][j] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[x][j] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="string">&#x27;will&#x27;</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>使用第一行和第一列来标记某个元素是否是 0，最后进行替换，不过需要两个标记变量来记录第一行和第一列是否原本就存在 0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstRow = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstRow = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstRow) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>类似于解法二，不过只使用一个标记变量，记录第一列是否原本存在 0，而第一列的第一个元素用来记录第一行是否原本存在 0，注意，为防止每一列的第一个元素被提前更新，需要从最后一行开始，倒序地处理矩阵元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -198,7 +216,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -211,19 +229,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            力扣挑战赛第7天-No.73矩阵置零
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-150%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" class="article-nav-link">
+      <a href="/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">力扣挑战赛第6天-No.150逆波兰表达式求值</div>
+        <div class="article-nav-title">力扣挑战赛第6天-No.1556千位分隔数</div>
       </a>
     
   </nav>
