@@ -147,26 +147,6 @@
       </tags>
   </entry>
   <entry>
-    <title>async和defer</title>
-    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
-<a id="more"></a>
-<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
-<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>link和import</title>
     <url>/2020/10/04/link%E5%92%8Cimport/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="HTML引入CSS样式的四种方式"><a href="#HTML引入CSS样式的四种方式" class="headerlink" title="HTML引入CSS样式的四种方式"></a>HTML引入CSS样式的四种方式</h2><p>内联样式、内部样式和外部样式我们就不多说了，下面来看看 @import 引入 CSS 样式的方法：</p>
@@ -233,21 +213,23 @@
       </tags>
   </entry>
   <entry>
-    <title>onward and upward</title>
-    <url>/2021/02/07/onward-and-upward/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
-<p>西平高中校号：</p>
-<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
-<p>2014级宏志班班号：</p>
-<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
-<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
-<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
+    <title>async和defer</title>
+    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
+<a id="more"></a>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
+<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>人生</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -264,6 +246,24 @@
       </categories>
       <tags>
         <tag>阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>onward and upward</title>
+    <url>/2021/02/07/onward-and-upward/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
+<p>西平高中校号：</p>
+<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
+<p>2014级宏志班班号：</p>
+<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
+<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
+<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -517,40 +517,6 @@ n == nums.length
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第11天-No.82删除排序链表中的重复元素2</title>
-    <url>/2021/03/25/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC11%E5%A4%A9-No-82%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
-<a id="more"></a>
-<p>返回同样按升序排列的结果链表。</p>
-<p>示例：</p>
-<pre>
-输入：head = [1,2,3,3,4,4,5]
-输出：[1,2,5]
-
-输入：head = [1,1,1,2,3]
-输出：[2,3]
-</pre>
-
-<p>注意：</p>
-<pre>
-链表中节点数目在范围 [0, 300] 内
--100 <= Node.val <= 100
-题目数据保证链表已经按升序排列
-</pre>
-
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>迭代</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val, next) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> deleteDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>, head);</span><br><span class="line">  <span class="keyword">let</span> cur = dummyNode;</span><br><span class="line">  <span class="keyword">while</span> (cur.next &amp;&amp; cur.next.next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cur.next.val === cur.next.next.val) &#123;</span><br><span class="line">      <span class="keyword">let</span> x = cur.next.val;</span><br><span class="line">      <span class="keyword">while</span> (cur.next &amp;&amp; cur.next.val === x) &#123;</span><br><span class="line">        cur.next = cur.next.next;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      cur = cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>递归</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val, next) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> deleteDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head || !head.next) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (head.val !== head.next.val) &#123;</span><br><span class="line">    head.next = deleteDuplicates(head.next);</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> newNode = head.next.next;</span><br><span class="line">    <span class="keyword">while</span> (newNode &amp;&amp; head.val === newNode.val) &#123;</span><br><span class="line">      newNode = newNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> deleteDuplicates(newNode);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第1天-No.54螺旋矩阵</title>
     <url>/2021/03/15/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC1%E5%A4%A9-No-54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 m 行 n 列的矩阵 matrix ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
@@ -577,6 +543,40 @@ n == matrix[i].length
 
 <h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>转圈遍历：四个方向循环进行遍历。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">      <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> bottom = matrix.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> total = matrix.length * matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="comment">/* 顺时针螺旋遍历 */</span></span><br><span class="line">  <span class="keyword">while</span> (total &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[top][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    top++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = top; i &lt;= bottom &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[i][right]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    right--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = right; i &gt;= left &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[bottom][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    bottom--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = bottom; i &gt;= top &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[i][left]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第11天-No.82删除排序链表中的重复元素2</title>
+    <url>/2021/03/25/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC11%E5%A4%A9-No-82%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>存在一个按升序排列的链表，给你这个链表的头节点 head ，请你删除链表中所有存在数字重复情况的节点，只保留原始链表中 没有重复出现 的数字。</p>
+<a id="more"></a>
+<p>返回同样按升序排列的结果链表。</p>
+<p>示例：</p>
+<pre>
+输入：head = [1,2,3,3,4,4,5]
+输出：[1,2,5]
+
+输入：head = [1,1,1,2,3]
+输出：[2,3]
+</pre>
+
+<p>注意：</p>
+<pre>
+链表中节点数目在范围 [0, 300] 内
+-100 <= Node.val <= 100
+题目数据保证链表已经按升序排列
+</pre>
+
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>迭代</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val, next) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> deleteDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> dummyNode = <span class="keyword">new</span> ListNode(<span class="number">0</span>, head);</span><br><span class="line">  <span class="keyword">let</span> cur = dummyNode;</span><br><span class="line">  <span class="keyword">while</span> (cur.next &amp;&amp; cur.next.next) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cur.next.val === cur.next.next.val) &#123;</span><br><span class="line">      <span class="keyword">let</span> x = cur.next.val;</span><br><span class="line">      <span class="keyword">while</span> (cur.next &amp;&amp; cur.next.val === x) &#123;</span><br><span class="line">        cur.next = cur.next.next;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      cur = cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dummyNode.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>递归</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val, next) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *     this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;ListNode&#125;</span> <span class="variable">head</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;ListNode&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> deleteDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head || !head.next) &#123;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (head.val !== head.next.val) &#123;</span><br><span class="line">    head.next = deleteDuplicates(head.next);</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> newNode = head.next.next;</span><br><span class="line">    <span class="keyword">while</span> (newNode &amp;&amp; head.val === newNode.val) &#123;</span><br><span class="line">      newNode = newNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> deleteDuplicates(newNode);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -642,6 +642,53 @@ s 由英文字母（小写和大写）、',' 和 '.' 组成
 
 <h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>转圈遍历：与螺旋矩阵的解法二类似，四个方向循环进行遍历。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> generateMatrix = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [[<span class="number">1</span>]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = n - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> bottom = n - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> res = <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>));</span><br><span class="line">  <span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line">  <span class="comment">/* 顺时针螺旋遍历 */</span></span><br><span class="line">  <span class="keyword">while</span> (num &lt;= n * n) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right; i++) &#123;</span><br><span class="line">      res[top][i] = num++;</span><br><span class="line">    &#125;</span><br><span class="line">    top++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = top; i &lt;= bottom; i++) &#123;</span><br><span class="line">      res[i][right] = num++;</span><br><span class="line">    &#125;</span><br><span class="line">    right--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = right; i &gt;= left; i--) &#123;</span><br><span class="line">      res[bottom][i] = num++;</span><br><span class="line">    &#125;</span><br><span class="line">    bottom--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = bottom; i &gt;= top; i--) &#123;</span><br><span class="line">      res[i][left] = num++;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第2天-No.8字符串转换整数</title>
+    <url>/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</p>
+<a id="more"></a>
+<p>函数 myAtoi(string s) 的算法如下：</p>
+<ol>
+<li>读入字符串并丢弃无用的前导空格</li>
+<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。如果两者都不存在，则假定结果为正。</li>
+<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。<br>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
+<li>如果整数数超过 32 位有符号整数范围 [−2 ** 31,  2 ** 31 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −2 ** 31 的整数应该被固定为 −2 ** 31 ，大于 2 ** 31 − 1 的整数应该被固定为 2 ** 31 − 1 。</li>
+<li>返回整数作为最终结果。</li>
+</ol>
+<p>示例：</p>
+<pre>
+输入：s = "4193 with words"
+输出：4193
+输入：s = "words and 987"
+输出：0
+输入：s = "   -42"
+输出：-42
+输入：s = "-91283472332"
+输出：-2147483648（-2 ** 31）
+</pre>
+
+<p>注意：</p>
+<pre>
+本题中的空白字符只包括空格字符 ' ' 。
+除前导空格或数字后的其余字符串外，请勿忽略任何其他字符。
+0 <= s.length <= 200
+s 由英文字母（大写和小写）、数字（0-9）、' '、'+'、'-' 和 '.' 组成
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>这里只介绍有限状态机（DFA），类似于编译原理：</p>
+<p>状态转换表：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_excel.png" alt="stateTurnExcel"></p>
+<p>状态转换图：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_pic.png" alt="stateTurnPic"></p>
+<blockquote>
+<p>如遇图片无法显示请访问 <a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">力扣-字符串转整数</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> myAtoi = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Automation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="string">&#x27;start&#x27;</span>; <span class="comment">// 开始状态</span></span><br><span class="line">      <span class="built_in">this</span>.sign = <span class="number">1</span>; <span class="comment">// 1代表正，0代表负</span></span><br><span class="line">      <span class="built_in">this</span>.res = <span class="number">0</span>; <span class="comment">// 初始数值为0</span></span><br><span class="line">      <span class="comment">/* 定义状态转换表 */</span></span><br><span class="line">      <span class="built_in">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        <span class="comment">//状态，遇到 =&gt; [空格，正负号，字符型数值，其他字符]，会跳到对应的状态</span></span><br><span class="line">        [<span class="string">&#x27;start&#x27;</span>, [<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;signed&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;signed&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;in_number&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;end&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]]</span><br><span class="line">      ]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 获取每种字符对应的即将转换到的状态索引 */</span></span><br><span class="line">    getStateIndex(char) &#123;</span><br><span class="line">      <span class="keyword">if</span> (char === <span class="string">&#x27; &#x27;</span>) &#123; <span class="comment">// 空格</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (char === <span class="string">&#x27;+&#x27;</span> || char === <span class="string">&#x27;-&#x27;</span>) &#123; <span class="comment">//正负号</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">parseInt</span>(char) &gt;= <span class="number">0</span>) &#123; <span class="comment">// 字符型数值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他字符</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 对输入的字符进行状态转换 并处理数据 */</span></span><br><span class="line">    turnAndHandle(char) &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="built_in">this</span>.map.get(<span class="built_in">this</span>.state)[<span class="built_in">this</span>.getStateIndex(char)];</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;in_number&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.res * <span class="number">10</span> + (char - <span class="number">0</span>); <span class="comment">// 计算数值</span></span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.sign === <span class="number">1</span> ? <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) : <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, -<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>)); <span class="comment">// 判断是否溢出</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;signed&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.sign = char === <span class="string">&#x27;+&#x27;</span> ? <span class="number">1</span> : <span class="number">-1</span>; <span class="comment">// 设置正负号</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> automaton = <span class="keyword">new</span> Automation();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> char <span class="keyword">of</span> s) &#123; <span class="comment">// 遍历字符串的每一个字符</span></span><br><span class="line">    automaton.turnAndHandle(char);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> automaton.sign * automaton.res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -758,53 +805,6 @@ dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第2天-No.8字符串转换整数</title>
-    <url>/2021/03/16/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC2%E5%A4%A9-No-8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。</p>
-<a id="more"></a>
-<p>函数 myAtoi(string s) 的算法如下：</p>
-<ol>
-<li>读入字符串并丢弃无用的前导空格</li>
-<li>检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。如果两者都不存在，则假定结果为正。</li>
-<li>读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。<br>将前面步骤读入的这些数字转换为整数（即，”123” -&gt; 123， “0032” -&gt; 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。</li>
-<li>如果整数数超过 32 位有符号整数范围 [−2 ** 31,  2 ** 31 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −2 ** 31 的整数应该被固定为 −2 ** 31 ，大于 2 ** 31 − 1 的整数应该被固定为 2 ** 31 − 1 。</li>
-<li>返回整数作为最终结果。</li>
-</ol>
-<p>示例：</p>
-<pre>
-输入：s = "4193 with words"
-输出：4193
-输入：s = "words and 987"
-输出：0
-输入：s = "   -42"
-输出：-42
-输入：s = "-91283472332"
-输出：-2147483648（-2 ** 31）
-</pre>
-
-<p>注意：</p>
-<pre>
-本题中的空白字符只包括空格字符 ' ' 。
-除前导空格或数字后的其余字符串外，请勿忽略任何其他字符。
-0 <= s.length <= 200
-s 由英文字母（大写和小写）、数字（0-9）、' '、'+'、'-' 和 '.' 组成
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>这里只介绍有限状态机（DFA），类似于编译原理：</p>
-<p>状态转换表：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_excel.png" alt="stateTurnExcel"></p>
-<p>状态转换图：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/DFA_pic.png" alt="stateTurnPic"></p>
-<blockquote>
-<p>如遇图片无法显示请访问 <a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">力扣-字符串转整数</a></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> myAtoi = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Automation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="string">&#x27;start&#x27;</span>; <span class="comment">// 开始状态</span></span><br><span class="line">      <span class="built_in">this</span>.sign = <span class="number">1</span>; <span class="comment">// 1代表正，0代表负</span></span><br><span class="line">      <span class="built_in">this</span>.res = <span class="number">0</span>; <span class="comment">// 初始数值为0</span></span><br><span class="line">      <span class="comment">/* 定义状态转换表 */</span></span><br><span class="line">      <span class="built_in">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        <span class="comment">//状态，遇到 =&gt; [空格，正负号，字符型数值，其他字符]，会跳到对应的状态</span></span><br><span class="line">        [<span class="string">&#x27;start&#x27;</span>, [<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;signed&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;signed&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;in_number&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;end&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]]</span><br><span class="line">      ]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 获取每种字符对应的即将转换到的状态索引 */</span></span><br><span class="line">    getStateIndex(char) &#123;</span><br><span class="line">      <span class="keyword">if</span> (char === <span class="string">&#x27; &#x27;</span>) &#123; <span class="comment">// 空格</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (char === <span class="string">&#x27;+&#x27;</span> || char === <span class="string">&#x27;-&#x27;</span>) &#123; <span class="comment">//正负号</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">parseInt</span>(char) &gt;= <span class="number">0</span>) &#123; <span class="comment">// 字符型数值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他字符</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 对输入的字符进行状态转换 并处理数据 */</span></span><br><span class="line">    turnAndHandle(char) &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="built_in">this</span>.map.get(<span class="built_in">this</span>.state)[<span class="built_in">this</span>.getStateIndex(char)];</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;in_number&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.res * <span class="number">10</span> + (char - <span class="number">0</span>); <span class="comment">// 计算数值</span></span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.sign === <span class="number">1</span> ? <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) : <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, -<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>)); <span class="comment">// 判断是否溢出</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;signed&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.sign = char === <span class="string">&#x27;+&#x27;</span> ? <span class="number">1</span> : <span class="number">-1</span>; <span class="comment">// 设置正负号</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> automaton = <span class="keyword">new</span> Automation();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> char <span class="keyword">of</span> s) &#123; <span class="comment">// 遍历字符串的每一个字符</span></span><br><span class="line">    automaton.turnAndHandle(char);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> automaton.sign * automaton.res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第4天-No.1653使字符串平衡的最少删除次数</title>
     <url>/2021/03/18/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC4%E5%A4%A9-No-1653%E4%BD%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B9%B3%E8%A1%A1%E7%9A%84%E6%9C%80%E5%B0%91%E5%88%A0%E9%99%A4%E6%AC%A1%E6%95%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 s ，它仅包含字符 ‘a’ 和 ‘b’​​​​ 。</p>
@@ -897,45 +897,6 @@ s[i] 要么是 'a' 要么是 'b'​ 。​
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第5天-No.1603设计停车系统</title>
-    <url>/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-1603%E8%AE%BE%E8%AE%A1%E5%81%9C%E8%BD%A6%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
-<a id="more"></a>
-<p>请你实现 ParkingSystem 类：</p>
-<p>ParkingSystem(int big, int medium, int small) 初始化 ParkingSystem 类，三个参数分别对应每种停车位的数目。<br>bool addCar(int carType) 检查是否有 carType 对应的停车位。 carType 有三种类型：大，中，小，分别用数字 1， 2 和 3 表示。一辆车只能停在  carType 对应尺寸的停车位中。如果没有空车位，请返回 false ，否则将该车停入车位并返回 true 。</p>
-<p>示例：</p>
-<pre>
-输入：
-["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
-[[1, 1, 0], [1], [2], [3], [1]]
-输出：
-[null, true, true, false, false]
-
-解释：
-ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
-parkingSystem.addCar(1); // 返回 true ，因为有 1 个空的大车位
-parkingSystem.addCar(2); // 返回 true ，因为有 1 个空的中车位
-parkingSystem.addCar(3); // 返回 false ，因为没有空的小车位
-parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一一个大车位已经被占据了
-</pre>
-
-<p>注意：</p>
-<pre>
-0 <= big, medium, small <= 1000
-carType 取值为 1， 2 或 3
-最多会调用 addCar 函数 1000 次
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>非常朴素的解法，也可以使用 carType 作为实例对象的键，或者将三个数量集中在一起管理。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">big</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">medium</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">small</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> ParkingSystem = <span class="function"><span class="keyword">function</span>(<span class="params">big, medium, small</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.big = big;</span><br><span class="line">  <span class="built_in">this</span>.medium = medium;</span><br><span class="line">  <span class="built_in">this</span>.small = small;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">carType</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">ParkingSystem.prototype.addCar = <span class="function"><span class="keyword">function</span>(<span class="params">carType</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.big &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.big--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.medium &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.medium--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.small &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.small--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ParkingSystem object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new ParkingSystem(big, medium, small)</span></span><br><span class="line"><span class="comment"> * var param_1 = obj.addCar(carType)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第6天-No.150逆波兰表达式求值</title>
     <url>/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-150%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>根据 逆波兰表示法，求表达式的值。</p>
@@ -995,33 +956,37 @@ tokens[i] 要么是一个算符（"+"、"-"、"*" 或 "/"），要么是一个�
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第6天-No.1556千位分隔数</title>
-    <url>/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
+    <title>力扣挑战赛第5天-No.1603设计停车系统</title>
+    <url>/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-1603%E8%AE%BE%E8%AE%A1%E5%81%9C%E8%BD%A6%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
 <a id="more"></a>
+<p>请你实现 ParkingSystem 类：</p>
+<p>ParkingSystem(int big, int medium, int small) 初始化 ParkingSystem 类，三个参数分别对应每种停车位的数目。<br>bool addCar(int carType) 检查是否有 carType 对应的停车位。 carType 有三种类型：大，中，小，分别用数字 1， 2 和 3 表示。一辆车只能停在  carType 对应尺寸的停车位中。如果没有空车位，请返回 false ，否则将该车停入车位并返回 true 。</p>
 <p>示例：</p>
 <pre>
-输入：n = 987
-输出："987"
+输入：
+["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
+[[1, 1, 0], [1], [2], [3], [1]]
+输出：
+[null, true, true, false, false]
 
-输入：n = 1234
-输出："1.234"
-
-输入：n = 123456789
-输出："123.456.789"
-
-输入：n = 0
-输出："0"
+解释：
+ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
+parkingSystem.addCar(1); // 返回 true ，因为有 1 个空的大车位
+parkingSystem.addCar(2); // 返回 true ，因为有 1 个空的中车位
+parkingSystem.addCar(3); // 返回 false ，因为没有空的小车位
+parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一一个大车位已经被占据了
 </pre>
 
 <p>注意：</p>
 <pre>
-0 <= n < 2^31
+0 <= big, medium, small <= 1000
+carType 取值为 1， 2 或 3
+最多会调用 addCar 函数 1000 次
 </pre>
 
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>非常朴素的解法，也可以使用 carType 作为实例对象的键，或者将三个数量集中在一起管理。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">big</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">medium</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">small</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> ParkingSystem = <span class="function"><span class="keyword">function</span>(<span class="params">big, medium, small</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.big = big;</span><br><span class="line">  <span class="built_in">this</span>.medium = medium;</span><br><span class="line">  <span class="built_in">this</span>.small = small;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">carType</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">ParkingSystem.prototype.addCar = <span class="function"><span class="keyword">function</span>(<span class="params">carType</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.big &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.big--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.medium &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.medium--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.small &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.small--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ParkingSystem object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new ParkingSystem(big, medium, small)</span></span><br><span class="line"><span class="comment"> * var param_1 = obj.addCar(carType)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -1103,6 +1068,41 @@ n == matrix[0].length
 
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>模拟</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">customers</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> averageWaitingTime = <span class="function"><span class="keyword">function</span> (<span class="params">customers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = customers.length;</span><br><span class="line">  <span class="keyword">let</span> done = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> waiting = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> arrival = customers[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> time = customers[i][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (arrival &lt;= done) &#123;</span><br><span class="line">      done += time;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      done = arrival + time;</span><br><span class="line">    &#125;</span><br><span class="line">    waiting += done - arrival;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> waiting / len;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第6天-No.1556千位分隔数</title>
+    <url>/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
+<a id="more"></a>
+<p>示例：</p>
+<pre>
+输入：n = 987
+输出："987"
+
+输入：n = 1234
+输出："1.234"
+
+输入：n = 123456789
+输出："123.456.789"
+
+输入：n = 0
+输出："0"
+</pre>
+
+<p>注意：</p>
+<pre>
+0 <= n < 2^31
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -1259,20 +1259,6 @@ envelopes[i].length == 2
       </tags>
   </entry>
   <entry>
-    <title>双向数据绑定</title>
-    <url>/2020/09/27/%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue中的双向数据绑定"><a href="#Vue中的双向数据绑定" class="headerlink" title="Vue中的双向数据绑定"></a>Vue中的双向数据绑定</h2><p> Vue 最核心的功能有两个，一是响应式的数据绑定系统，二是组件化。来看下面的代码：<br> <a id="more"></a><br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;text&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;node_modules/vue/dist/vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">&quot;#app&quot;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                text: <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br> 在浏览器中运行可以看到，随文本框输入文字的变化，span 中会同步显示相同的文字内容.这就是 Vue 中 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data.png" alt="alt"></p>
-<h2 id="实现简单的双向数据绑定"><a href="#实现简单的双向数据绑定" class="headerlink" title="实现简单的双向数据绑定"></a>实现简单的双向数据绑定</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;input&quot;</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">&quot;span&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">        <span class="keyword">let</span> inputEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> spanEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">        <span class="comment">// 数据劫持</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;text&#x27;</span>, &#123;</span><br><span class="line">            configurable: <span class="literal">true</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;获取数据了&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            set(newVal) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;数据更新了&#x27;</span>);</span><br><span class="line">                inputEle.value = newVal;</span><br><span class="line">                spanEle.innerHTML = newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 输入监听</span></span><br><span class="line">        inputEle.addEventListener(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            obj.text = e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在浏览器中运行此代码可以看到：随文本框输入文字的变化，span 中会同步显示相同的文字内容；在js或控制台显式的修改 obj.text 的值，视图会相应更新。这样就实现了 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data2.png" alt="alt"></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回首2020，启航2021</title>
     <url>/2021/01/01/%E5%9B%9E%E9%A6%962020%EF%BC%8C%E5%90%AF%E8%88%AA2021/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回首2020"><a href="#回首2020" class="headerlink" title="回首2020"></a>回首2020</h2><p>2020年，我们经历了一次全球流行的传染病，至今新冠病毒仍在国外肆虐，国内疫情也时有反复，在此艰难的环境下，我们每个人都在奋力前行。</p>
@@ -1318,6 +1304,20 @@ envelopes[i].length == 2
 <li>圣杯布局，为了中间 div 内容不被遮挡，将外层容器设置了左右 padding-left 和 padding-right 后，将左右两个 div 用相对布局position: relative 并分别配合 left 和 right 属性，以便左右两栏 div 移动后不遮挡中间 div 。</li>
 <li>双飞翼布局，为了中间 div 内容不被遮挡，直接在中间 div 内部创建子 div 用于放置内容，在该子 div 里用 margin-left 和margin-right 为左右两栏 div 留出位置。</li>
 </ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双向数据绑定</title>
+    <url>/2020/09/27/%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue中的双向数据绑定"><a href="#Vue中的双向数据绑定" class="headerlink" title="Vue中的双向数据绑定"></a>Vue中的双向数据绑定</h2><p> Vue 最核心的功能有两个，一是响应式的数据绑定系统，二是组件化。来看下面的代码：<br> <a id="more"></a><br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;text&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;node_modules/vue/dist/vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">&quot;#app&quot;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                text: <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br> 在浏览器中运行可以看到，随文本框输入文字的变化，span 中会同步显示相同的文字内容.这就是 Vue 中 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data.png" alt="alt"></p>
+<h2 id="实现简单的双向数据绑定"><a href="#实现简单的双向数据绑定" class="headerlink" title="实现简单的双向数据绑定"></a>实现简单的双向数据绑定</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;input&quot;</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">&quot;span&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">        <span class="keyword">let</span> inputEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> spanEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">        <span class="comment">// 数据劫持</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;text&#x27;</span>, &#123;</span><br><span class="line">            configurable: <span class="literal">true</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;获取数据了&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            set(newVal) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;数据更新了&#x27;</span>);</span><br><span class="line">                inputEle.value = newVal;</span><br><span class="line">                spanEle.innerHTML = newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 输入监听</span></span><br><span class="line">        inputEle.addEventListener(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            obj.text = e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在浏览器中运行此代码可以看到：随文本框输入文字的变化，span 中会同步显示相同的文字内容；在js或控制台显式的修改 obj.text 的值，视图会相应更新。这样就实现了 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data2.png" alt="alt"></p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -1394,63 +1394,6 @@ envelopes[i].length == 2
       </tags>
   </entry>
   <entry>
-    <title>字节面试题1</title>
-    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
-<ul>
-<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
-<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
-<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
-<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
-<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
-<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
-<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
-<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
-<li>传输层协议：TCP协议、UDP协议</li>
-<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
-<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
-<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
-<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
-<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
-<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
-<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
-<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
-<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
-<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
-<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
-<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
-<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
-<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
-<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
-<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
-<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
-</blockquote>
-</li>
-<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
-<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
-<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
-<p>注：需要服务器端的页面进行相应的配合</p>
-</blockquote>
-</li>
-<li>通过修改document.domain来跨子域</li>
-<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
-<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
-<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
-<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
-<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
-<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>尾调用和尾递归</title>
     <url>/2020/09/20/%E5%B0%BE%E8%B0%83%E7%94%A8%E5%92%8C%E5%B0%BE%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h2><p>尾调用是函数式编程中一个很重要的概念，当一个函数执行时的最后一个步骤是返回另一个函数的调用，这就叫做尾调用。函数调用可以是下面方式中的任意一种：</p>
@@ -1524,43 +1467,60 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>成长</title>
-    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
-<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
-<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
-<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
-<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
-<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
+    <title>字节面试题1</title>
+    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
 <ul>
-<li>初一，学习成绩前五，住校；</li>
-<li>初二，学习成绩第一，住校，物理课代表</li>
-<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
-</ul>
-<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
-<ul>
-<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
-<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
-<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
-<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
-<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
-</ul>
-<blockquote>
-<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
+<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
+<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
+<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
+<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
+<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
+<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
+<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
+<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
+<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
+<li>传输层协议：TCP协议、UDP协议</li>
+<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
+<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
+<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
+<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
+<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
+<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
+<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
+<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
+<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
+<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
+<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
+<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
+<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
+<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
+<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
+<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
 </blockquote>
-<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
-<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
-<blockquote>
-<p>注：上面圆圈大小不代表城市规模和大小</p>
+</li>
+<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
+<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
+<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
+<p>注：需要服务器端的页面进行相应的配合</p>
 </blockquote>
-<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
+</li>
+<li>通过修改document.domain来跨子域</li>
+<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
+<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
+<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
+<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
+<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
+<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>人生</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,6 +1591,46 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
+    <title>成长</title>
+    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
+<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
+<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
+<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
+<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
+<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
+<ul>
+<li>初一，学习成绩前五，住校；</li>
+<li>初二，学习成绩第一，住校，物理课代表</li>
+<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
+</ul>
+<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
+<ul>
+<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
+<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
+<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
+<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
+<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
+</ul>
+<blockquote>
+<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
+</blockquote>
+<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
+<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
+<blockquote>
+<p>注：上面圆圈大小不代表城市规模和大小</p>
+</blockquote>
+<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>散列表</title>
     <url>/2020/09/21/%E6%95%A3%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做<strong>散列函数</strong>，存放记录的数组叫做散列表。</p>
@@ -1661,6 +1661,27 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>新的征程</title>
+    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
+<a id="more"></a>
+<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
+<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
+<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
+<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,27 +1736,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>新的征程</title>
-    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
-<a id="more"></a>
-<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
-<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
-<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
-<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>栈</title>
     <url>/2020/09/21/%E6%A0%88/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈是一种遵从<strong>后进先出</strong>（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。</p>
@@ -1761,6 +1761,92 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>跨域</title>
+    <url>/2020/09/30/%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSRF等攻击。所谓同源是指“协议，域名，端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/tongyuan.png" alt="alt"></p>
+<p>同源策略的限制内容有：</p>
+<ul>
+<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
+<li>DOM 节点</li>
+<li>AJAX 请求发送后，结果被浏览器拦截了</li>
+</ul>
+<p>跨域就是由浏览器同源策略引起的，是指页面请求的接口地址，必须与页面url地址同源。这是为了防止某域名下的接口被其他域名下的网页非法调用，是浏览器对JavaScript施加的安全限制。当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域。不同域之间相互请求资源，就算作“跨域”。常见跨域场景如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/tongyuan2.png" alt="alt"></p>
+<p>需要注意三点：</p>
+<ul>
+<li>如果是协议和端口造成的跨域问题“前台”是无能为力的。</li>
+<li>在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配。</li>
+<li>跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会？因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</li>
+</ul>
+<p>下面来说说有哪些跨域解决方案。</p>
+<h2 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h2><p>利用script标签（类似的标签还有 iframe、img ，他们都含有 src属性，link 标签借助 href 也可跨域）可跨域的特点，在跨域脚本中可以直接回调当前脚本的函数。</p>
+<p>jsonp 和 Ajax 相同，都是客户端向服务器端发送请求，从服务器端获取数据的方式。但 Ajax 属于同源策略，jsonp 属于非同源策略（跨域请求）。</p>
+<p>jsonp 优点是简单兼容性好，可用于解决主流浏览器的跨域数据访问的问题。缺点是仅支持 get 方法具有局限性，不安全可能会遭受 XSS 攻击，而且严重依赖后端的协助。</p>
+<p>jsonp实现原理：</p>
+<ul>
+<li>声明一个回调函数，其函数名(如 show )当做参数值，要传递给跨域请求数据的服务器，函数形参为要获取目标数据(服务器返回的 data )。</li>
+<li>创建一个 script 标签，把那个跨域的 API 数据接口地址，赋值给script 的 src ,还要在这个地址中向服务器传递该函数名（可以通过问号传参：?callback=show）。</li>
+<li>服务器接收到请求后，需要进行特殊的处理：把传递进来的函数名和它需要给你的数据拼接成一个字符串，例如：传递进去的函数名是show ，它准备好的数据是 show(‘I love you’)。</li>
+<li>最后服务器把准备的数据通过 HTTP 协议返回给客户端，客户端再调用执行之前声明的回调函数（show），对返回的数据进行操作。</li>
+</ul>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>服务器设置HTTP响应头中Access-Control-Allow-Origin值，解除跨域限制，该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。通过CORS解决跨域问题的话，会在发送请求时出现两种情况，分别为简单请求和复杂请求。</p>
+<ul>
+<li>只要同时满足以下两大条件，就属于简单请求：<br>条件1：使用下列方法之一：GET HEAD POST<br>条件2：Content-Type 的值仅限于下列三者之一：<br>text/plain<br>multipart/form-data<br>application/x-www-form-urlencoded<br>请求中的任意 XMLHttpRequestUpload 对象均没有注册任何事件监听器； XMLHttpRequestUpload 对象可以使用 XMLHttpRequest.upload 属性访问。</li>
+<li>不符合以上条件的请求就是复杂请求了。复杂请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为”预检”请求,该请求是 option 方法的，通过该请求来知道服务端是否允许跨域请求。例如我们用PUT向后台请求时，属于复杂请求。</li>
+</ul>
+<p>和 jsonp 一样，CORS 也严重依赖后端的协助。</p>
+<h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p>postMessage 是 HTML5 XMLHttpRequest Level 2 中的API，且是为数不多可以跨域操作的 window 属性之一，它可用于解决以下方面的问题：</p>
+<ul>
+<li>页面和其打开的新窗口的数据传递</li>
+<li>多窗口之间消息传递</li>
+<li>页面与嵌套的iframe消息传递</li>
+<li>上面三个场景的跨域数据传递</li>
+</ul>
+<p>postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递。</p>
+<blockquote>
+<p>otherWindow.postMessage(message, targetOrigin, [transfer]);</p>
+</blockquote>
+<ul>
+<li>message: 将要发送到其他 window 的数据。</li>
+<li>targetOrigin：通过窗口的 origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串”*”（表示无限制）或者一个URI。在发送消息的时候，如果目标窗口的协议、主机地址或端口这三者的任意一项不匹配 targetOrigin 提供的值，那么消息就不会被发送，只有三者完全匹配，消息才会被发送。</li>
+<li>transfer(可选)：是一串和 message 同时传递的 Transferable 对象，这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。</li>
+</ul>
+<h2 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h2><p>Websocket 是 HTML5 的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。WebSocket 和 HTTP 都是应用层协议，都基于 TCP 协议。但是 WebSocket 是一种双向通信协议，在建立连接之后，WebSocket 的 server 与 client 都能主动向对方发送或接收数据。同时，WebSocket 在建立连接时需要借助 HTTP 协议，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了。原生 WebSocket API 使用起来不太方便，我们使用<code>Socket.io</code>，它很好地封装了 webSocket 接口，提供了更简单、灵活的接口，也对不支持 webSocket 的浏览器提供了向下兼容。</p>
+<h2 id="Node中间件正向代理"><a href="#Node中间件正向代理" class="headerlink" title="Node中间件正向代理"></a>Node中间件正向代理</h2><p><strong>同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。</strong></p>
+<p>代理服务器，需要做以下几个步骤：</p>
+<ul>
+<li>接受客户端请求 </li>
+<li>将请求转发给服务器</li>
+<li>拿到服务器响应数据</li>
+<li>将响应转发给客户端</li>
+</ul>
+<h2 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h2><p>实现原理类似于 Node 中间件正向代理，需要你搭建一个中转 nginx服务器，用于转发请求。使用 nginx 反向代理实现跨域，是最简单的跨域方式。只需要修改 nginx 的配置即可解决跨域问题，支持所有浏览器，支持 session，不需要修改任何代码，并且不会影响服务器性能。通过nginx配置一个代理服务器（域名与 domain1 相同，端口不同）做跳板机，反向代理访问 domain2 接口，并且可以顺便修改cookie 中 domain 信息，方便当前域 cookie 写入，实现跨域登录。</p>
+<p>正向代理和反向代理的比较：</p>
+<ul>
+<li>从用途上来讲：正向代理的典型用途是为在防火墙内的局域网客户端提供访问Internet的途径。正向代理还可以使用缓冲特性减少网络使用率。反向代理的典型用途是为后端的多台服务器提供负载平衡，或为后端较慢的服务器提供缓冲服务。</li>
+<li>从安全性来讲：正向代理允许客户端通过它访问任意网站并且隐藏客户端自身，因此你必须采取安全措施以确保仅为经过授权的客户端提供服务。反向代理对外都是透明的，访问者并不知道自己访问的是一个代理。</li>
+<li>从使用方来看：正向代理是浏览器端进行配置的，与服务器端无关，甚至可以对服务端隐藏。反向代理是服务器端配置的，对浏览器端是透明的。</li>
+</ul>
+<h2 id="window-name-iframe"><a href="#window-name-iframe" class="headerlink" title="window.name + iframe"></a><code>window.name</code> + iframe</h2><p>window.name属性的独特之处：name 值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。通过iframe 的 src 属性由外域转向本地域，跨域数据即由 iframe 的window.name 从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。</p>
+<h2 id="window-location-hash-iframe"><a href="#window-location-hash-iframe" class="headerlink" title="window.location.hash + iframe"></a><code>window.location.hash</code> + iframe</h2><p>a.html 欲与 c.html 跨域相互通信，通过中间页 b.html 来实现。 三个页面，不同域之间利用 iframe 的 window.location.hash 传值，相同域之间直接 js 访问来通信。一开始 a.html 给 c.html 传一个 hash 值，然后 c.html 收到 hash 值后，再把 hash 值传递给b.html ，最后 b.html 将结果放到 a.html 的 hash 值中。</p>
+<h2 id="document-domain-ifame"><a href="#document-domain-ifame" class="headerlink" title="document.domain + ifame"></a><code>document.domain</code> + ifame</h2><p>该方式只能用于二级域名相同的情况下，比如 <code>a.test.com</code> 和 <code>b.test.com</code> 适用于该方式。只需要给页面添加 <code>document.domain =&#39;test.com&#39;</code> 表示二级域名都相同就可以实现跨域。两个页面都通过 js 强制设置 document.domain 为基础主域，就实现了同域。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>CORS 支持所有类型的 HTTP 请求，是跨域 HTTP 请求的根本解决方案。</li>
+<li>jsonp 只支持 GET 请求，jsonp 的优势在于支持老式浏览器，以及可以向不支持 CORS 的网站请求数据。</li>
+<li>不管是 Node 中间件正向代理还是 nginx 反向代理，主要是通过同源策略对服务器不加限制。</li>
+<li>日常工作中，用得比较多的跨域方案是 CORS 和 nginx 反向代理。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1861,92 +1947,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>跨域</title>
-    <url>/2020/09/30/%E8%B7%A8%E5%9F%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSRF等攻击。所谓同源是指“协议，域名，端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
-<a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/tongyuan.png" alt="alt"></p>
-<p>同源策略的限制内容有：</p>
-<ul>
-<li>Cookie、LocalStorage、IndexedDB 等存储性内容</li>
-<li>DOM 节点</li>
-<li>AJAX 请求发送后，结果被浏览器拦截了</li>
-</ul>
-<p>跨域就是由浏览器同源策略引起的，是指页面请求的接口地址，必须与页面url地址同源。这是为了防止某域名下的接口被其他域名下的网页非法调用，是浏览器对JavaScript施加的安全限制。当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域。不同域之间相互请求资源，就算作“跨域”。常见跨域场景如下图所示：</p>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/tongyuan2.png" alt="alt"></p>
-<p>需要注意三点：</p>
-<ul>
-<li>如果是协议和端口造成的跨域问题“前台”是无能为力的。</li>
-<li>在跨域问题上，仅仅是通过“URL的首部”来识别而不会根据域名对应的IP地址是否相同来判断。“URL的首部”可以理解为“协议, 域名和端口必须匹配。</li>
-<li>跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了。你可能会疑问明明通过表单的方式可以发起跨域请求，为什么 Ajax 就不会？因为归根结底，跨域是为了阻止用户读取到另一个域名下的内容，Ajax 可以获取响应，浏览器认为这不安全，所以拦截了响应。但是表单并不会获取新的内容，所以可以发起跨域请求。同时也说明了跨域并不能完全阻止 CSRF，因为请求毕竟是发出去了。</li>
-</ul>
-<p>下面来说说有哪些跨域解决方案。</p>
-<h2 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h2><p>利用script标签（类似的标签还有 iframe、img ，他们都含有 src属性，link 标签借助 href 也可跨域）可跨域的特点，在跨域脚本中可以直接回调当前脚本的函数。</p>
-<p>jsonp 和 Ajax 相同，都是客户端向服务器端发送请求，从服务器端获取数据的方式。但 Ajax 属于同源策略，jsonp 属于非同源策略（跨域请求）。</p>
-<p>jsonp 优点是简单兼容性好，可用于解决主流浏览器的跨域数据访问的问题。缺点是仅支持 get 方法具有局限性，不安全可能会遭受 XSS 攻击，而且严重依赖后端的协助。</p>
-<p>jsonp实现原理：</p>
-<ul>
-<li>声明一个回调函数，其函数名(如 show )当做参数值，要传递给跨域请求数据的服务器，函数形参为要获取目标数据(服务器返回的 data )。</li>
-<li>创建一个 script 标签，把那个跨域的 API 数据接口地址，赋值给script 的 src ,还要在这个地址中向服务器传递该函数名（可以通过问号传参：?callback=show）。</li>
-<li>服务器接收到请求后，需要进行特殊的处理：把传递进来的函数名和它需要给你的数据拼接成一个字符串，例如：传递进去的函数名是show ，它准备好的数据是 show(‘I love you’)。</li>
-<li>最后服务器把准备的数据通过 HTTP 协议返回给客户端，客户端再调用执行之前声明的回调函数（show），对返回的数据进行操作。</li>
-</ul>
-<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>服务器设置HTTP响应头中Access-Control-Allow-Origin值，解除跨域限制，该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。通过CORS解决跨域问题的话，会在发送请求时出现两种情况，分别为简单请求和复杂请求。</p>
-<ul>
-<li>只要同时满足以下两大条件，就属于简单请求：<br>条件1：使用下列方法之一：GET HEAD POST<br>条件2：Content-Type 的值仅限于下列三者之一：<br>text/plain<br>multipart/form-data<br>application/x-www-form-urlencoded<br>请求中的任意 XMLHttpRequestUpload 对象均没有注册任何事件监听器； XMLHttpRequestUpload 对象可以使用 XMLHttpRequest.upload 属性访问。</li>
-<li>不符合以上条件的请求就是复杂请求了。复杂请求的 CORS 请求，会在正式通信之前，增加一次 HTTP 查询请求，称为”预检”请求,该请求是 option 方法的，通过该请求来知道服务端是否允许跨域请求。例如我们用PUT向后台请求时，属于复杂请求。</li>
-</ul>
-<p>和 jsonp 一样，CORS 也严重依赖后端的协助。</p>
-<h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p>postMessage 是 HTML5 XMLHttpRequest Level 2 中的API，且是为数不多可以跨域操作的 window 属性之一，它可用于解决以下方面的问题：</p>
-<ul>
-<li>页面和其打开的新窗口的数据传递</li>
-<li>多窗口之间消息传递</li>
-<li>页面与嵌套的iframe消息传递</li>
-<li>上面三个场景的跨域数据传递</li>
-</ul>
-<p>postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递。</p>
-<blockquote>
-<p>otherWindow.postMessage(message, targetOrigin, [transfer]);</p>
-</blockquote>
-<ul>
-<li>message: 将要发送到其他 window 的数据。</li>
-<li>targetOrigin：通过窗口的 origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串”*”（表示无限制）或者一个URI。在发送消息的时候，如果目标窗口的协议、主机地址或端口这三者的任意一项不匹配 targetOrigin 提供的值，那么消息就不会被发送，只有三者完全匹配，消息才会被发送。</li>
-<li>transfer(可选)：是一串和 message 同时传递的 Transferable 对象，这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。</li>
-</ul>
-<h2 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h2><p>Websocket 是 HTML5 的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。WebSocket 和 HTTP 都是应用层协议，都基于 TCP 协议。但是 WebSocket 是一种双向通信协议，在建立连接之后，WebSocket 的 server 与 client 都能主动向对方发送或接收数据。同时，WebSocket 在建立连接时需要借助 HTTP 协议，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了。原生 WebSocket API 使用起来不太方便，我们使用<code>Socket.io</code>，它很好地封装了 webSocket 接口，提供了更简单、灵活的接口，也对不支持 webSocket 的浏览器提供了向下兼容。</p>
-<h2 id="Node中间件正向代理"><a href="#Node中间件正向代理" class="headerlink" title="Node中间件正向代理"></a>Node中间件正向代理</h2><p><strong>同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。</strong></p>
-<p>代理服务器，需要做以下几个步骤：</p>
-<ul>
-<li>接受客户端请求 </li>
-<li>将请求转发给服务器</li>
-<li>拿到服务器响应数据</li>
-<li>将响应转发给客户端</li>
-</ul>
-<h2 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h2><p>实现原理类似于 Node 中间件正向代理，需要你搭建一个中转 nginx服务器，用于转发请求。使用 nginx 反向代理实现跨域，是最简单的跨域方式。只需要修改 nginx 的配置即可解决跨域问题，支持所有浏览器，支持 session，不需要修改任何代码，并且不会影响服务器性能。通过nginx配置一个代理服务器（域名与 domain1 相同，端口不同）做跳板机，反向代理访问 domain2 接口，并且可以顺便修改cookie 中 domain 信息，方便当前域 cookie 写入，实现跨域登录。</p>
-<p>正向代理和反向代理的比较：</p>
-<ul>
-<li>从用途上来讲：正向代理的典型用途是为在防火墙内的局域网客户端提供访问Internet的途径。正向代理还可以使用缓冲特性减少网络使用率。反向代理的典型用途是为后端的多台服务器提供负载平衡，或为后端较慢的服务器提供缓冲服务。</li>
-<li>从安全性来讲：正向代理允许客户端通过它访问任意网站并且隐藏客户端自身，因此你必须采取安全措施以确保仅为经过授权的客户端提供服务。反向代理对外都是透明的，访问者并不知道自己访问的是一个代理。</li>
-<li>从使用方来看：正向代理是浏览器端进行配置的，与服务器端无关，甚至可以对服务端隐藏。反向代理是服务器端配置的，对浏览器端是透明的。</li>
-</ul>
-<h2 id="window-name-iframe"><a href="#window-name-iframe" class="headerlink" title="window.name + iframe"></a><code>window.name</code> + iframe</h2><p>window.name属性的独特之处：name 值在不同的页面（甚至不同域名）加载后依旧存在，并且可以支持非常长的 name 值（2MB）。通过iframe 的 src 属性由外域转向本地域，跨域数据即由 iframe 的window.name 从外域传递到本地域。这个就巧妙地绕过了浏览器的跨域访问限制，但同时它又是安全操作。</p>
-<h2 id="window-location-hash-iframe"><a href="#window-location-hash-iframe" class="headerlink" title="window.location.hash + iframe"></a><code>window.location.hash</code> + iframe</h2><p>a.html 欲与 c.html 跨域相互通信，通过中间页 b.html 来实现。 三个页面，不同域之间利用 iframe 的 window.location.hash 传值，相同域之间直接 js 访问来通信。一开始 a.html 给 c.html 传一个 hash 值，然后 c.html 收到 hash 值后，再把 hash 值传递给b.html ，最后 b.html 将结果放到 a.html 的 hash 值中。</p>
-<h2 id="document-domain-ifame"><a href="#document-domain-ifame" class="headerlink" title="document.domain + ifame"></a><code>document.domain</code> + ifame</h2><p>该方式只能用于二级域名相同的情况下，比如 <code>a.test.com</code> 和 <code>b.test.com</code> 适用于该方式。只需要给页面添加 <code>document.domain =&#39;test.com&#39;</code> 表示二级域名都相同就可以实现跨域。两个页面都通过 js 强制设置 document.domain 为基础主域，就实现了同域。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>CORS 支持所有类型的 HTTP 请求，是跨域 HTTP 请求的根本解决方案。</li>
-<li>jsonp 只支持 GET 请求，jsonp 的优势在于支持老式浏览器，以及可以向不支持 CORS 的网站请求数据。</li>
-<li>不管是 Node 中间件正向代理还是 nginx 反向代理，主要是通过同源策略对服务器不加限制。</li>
-<li>日常工作中，用得比较多的跨域方案是 CORS 和 nginx 反向代理。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>链表</title>
     <url>/2020/09/21/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用（也称指针或链接）组成。相比于传统的数组，链表的一个好处在于，添加或删除元素的时候不需要移动其他元素。然而，链表需要使用指针，因此实现链表时需要额外注意。在数组中，我们可以直接访问任何位置的任何元素，而想要访问链表中间的一个元素，则需要从起点（表头）开始迭代链表直到找到所需的元素。</p>
@@ -1977,6 +1977,22 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
 <h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列是一种允许我们同时从前端和后端添加和删除元素的特殊队列。</p>
 <h2 id="Deque类的模拟实现"><a href="#Deque类的模拟实现" class="headerlink" title="Deque类的模拟实现"></a>Deque类的模拟实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Deque</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的前端添加元素</span></span><br><span class="line">    addFront(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="built_in">this</span>.addBack(element);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.lowestCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount--;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount] = element;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.count; i &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">                <span class="built_in">this</span>.items[i] = <span class="built_in">this</span>.items[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.count++;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="number">0</span>] = element;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的后端添加元素</span></span><br><span class="line">    addBack(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的前端移除元素</span></span><br><span class="line">    removeFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="built_in">this</span>.lowestCount++;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的后端移除元素</span></span><br><span class="line">    removeBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.count--;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列前端头元素</span></span><br><span class="line">    peekFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列后端头元素</span></span><br><span class="line">    peekBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取双端队列的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查双端队列是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.size() === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空双端队列</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.lowestCount + <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>,<span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里就不再演示Queue类和Deque类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>集合</title>
+    <url>/2020/09/20/%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合是由一种<strong>无序</strong>且<strong>唯一</strong>（即不能重复）的项组成的。</p>
+<a id="more"></a>
+<h2 id="Set类的模拟实现"><a href="#Set类的模拟实现" class="headerlink" title="Set类的模拟实现"></a>Set类的模拟实现</h2><p>虽然ES2015给我们提供了原生的Set类，但是并没有实现并集、交集、差集、子集等数学运算，这里我们模拟实现自己的Set类。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Set</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果元素在集合中，返回true，否则返回false</span></span><br><span class="line">    has(element) &#123;</span><br><span class="line">        <span class="keyword">return</span> element <span class="keyword">in</span> <span class="built_in">this</span>.items;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向集合添加一个元素</span></span><br><span class="line">    add(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.items[element] = element;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从集合移除一个元素</span></span><br><span class="line">    <span class="keyword">delete</span>(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="built_in">this</span>.items[element];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 移除集合中的所有元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回集合所包含元素的数量。它与数组的length属性类似</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="built_in">this</span>.items).length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回一个包含集合中所有值（元素）的数组</span></span><br><span class="line">    values() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.values(<span class="built_in">this</span>.items);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 并集</span></span><br><span class="line">    union(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> unionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        otherSet.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> unionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交集</span></span><br><span class="line">    intersection(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span>  i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (otherSet.has(values[i])) &#123;</span><br><span class="line">                intersectionSet.add(values[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改进版交集</span></span><br><span class="line">    intersectionPlus(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">const</span> otherValues = otherSet.values();</span><br><span class="line">        <span class="keyword">let</span> biggerSet = values;</span><br><span class="line">        <span class="keyword">let</span> smallerSet = otherValues;</span><br><span class="line">        <span class="keyword">if</span> (otherValues.length - values.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            biggerSet = otherValues;</span><br><span class="line">            smallerSet = values;</span><br><span class="line">        &#125;</span><br><span class="line">        smallerSet.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (biggerSet.includes(value)) &#123;</span><br><span class="line">                intersectionSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 差集</span></span><br><span class="line">    difference(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> differenceSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                differenceSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> differenceSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 子集</span></span><br><span class="line">    isSubsetOf(otherSet) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size() &gt; otherSet.size()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> isSubset = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">this</span>.values().every(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                isSubset = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> isSubset;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里就不再演示Set类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -2026,22 +2042,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>集合</title>
-    <url>/2020/09/20/%E9%9B%86%E5%90%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合是由一种<strong>无序</strong>且<strong>唯一</strong>（即不能重复）的项组成的。</p>
-<a id="more"></a>
-<h2 id="Set类的模拟实现"><a href="#Set类的模拟实现" class="headerlink" title="Set类的模拟实现"></a>Set类的模拟实现</h2><p>虽然ES2015给我们提供了原生的Set类，但是并没有实现并集、交集、差集、子集等数学运算，这里我们模拟实现自己的Set类。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Set</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果元素在集合中，返回true，否则返回false</span></span><br><span class="line">    has(element) &#123;</span><br><span class="line">        <span class="keyword">return</span> element <span class="keyword">in</span> <span class="built_in">this</span>.items;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向集合添加一个元素</span></span><br><span class="line">    add(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="built_in">this</span>.items[element] = element;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从集合移除一个元素</span></span><br><span class="line">    <span class="keyword">delete</span>(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.has(element)) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="built_in">this</span>.items[element];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 移除集合中的所有元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回集合所包含元素的数量。它与数组的length属性类似</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="built_in">this</span>.items).length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回一个包含集合中所有值（元素）的数组</span></span><br><span class="line">    values() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.values(<span class="built_in">this</span>.items);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 并集</span></span><br><span class="line">    union(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> unionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        otherSet.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            unionSet.add(value);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> unionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 交集</span></span><br><span class="line">    intersection(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span>  i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (otherSet.has(values[i])) &#123;</span><br><span class="line">                intersectionSet.add(values[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 改进版交集</span></span><br><span class="line">    intersectionPlus(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> intersectionSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="keyword">const</span> values = <span class="built_in">this</span>.values();</span><br><span class="line">        <span class="keyword">const</span> otherValues = otherSet.values();</span><br><span class="line">        <span class="keyword">let</span> biggerSet = values;</span><br><span class="line">        <span class="keyword">let</span> smallerSet = otherValues;</span><br><span class="line">        <span class="keyword">if</span> (otherValues.length - values.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            biggerSet = otherValues;</span><br><span class="line">            smallerSet = values;</span><br><span class="line">        &#125;</span><br><span class="line">        smallerSet.forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (biggerSet.includes(value)) &#123;</span><br><span class="line">                intersectionSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> intersectionSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 差集</span></span><br><span class="line">    difference(otherSet) &#123;</span><br><span class="line">        <span class="keyword">const</span> differenceSet = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">        <span class="built_in">this</span>.values().forEach(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                differenceSet.add(value);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> differenceSet;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 子集</span></span><br><span class="line">    isSubsetOf(otherSet) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.size() &gt; otherSet.size()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> isSubset = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">this</span>.values().every(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!otherSet.has(value)) &#123;</span><br><span class="line">                isSubset = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> isSubset;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里就不再演示Set类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
