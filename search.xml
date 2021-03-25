@@ -147,6 +147,59 @@
       </tags>
   </entry>
   <entry>
+    <title>async和defer</title>
+    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
+<a id="more"></a>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
+<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>onward and upward</title>
+    <url>/2021/02/07/onward-and-upward/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
+<p>西平高中校号：</p>
+<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
+<p>2014级宏志班班号：</p>
+<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
+<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
+<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React Hooks</title>
+    <url>/2021/01/27/React-Hooks/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="React-Hooks"><a href="#React-Hooks" class="headerlink" title="React Hooks"></a>React Hooks</h2><p>Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
+<a id="more"></a>
+<p>下面链接是我做的一个关于 Hooks 的 PPT ，较为全面的介绍了Hooks，希望帮助大家入门 Hooks。</p>
+<p><a href="https://raw.githubusercontent.com/cxs2018/blog/master/img/Hooks.pptx">Hooks</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>link和import</title>
     <url>/2020/10/04/link%E5%92%8Cimport/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="HTML引入CSS样式的四种方式"><a href="#HTML引入CSS样式的四种方式" class="headerlink" title="HTML引入CSS样式的四种方式"></a>HTML引入CSS样式的四种方式</h2><p>内联样式、内部样式和外部样式我们就不多说了，下面来看看 @import 引入 CSS 样式的方法：</p>
@@ -198,41 +251,6 @@
       </tags>
   </entry>
   <entry>
-    <title>React Hooks</title>
-    <url>/2021/01/27/React-Hooks/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="React-Hooks"><a href="#React-Hooks" class="headerlink" title="React Hooks"></a>React Hooks</h2><p>Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
-<a id="more"></a>
-<p>下面链接是我做的一个关于 Hooks 的 PPT ，较为全面的介绍了Hooks，希望帮助大家入门 Hooks。</p>
-<p><a href="https://raw.githubusercontent.com/cxs2018/blog/master/img/Hooks.pptx">Hooks</a></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>async和defer</title>
-    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
-<a id="more"></a>
-<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
-<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一株赶考的麦子</title>
     <url>/2021/02/21/%E4%B8%80%E6%A0%AA%E8%B5%B6%E8%80%83%E7%9A%84%E9%BA%A6%E5%AD%90/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><center><font color=#ccc>作者：洛水&emsp;来源：《意林》</font></center>
@@ -246,24 +264,6 @@
       </categories>
       <tags>
         <tag>阅读</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>onward and upward</title>
-    <url>/2021/02/07/onward-and-upward/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
-<p>西平高中校号：</p>
-<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
-<p>2014级宏志班班号：</p>
-<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
-<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
-<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -517,32 +517,31 @@ n == nums.length
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第1天-No.54螺旋矩阵</title>
-    <url>/2021/03/15/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC1%E5%A4%A9-No-54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 m 行 n 列的矩阵 matrix ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
+    <title>力扣挑战赛第1天-No.6 Z字形变换</title>
+    <url>/2021/03/15/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC1%E5%A4%A9-No-6-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。比如输入字符串为 “PAYPALISHIRING” 行数为 4 时，排列如下：</p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/spiral-matrix.png" alt="spiral-matrix"></p>
-<blockquote>
-<p>如遇图片无法显示请访问 <a href="https://leetcode-cn.com/problems/spiral-matrix/">力扣-螺旋矩阵</a></p>
-</blockquote>
+<pre>
+P     I    N
+A   L S  I G
+Y A   H R
+P     I
+</pre>
 <p>示例：</p>
 <pre>
-输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
-输出：[1,2,3,4,8,12,11,10,9,5,6,7]
+输入：s = "PAYPALISHIRING", numRows = 4
+输出："PINALSIGYAHRPI"
 </pre>
+
 <p>注意：</p>
 <pre>
-m == matrix.length
-n == matrix[i].length
-1 <= m, n <= 10
--100 <= matrix[i][j] <= 100
+1 <= s.length <= 1000
+s 由英文字母（小写和大写）、',' 和 '.' 组成
+1 <= numRows <= 1000
 </pre>
 
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>模拟螺旋路径：从矩阵的左上角开始，初始向右，当路径超出界限或者进入之前访问过的位置时，顺时针旋转，进入下一个方向。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> rows = matrix.length;</span><br><span class="line">  <span class="keyword">const</span> columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">const</span> total = rows * columns;</span><br><span class="line">  <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Array</span>(rows).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(columns).fill(<span class="literal">false</span>)); <span class="comment">// 访问数组</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> directionIndex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> row = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> column = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> directions = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">-1</span>], [<span class="number">-1</span>, <span class="number">0</span>]];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; total; i++) &#123;</span><br><span class="line">    result.push(matrix[row][column]);</span><br><span class="line">    visited[row][column] = <span class="literal">true</span>; <span class="comment">// 为访问过的元素设置标志</span></span><br><span class="line">    <span class="comment">/* 获取下一个元素的行列坐标 */</span></span><br><span class="line">    <span class="keyword">let</span> nextRow = row + directions[directionIndex][<span class="number">0</span>]; </span><br><span class="line">    <span class="keyword">let</span> nextColumn = column + directions[directionIndex][<span class="number">1</span>]; </span><br><span class="line">    <span class="keyword">if</span> (!(nextRow &gt;= <span class="number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextColumn &gt;= <span class="number">0</span> &amp;&amp; nextColumn &lt; columns &amp;&amp; !visited[nextRow][nextColumn])) &#123;</span><br><span class="line">      directionIndex = (directionIndex + <span class="number">1</span>) % <span class="number">4</span>; <span class="comment">// 顺时针旋转，利用 directions 和 directionIndex 控制元素行列坐标的变化</span></span><br><span class="line">    &#125;</span><br><span class="line">    row += directions[directionIndex][<span class="number">0</span>];</span><br><span class="line">    column += directions[directionIndex][<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>转圈遍历：四个方向循环进行遍历。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">      <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> bottom = matrix.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> total = matrix.length * matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="comment">/* 顺时针螺旋遍历 */</span></span><br><span class="line">  <span class="keyword">while</span> (total &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[top][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    top++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = top; i &lt;= bottom &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[i][right]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    right--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = right; i &gt;= left &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[bottom][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    bottom--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = bottom; i &gt;= top &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[i][left]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>按行排序：从左到右迭代字符串，确定每个字符位于 Z 字形图案的哪一行。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">numRows</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> convert = <span class="function"><span class="keyword">function</span> (<span class="params">s, numRows</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (numRows === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> rows = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.min(numRows, s.length); i++) &#123;</span><br><span class="line">    rows[i] = [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> curRow = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> goingDown = <span class="literal">false</span>; <span class="comment">// 控制方向</span></span><br><span class="line">  <span class="keyword">let</span> sLength = s.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; sLength; x++) &#123;</span><br><span class="line">    rows[curRow].push(s.charAt(x));</span><br><span class="line">    <span class="keyword">if</span> (curRow === <span class="number">0</span> || curRow === numRows - <span class="number">1</span>) &#123; <span class="comment">// 到达第一行和最后一行</span></span><br><span class="line">      goingDown = !goingDown; <span class="comment">// 调转方向</span></span><br><span class="line">    &#125;</span><br><span class="line">    curRow += goingDown ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> rowsLength = rows.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row = <span class="number">0</span>; row &lt; rowsLength; row++) &#123;</span><br><span class="line">    result = result.concat(rows[row]); <span class="comment">// 连接各行</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -585,31 +584,32 @@ n == matrix[i].length
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第1天-No.6 Z字形变换</title>
-    <url>/2021/03/15/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC1%E5%A4%A9-No-6-Z%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。比如输入字符串为 “PAYPALISHIRING” 行数为 4 时，排列如下：</p>
+    <title>力扣挑战赛第1天-No.54螺旋矩阵</title>
+    <url>/2021/03/15/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC1%E5%A4%A9-No-54%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个 m 行 n 列的矩阵 matrix ，请按照顺时针螺旋顺序，返回矩阵中的所有元素。</p>
 <a id="more"></a>
-<pre>
-P     I    N
-A   L S  I G
-Y A   H R
-P     I
-</pre>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/spiral-matrix.png" alt="spiral-matrix"></p>
+<blockquote>
+<p>如遇图片无法显示请访问 <a href="https://leetcode-cn.com/problems/spiral-matrix/">力扣-螺旋矩阵</a></p>
+</blockquote>
 <p>示例：</p>
 <pre>
-输入：s = "PAYPALISHIRING", numRows = 4
-输出："PINALSIGYAHRPI"
+输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+输出：[1,2,3,4,8,12,11,10,9,5,6,7]
 </pre>
-
 <p>注意：</p>
 <pre>
-1 <= s.length <= 1000
-s 由英文字母（小写和大写）、',' 和 '.' 组成
-1 <= numRows <= 1000
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 10
+-100 <= matrix[i][j] <= 100
 </pre>
 
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>按行排序：从左到右迭代字符串，确定每个字符位于 Z 字形图案的哪一行。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">numRows</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> convert = <span class="function"><span class="keyword">function</span> (<span class="params">s, numRows</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (numRows === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> rows = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.min(numRows, s.length); i++) &#123;</span><br><span class="line">    rows[i] = [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> curRow = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> goingDown = <span class="literal">false</span>; <span class="comment">// 控制方向</span></span><br><span class="line">  <span class="keyword">let</span> sLength = s.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; sLength; x++) &#123;</span><br><span class="line">    rows[curRow].push(s.charAt(x));</span><br><span class="line">    <span class="keyword">if</span> (curRow === <span class="number">0</span> || curRow === numRows - <span class="number">1</span>) &#123; <span class="comment">// 到达第一行和最后一行</span></span><br><span class="line">      goingDown = !goingDown; <span class="comment">// 调转方向</span></span><br><span class="line">    &#125;</span><br><span class="line">    curRow += goingDown ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> rowsLength = rows.length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row = <span class="number">0</span>; row &lt; rowsLength; row++) &#123;</span><br><span class="line">    result = result.concat(rows[row]); <span class="comment">// 连接各行</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>模拟螺旋路径：从矩阵的左上角开始，初始向右，当路径超出界限或者进入之前访问过的位置时，顺时针旋转，进入下一个方向。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> rows = matrix.length;</span><br><span class="line">  <span class="keyword">const</span> columns = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">const</span> total = rows * columns;</span><br><span class="line">  <span class="keyword">const</span> visited = <span class="keyword">new</span> <span class="built_in">Array</span>(rows).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(columns).fill(<span class="literal">false</span>)); <span class="comment">// 访问数组</span></span><br><span class="line">  <span class="keyword">const</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> directionIndex = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> row = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> column = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> directions = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">-1</span>], [<span class="number">-1</span>, <span class="number">0</span>]];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; total; i++) &#123;</span><br><span class="line">    result.push(matrix[row][column]);</span><br><span class="line">    visited[row][column] = <span class="literal">true</span>; <span class="comment">// 为访问过的元素设置标志</span></span><br><span class="line">    <span class="comment">/* 获取下一个元素的行列坐标 */</span></span><br><span class="line">    <span class="keyword">let</span> nextRow = row + directions[directionIndex][<span class="number">0</span>]; </span><br><span class="line">    <span class="keyword">let</span> nextColumn = column + directions[directionIndex][<span class="number">1</span>]; </span><br><span class="line">    <span class="keyword">if</span> (!(nextRow &gt;= <span class="number">0</span> &amp;&amp; nextRow &lt; rows &amp;&amp; nextColumn &gt;= <span class="number">0</span> &amp;&amp; nextColumn &lt; columns &amp;&amp; !visited[nextRow][nextColumn])) &#123;</span><br><span class="line">      directionIndex = (directionIndex + <span class="number">1</span>) % <span class="number">4</span>; <span class="comment">// 顺时针旋转，利用 directions 和 directionIndex 控制元素行列坐标的变化</span></span><br><span class="line">    &#125;</span><br><span class="line">    row += directions[directionIndex][<span class="number">0</span>];</span><br><span class="line">    column += directions[directionIndex][<span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>转圈遍历：四个方向循环进行遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> spiralOrder = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!matrix.length || !matrix[<span class="number">0</span>].length) &#123;</span><br><span class="line">      <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> result = [];</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> right = matrix[<span class="number">0</span>].length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> top = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> bottom = matrix.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">let</span> total = matrix.length * matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="comment">/* 顺时针螺旋遍历 */</span></span><br><span class="line">  <span class="keyword">while</span> (total &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = left; i &lt;= right &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[top][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    top++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = top; i &lt;= bottom &amp;&amp; total &gt;= <span class="number">1</span>; i++) &#123;</span><br><span class="line">      result.push(matrix[i][right]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    right--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = right; i &gt;= left &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[bottom][i]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    bottom--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = bottom; i &gt;= top &amp;&amp; total &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">      result.push(matrix[i][left]);</span><br><span class="line">      total--;</span><br><span class="line">    &#125;</span><br><span class="line">    left++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -689,65 +689,6 @@ s 由英文字母（大写和小写）、数字（0-9）、' '、'+'、'-' 和 '
 <p>如遇图片无法显示请访问 <a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">力扣-字符串转整数</a></p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> myAtoi = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Automation</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="string">&#x27;start&#x27;</span>; <span class="comment">// 开始状态</span></span><br><span class="line">      <span class="built_in">this</span>.sign = <span class="number">1</span>; <span class="comment">// 1代表正，0代表负</span></span><br><span class="line">      <span class="built_in">this</span>.res = <span class="number">0</span>; <span class="comment">// 初始数值为0</span></span><br><span class="line">      <span class="comment">/* 定义状态转换表 */</span></span><br><span class="line">      <span class="built_in">this</span>.map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">        <span class="comment">//状态，遇到 =&gt; [空格，正负号，字符型数值，其他字符]，会跳到对应的状态</span></span><br><span class="line">        [<span class="string">&#x27;start&#x27;</span>, [<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;signed&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;signed&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;in_number&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;in_number&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]],</span><br><span class="line">        [<span class="string">&#x27;end&#x27;</span>, [<span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>, <span class="string">&#x27;end&#x27;</span>]]</span><br><span class="line">      ]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 获取每种字符对应的即将转换到的状态索引 */</span></span><br><span class="line">    getStateIndex(char) &#123;</span><br><span class="line">      <span class="keyword">if</span> (char === <span class="string">&#x27; &#x27;</span>) &#123; <span class="comment">// 空格</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (char === <span class="string">&#x27;+&#x27;</span> || char === <span class="string">&#x27;-&#x27;</span>) &#123; <span class="comment">//正负号</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">parseInt</span>(char) &gt;= <span class="number">0</span>) &#123; <span class="comment">// 字符型数值</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// 其他字符</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 对输入的字符进行状态转换 并处理数据 */</span></span><br><span class="line">    turnAndHandle(char) &#123;</span><br><span class="line">      <span class="built_in">this</span>.state = <span class="built_in">this</span>.map.get(<span class="built_in">this</span>.state)[<span class="built_in">this</span>.getStateIndex(char)];</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;in_number&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.res * <span class="number">10</span> + (char - <span class="number">0</span>); <span class="comment">// 计算数值</span></span><br><span class="line">        <span class="built_in">this</span>.res = <span class="built_in">this</span>.sign === <span class="number">1</span> ? <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span>) : <span class="built_in">Math</span>.min(<span class="built_in">this</span>.res, -<span class="built_in">Math</span>.pow(<span class="number">-2</span>, <span class="number">31</span>)); <span class="comment">// 判断是否溢出</span></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.state === <span class="string">&#x27;signed&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">this</span>.sign = char === <span class="string">&#x27;+&#x27;</span> ? <span class="number">1</span> : <span class="number">-1</span>; <span class="comment">// 设置正负号</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> automaton = <span class="keyword">new</span> Automation();</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> char <span class="keyword">of</span> s) &#123; <span class="comment">// 遍历字符串的每一个字符</span></span><br><span class="line">    automaton.turnAndHandle(char);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> automaton.sign * automaton.res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣挑战赛第3天-No.115不同的子序列</title>
-    <url>/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。</p>
-<a id="more"></a>
-<p>字符串的一个 子序列 是指，通过删除一些（也可以不删除）字符且不干扰剩余字符相对位置所组成的新字符串。（例如，”ACE” 是 “ABCDE” 的一个子序列，而 “AEC” 不是）</p>
-<p>题目数据保证答案符合 32 位带符号整数范围。</p>
-<p>示例：</p>
-<pre>
-输入：s = "babgbag", t = "bag"
-输出：5
-解释：
-如下所示, 有 5 种可以从 s 中得到 "bag" 的方案。 
-(上箭头符号 ^ 表示选取的字母)
-babgbag
-^^ ^
-babgbag
-^^    ^
-babgbag
-^    ^^
-babgbag
-  ^  ^^
-babgbag
-    ^^^
-</pre>
-
-<p>注意：</p>
-<pre>
-0 <= s.length, t.length <= 1000
-s 和 t 由英文字母组成
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>动态规划：</p>
-<p>假设 m = s.length，n = t.length，<br>创建二维数组 dp，dp[i][j] 表示在 s[i:] 的子序列中 t[j:] 出现的个数，<br>s[i:] 表示 s 从下标 i 到末尾的子字符串，t[j:] 表示 t 从下标 j 到末尾的子字符串，则有如下推断：</p>
-<ul>
-<li>当 m &lt; n 时，t 一定不是 s 的子序列；</li>
-<li>当 j = n 时，t[j:] 为空字符串，因此对任意 0 &lt;= i &lt;= m，有 d[i][n] = 1;</li>
-<li>当 i = m 时，s[i:] 为空字符串，因此对任意 0 &lt;= j &lt; n，dp[m][j] = 0;</li>
-<li>当 i &lt; m 且 j &lt; n 时：<ol>
-<li>如果 s[i] === s[j]，dp[i][j] 由两部分组成，选择 s[i]，则这部分的子序列数为 dp[i + 1][j + 1]，不选择 s[i]，则这部分的子序列数为 dp[i + 1][j]，因此，dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]；</li>
-<li>如果 s[i] !== s[j]，则 dp[i][j] = dp[i + 1][j];</li>
-</ol>
-</li>
-</ul>
-<p>由此可得状态转移方程：</p>
-<pre>
-dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
-         = dp[i + 1][j]                     s[i] !== s[j]
-</pre>
-
-<p>最终 dp[0][0] 即为在 s 的子序列中 t 出现的个数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> numDistinct = <span class="function"><span class="keyword">function</span> (<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> m = s.length;</span><br><span class="line">  <span class="keyword">const</span> n = t.length;</span><br><span class="line">  <span class="keyword">if</span> (m &lt; n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n + <span class="number">1</span>).fill(<span class="number">0</span>));</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">    dp[i][n] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (s[i] === t[j]) &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j + <span class="number">1</span>] + dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -841,6 +782,65 @@ s[i] 要么是 'a' 要么是 'b'​ 。​
       </tags>
   </entry>
   <entry>
+    <title>力扣挑战赛第3天-No.115不同的子序列</title>
+    <url>/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。</p>
+<a id="more"></a>
+<p>字符串的一个 子序列 是指，通过删除一些（也可以不删除）字符且不干扰剩余字符相对位置所组成的新字符串。（例如，”ACE” 是 “ABCDE” 的一个子序列，而 “AEC” 不是）</p>
+<p>题目数据保证答案符合 32 位带符号整数范围。</p>
+<p>示例：</p>
+<pre>
+输入：s = "babgbag", t = "bag"
+输出：5
+解释：
+如下所示, 有 5 种可以从 s 中得到 "bag" 的方案。 
+(上箭头符号 ^ 表示选取的字母)
+babgbag
+^^ ^
+babgbag
+^^    ^
+babgbag
+^    ^^
+babgbag
+  ^  ^^
+babgbag
+    ^^^
+</pre>
+
+<p>注意：</p>
+<pre>
+0 <= s.length, t.length <= 1000
+s 和 t 由英文字母组成
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>动态规划：</p>
+<p>假设 m = s.length，n = t.length，<br>创建二维数组 dp，dp[i][j] 表示在 s[i:] 的子序列中 t[j:] 出现的个数，<br>s[i:] 表示 s 从下标 i 到末尾的子字符串，t[j:] 表示 t 从下标 j 到末尾的子字符串，则有如下推断：</p>
+<ul>
+<li>当 m &lt; n 时，t 一定不是 s 的子序列；</li>
+<li>当 j = n 时，t[j:] 为空字符串，因此对任意 0 &lt;= i &lt;= m，有 d[i][n] = 1;</li>
+<li>当 i = m 时，s[i:] 为空字符串，因此对任意 0 &lt;= j &lt; n，dp[m][j] = 0;</li>
+<li>当 i &lt; m 且 j &lt; n 时：<ol>
+<li>如果 s[i] === s[j]，dp[i][j] 由两部分组成，选择 s[i]，则这部分的子序列数为 dp[i + 1][j + 1]，不选择 s[i]，则这部分的子序列数为 dp[i + 1][j]，因此，dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]；</li>
+<li>如果 s[i] !== s[j]，则 dp[i][j] = dp[i + 1][j];</li>
+</ol>
+</li>
+</ul>
+<p>由此可得状态转移方程：</p>
+<pre>
+dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
+         = dp[i + 1][j]                     s[i] !== s[j]
+</pre>
+
+<p>最终 dp[0][0] 即为在 s 的子序列中 t 出现的个数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> numDistinct = <span class="function"><span class="keyword">function</span> (<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> m = s.length;</span><br><span class="line">  <span class="keyword">const</span> n = t.length;</span><br><span class="line">  <span class="keyword">if</span> (m &lt; n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n + <span class="number">1</span>).fill(<span class="number">0</span>));</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">    dp[i][n] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (s[i] === t[j]) &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j + <span class="number">1</span>] + dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>力扣挑战赛第4天-No.92反转链表2</title>
     <url>/2021/03/18/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC4%E5%A4%A9-No-92%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A82/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。</p>
@@ -869,6 +869,45 @@ s[i] 要么是 'a' 要么是 'b'​ 。​
       </tags>
   </entry>
   <entry>
+    <title>力扣挑战赛第5天-No.1603设计停车系统</title>
+    <url>/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-1603%E8%AE%BE%E8%AE%A1%E5%81%9C%E8%BD%A6%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
+<a id="more"></a>
+<p>请你实现 ParkingSystem 类：</p>
+<p>ParkingSystem(int big, int medium, int small) 初始化 ParkingSystem 类，三个参数分别对应每种停车位的数目。<br>bool addCar(int carType) 检查是否有 carType 对应的停车位。 carType 有三种类型：大，中，小，分别用数字 1， 2 和 3 表示。一辆车只能停在  carType 对应尺寸的停车位中。如果没有空车位，请返回 false ，否则将该车停入车位并返回 true 。</p>
+<p>示例：</p>
+<pre>
+输入：
+["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
+[[1, 1, 0], [1], [2], [3], [1]]
+输出：
+[null, true, true, false, false]
+
+解释：
+ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
+parkingSystem.addCar(1); // 返回 true ，因为有 1 个空的大车位
+parkingSystem.addCar(2); // 返回 true ，因为有 1 个空的中车位
+parkingSystem.addCar(3); // 返回 false ，因为没有空的小车位
+parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一一个大车位已经被占据了
+</pre>
+
+<p>注意：</p>
+<pre>
+0 <= big, medium, small <= 1000
+carType 取值为 1， 2 或 3
+最多会调用 addCar 函数 1000 次
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>非常朴素的解法，也可以使用 carType 作为实例对象的键，或者将三个数量集中在一起管理。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">big</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">medium</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">small</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> ParkingSystem = <span class="function"><span class="keyword">function</span>(<span class="params">big, medium, small</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.big = big;</span><br><span class="line">  <span class="built_in">this</span>.medium = medium;</span><br><span class="line">  <span class="built_in">this</span>.small = small;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">carType</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">ParkingSystem.prototype.addCar = <span class="function"><span class="keyword">function</span>(<span class="params">carType</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.big &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.big--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.medium &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.medium--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.small &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.small--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ParkingSystem object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new ParkingSystem(big, medium, small)</span></span><br><span class="line"><span class="comment"> * var param_1 = obj.addCar(carType)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>力扣挑战赛第5天-No.77组合</title>
     <url>/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-77%E7%BB%84%E5%90%88/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个整数 n 和 k，返回 1 … n 中所有可能的 k 个数的组合。</p>
@@ -889,6 +928,94 @@ s[i] 要么是 'a' 要么是 'b'​ 。​
 
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>回溯法</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">k</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[][]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> combine = <span class="function"><span class="keyword">function</span> (<span class="params">n, k</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> resSet = [];</span><br><span class="line">  <span class="keyword">let</span> eachRes = [];</span><br><span class="line">  <span class="keyword">let</span> backtracking = <span class="function"><span class="keyword">function</span> (<span class="params">startIndex</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (eachRes.length === k) &#123;</span><br><span class="line">      resSet.push(eachRes.slice());</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = startIndex; i &lt;= n - (k - eachRes.length) + <span class="number">1</span>; i++) &#123; <span class="comment">// 横向遍历并剪枝</span></span><br><span class="line">      eachRes.push(i);</span><br><span class="line">      backtracking(i + <span class="number">1</span>); <span class="comment">// 递归，纵向遍历</span></span><br><span class="line">      eachRes.pop(); <span class="comment">// 回溯，撤销之前的节点</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  backtracking(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> resSet;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第7天-No.73矩阵置零</title>
+    <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用原地算法。</p>
+<a id="more"></a>
+<p>示例：</p>
+<pre>
+输入：matrix = [
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+]
+输出：[
+  [1,0,1],
+  [0,0,0],
+  [1,0,1]
+]
+
+输入：matrix = [
+  [0,1,2,0],
+  [3,4,5,2],
+  [1,3,1,5]
+]
+输出：[
+  [0,0,0,0],
+  [0,4,5,0],
+  [0,3,1,0]
+]
+</pre>
+
+<p>注意：</p>
+<pre>
+m == matrix.length
+n == matrix[0].length
+1 <= m, n <= 200
+-2 ** 31 <= matrix[i][j] <= 2 ** 31 - 1
+</pre>
+
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>三重遍历，先标记，再替换，时间复杂度较高，不推荐</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; n; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[i][x] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[i][x] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; m; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[x][j] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[x][j] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="string">&#x27;will&#x27;</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>使用第一行和第一列来标记某个元素是否是 0，最后进行替换，不过需要两个标记变量来记录第一行和第一列是否原本就存在 0</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstRow = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstRow = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstRow) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>类似于解法二，不过只使用一个标记变量，记录第一列是否原本存在 0，而第一列的第一个元素用来记录第一行是否原本存在 0，注意，为防止每一列的第一个元素被提前更新，需要从最后一行开始，倒序地处理矩阵元素</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第6天-No.1556千位分隔数</title>
+    <url>/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
+<a id="more"></a>
+<p>示例：</p>
+<pre>
+输入：n = 987
+输出："987"
+
+输入：n = 1234
+输出："1.234"
+
+输入：n = 123456789
+输出："123.456.789"
+
+输入：n = 0
+输出："0"
+</pre>
+
+<p>注意：</p>
+<pre>
+0 <= n < 2^31
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -956,98 +1083,6 @@ tokens[i] 要么是一个算符（"+"、"-"、"*" 或 "/"），要么是一个�
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第5天-No.1603设计停车系统</title>
-    <url>/2021/03/19/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC5%E5%A4%A9-No-1603%E8%AE%BE%E8%AE%A1%E5%81%9C%E8%BD%A6%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
-<a id="more"></a>
-<p>请你实现 ParkingSystem 类：</p>
-<p>ParkingSystem(int big, int medium, int small) 初始化 ParkingSystem 类，三个参数分别对应每种停车位的数目。<br>bool addCar(int carType) 检查是否有 carType 对应的停车位。 carType 有三种类型：大，中，小，分别用数字 1， 2 和 3 表示。一辆车只能停在  carType 对应尺寸的停车位中。如果没有空车位，请返回 false ，否则将该车停入车位并返回 true 。</p>
-<p>示例：</p>
-<pre>
-输入：
-["ParkingSystem", "addCar", "addCar", "addCar", "addCar"]
-[[1, 1, 0], [1], [2], [3], [1]]
-输出：
-[null, true, true, false, false]
-
-解释：
-ParkingSystem parkingSystem = new ParkingSystem(1, 1, 0);
-parkingSystem.addCar(1); // 返回 true ，因为有 1 个空的大车位
-parkingSystem.addCar(2); // 返回 true ，因为有 1 个空的中车位
-parkingSystem.addCar(3); // 返回 false ，因为没有空的小车位
-parkingSystem.addCar(1); // 返回 false ，因为没有空的大车位，唯一一个大车位已经被占据了
-</pre>
-
-<p>注意：</p>
-<pre>
-0 <= big, medium, small <= 1000
-carType 取值为 1， 2 或 3
-最多会调用 addCar 函数 1000 次
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>非常朴素的解法，也可以使用 carType 作为实例对象的键，或者将三个数量集中在一起管理。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">big</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">medium</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">small</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> ParkingSystem = <span class="function"><span class="keyword">function</span>(<span class="params">big, medium, small</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.big = big;</span><br><span class="line">  <span class="built_in">this</span>.medium = medium;</span><br><span class="line">  <span class="built_in">this</span>.small = small;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">carType</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">ParkingSystem.prototype.addCar = <span class="function"><span class="keyword">function</span>(<span class="params">carType</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.big &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.big--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.medium &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.medium--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (carType === <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.small &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.small--;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ParkingSystem object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * var obj = new ParkingSystem(big, medium, small)</span></span><br><span class="line"><span class="comment"> * var param_1 = obj.addCar(carType)</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣挑战赛第7天-No.73矩阵置零</title>
-    <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用原地算法。</p>
-<a id="more"></a>
-<p>示例：</p>
-<pre>
-输入：matrix = [
-  [1,1,1],
-  [1,0,1],
-  [1,1,1]
-]
-输出：[
-  [1,0,1],
-  [0,0,0],
-  [1,0,1]
-]
-
-输入：matrix = [
-  [0,1,2,0],
-  [3,4,5,2],
-  [1,3,1,5]
-]
-输出：[
-  [0,0,0,0],
-  [0,4,5,0],
-  [0,3,1,0]
-]
-</pre>
-
-<p>注意：</p>
-<pre>
-m == matrix.length
-n == matrix[0].length
-1 <= m, n <= 200
--2 ** 31 <= matrix[i][j] <= 2 ** 31 - 1
-</pre>
-
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>三重遍历，先标记，再替换，时间复杂度较高，不推荐</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; n; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[i][x] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[i][x] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">0</span>; x &lt; m; x++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (matrix[x][j] !== <span class="number">0</span>) &#123;</span><br><span class="line">            matrix[x][j] = <span class="string">&#x27;will&#x27;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="string">&#x27;will&#x27;</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>使用第一行和第一列来标记某个元素是否是 0，最后进行替换，不过需要两个标记变量来记录第一行和第一列是否原本就存在 0</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstRow = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstRow = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstRow) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">      matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>类似于解法二，不过只使用一个标记变量，记录第一列是否原本存在 0，而第一列的第一个元素用来记录第一行是否原本存在 0，注意，为防止每一列的第一个元素被提前更新，需要从最后一行开始，倒序地处理矩阵元素</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第7天-No.1701平均等待时间</title>
     <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-1701%E5%B9%B3%E5%9D%87%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一个餐厅，只有一位厨师。你有一个顾客数组 customers ，其中 customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>] ：</p>
@@ -1068,41 +1103,6 @@ n == matrix[0].length
 
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>模拟</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">customers</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> averageWaitingTime = <span class="function"><span class="keyword">function</span> (<span class="params">customers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = customers.length;</span><br><span class="line">  <span class="keyword">let</span> done = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> waiting = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> arrival = customers[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> time = customers[i][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (arrival &lt;= done) &#123;</span><br><span class="line">      done += time;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      done = arrival + time;</span><br><span class="line">    &#125;</span><br><span class="line">    waiting += done - arrival;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> waiting / len;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣挑战赛第6天-No.1556千位分隔数</title>
-    <url>/2021/03/20/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC6%E5%A4%A9-No-1556%E5%8D%83%E4%BD%8D%E5%88%86%E9%9A%94%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数 n，请你每隔三位添加点（即 “.” 符号）作为千位分隔符，并将结果以字符串格式返回。</p>
-<a id="more"></a>
-<p>示例：</p>
-<pre>
-输入：n = 987
-输出："987"
-
-输入：n = 1234
-输出："1.234"
-
-输入：n = 123456789
-输出："123.456.789"
-
-输入：n = 0
-输出："0"
-</pre>
-
-<p>注意：</p>
-<pre>
-0 <= n < 2^31
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>反向遍历字符数组，每隔3个字符插入 ‘.’</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> thousandSeparator = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(n);</span><br><span class="line">  <span class="keyword">let</span> arr = str.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">let</span> len = arr.length;</span><br><span class="line">  <span class="keyword">let</span> i = len;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr.splice(i, <span class="number">0</span>, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">    i -= <span class="number">3</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  arr.pop();</span><br><span class="line">  <span class="keyword">return</span> arr.join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -1241,15 +1241,11 @@ envelopes[i].length == 2
       </tags>
   </entry>
   <entry>
-    <title>原型与原型链</title>
-    <url>/2020/10/05/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="谈谈你对-JS-原型和原型链的理解？"><a href="#谈谈你对-JS-原型和原型链的理解？" class="headerlink" title="谈谈你对 JS 原型和原型链的理解？"></a>谈谈你对 JS 原型和原型链的理解？</h2><p>JS 原型是指为其它对象提供共享属性访问的对象。在创建对象时，每个对象都包含一个隐式引用指向它的原型对象或者 null，原型也是对象，因此它也有自己的原型，这样构成一个原型链。</p>
-<a id="more"></a>
-<h2 id="原型链有什么作用？"><a href="#原型链有什么作用？" class="headerlink" title="原型链有什么作用？"></a>原型链有什么作用？</h2><p>在访问一个对象的属性时，实际上是在查询原型链，这个对象是原型链的第一个元素，先检查它是否包含属性名，如果包含则返回属性值，否则检查原型链上的第二个元素，以此类推。</p>
-<h2 id="那如何实现原型继承呢？"><a href="#那如何实现原型继承呢？" class="headerlink" title="那如何实现原型继承呢？"></a>那如何实现原型继承呢？</h2><p>有两种方式：一种是通过 Object.create 或者 Object.setPrototypeOf 显式继承另一个对象，将它设置为原型。另一种是通过 constructor 构造函数，在使用 new 关键字实例化时，会自动继承 constructor 的 prototype 对象，作为实例的原型。在 ES2015 中提供了 class 的风格，背后跟 constructor 工作方式一样，写起来更内聚一些。</p>
-<h2 id="constructorB-如何继承-constructorA-？"><a href="#constructorB-如何继承-constructorA-？" class="headerlink" title="constructorB 如何继承 constructorA ？"></a>constructorB 如何继承 constructorA ？</h2><p>JS 里的继承，是对象跟对象之间的继承。constructor 的主要用途是初始化对象的属性。因此，两个 constructor 之间的继承，需要分开两个步骤。第一步是，编写新的 constructor，将两个 constructor 通过 call/apply 的方式，合并它们的属性初始化，按照超类优先的顺序进行。第二步是，取出超类和子类的原型对象，通过 Object.create/Object.setPrototypeOf 显式原型继承的方式，设置子类的原型为超类原型。整个过程手动编写起来比较繁琐，因此建议通过 ES2015 提供的 class 和 extends 关键字去完成继承，它内置了上述两个步骤。</p>
-<h2 id="你能说一个原型里比较少人知道的特性吗？"><a href="#你能说一个原型里比较少人知道的特性吗？" class="headerlink" title="你能说一个原型里比较少人知道的特性吗？"></a>你能说一个原型里比较少人知道的特性吗？</h2><p>在 ES3 时代，只有访问属性的 get 操作能触发对原型链的查找。在 ES5 时代，新增了 accessor property 访问器属性的概念。它可以定义属性的 getter/setter 操作。具有访问器属性 setter 操作的对象，作为另一个对象的原型的时候，设置属性的 set 操作，也能触发对原型链的查找。普通对象的 <code>__proto__</code> 属性，其实就是在原型链查找出来的，它定义在 Object.prototype 对象上。</p>
-<h2 id="一张图"><a href="#一张图" class="headerlink" title="一张图"></a>一张图</h2><p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%8E%9F%E5%9E%8B.jpg" alt="alt"></p>
+    <title>双向数据绑定</title>
+    <url>/2020/09/27/%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue中的双向数据绑定"><a href="#Vue中的双向数据绑定" class="headerlink" title="Vue中的双向数据绑定"></a>Vue中的双向数据绑定</h2><p> Vue 最核心的功能有两个，一是响应式的数据绑定系统，二是组件化。来看下面的代码：<br> <a id="more"></a><br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;text&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;node_modules/vue/dist/vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">&quot;#app&quot;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                text: <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br> 在浏览器中运行可以看到，随文本框输入文字的变化，span 中会同步显示相同的文字内容.这就是 Vue 中 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data.png" alt="alt"></p>
+<h2 id="实现简单的双向数据绑定"><a href="#实现简单的双向数据绑定" class="headerlink" title="实现简单的双向数据绑定"></a>实现简单的双向数据绑定</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;input&quot;</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">&quot;span&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">        <span class="keyword">let</span> inputEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> spanEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">        <span class="comment">// 数据劫持</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;text&#x27;</span>, &#123;</span><br><span class="line">            configurable: <span class="literal">true</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;获取数据了&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            set(newVal) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;数据更新了&#x27;</span>);</span><br><span class="line">                inputEle.value = newVal;</span><br><span class="line">                spanEle.innerHTML = newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 输入监听</span></span><br><span class="line">        inputEle.addEventListener(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            obj.text = e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>在浏览器中运行此代码可以看到：随文本框输入文字的变化，span 中会同步显示相同的文字内容；在js或控制台显式的修改 obj.text 的值，视图会相应更新。这样就实现了 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data2.png" alt="alt"></p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -1293,6 +1289,24 @@ envelopes[i].length == 2
       </tags>
   </entry>
   <entry>
+    <title>原型与原型链</title>
+    <url>/2020/10/05/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="谈谈你对-JS-原型和原型链的理解？"><a href="#谈谈你对-JS-原型和原型链的理解？" class="headerlink" title="谈谈你对 JS 原型和原型链的理解？"></a>谈谈你对 JS 原型和原型链的理解？</h2><p>JS 原型是指为其它对象提供共享属性访问的对象。在创建对象时，每个对象都包含一个隐式引用指向它的原型对象或者 null，原型也是对象，因此它也有自己的原型，这样构成一个原型链。</p>
+<a id="more"></a>
+<h2 id="原型链有什么作用？"><a href="#原型链有什么作用？" class="headerlink" title="原型链有什么作用？"></a>原型链有什么作用？</h2><p>在访问一个对象的属性时，实际上是在查询原型链，这个对象是原型链的第一个元素，先检查它是否包含属性名，如果包含则返回属性值，否则检查原型链上的第二个元素，以此类推。</p>
+<h2 id="那如何实现原型继承呢？"><a href="#那如何实现原型继承呢？" class="headerlink" title="那如何实现原型继承呢？"></a>那如何实现原型继承呢？</h2><p>有两种方式：一种是通过 Object.create 或者 Object.setPrototypeOf 显式继承另一个对象，将它设置为原型。另一种是通过 constructor 构造函数，在使用 new 关键字实例化时，会自动继承 constructor 的 prototype 对象，作为实例的原型。在 ES2015 中提供了 class 的风格，背后跟 constructor 工作方式一样，写起来更内聚一些。</p>
+<h2 id="constructorB-如何继承-constructorA-？"><a href="#constructorB-如何继承-constructorA-？" class="headerlink" title="constructorB 如何继承 constructorA ？"></a>constructorB 如何继承 constructorA ？</h2><p>JS 里的继承，是对象跟对象之间的继承。constructor 的主要用途是初始化对象的属性。因此，两个 constructor 之间的继承，需要分开两个步骤。第一步是，编写新的 constructor，将两个 constructor 通过 call/apply 的方式，合并它们的属性初始化，按照超类优先的顺序进行。第二步是，取出超类和子类的原型对象，通过 Object.create/Object.setPrototypeOf 显式原型继承的方式，设置子类的原型为超类原型。整个过程手动编写起来比较繁琐，因此建议通过 ES2015 提供的 class 和 extends 关键字去完成继承，它内置了上述两个步骤。</p>
+<h2 id="你能说一个原型里比较少人知道的特性吗？"><a href="#你能说一个原型里比较少人知道的特性吗？" class="headerlink" title="你能说一个原型里比较少人知道的特性吗？"></a>你能说一个原型里比较少人知道的特性吗？</h2><p>在 ES3 时代，只有访问属性的 get 操作能触发对原型链的查找。在 ES5 时代，新增了 accessor property 访问器属性的概念。它可以定义属性的 getter/setter 操作。具有访问器属性 setter 操作的对象，作为另一个对象的原型的时候，设置属性的 set 操作，也能触发对原型链的查找。普通对象的 <code>__proto__</code> 属性，其实就是在原型链查找出来的，它定义在 Object.prototype 对象上。</p>
+<h2 id="一张图"><a href="#一张图" class="headerlink" title="一张图"></a>一张图</h2><p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%8E%9F%E5%9E%8B.jpg" alt="alt"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>圣杯布局和双飞翼布局</title>
     <url>/2020/10/05/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%E5%92%8C%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>圣杯布局和双飞翼布局都是常见的<strong>两边定宽，中间自适应</strong>的三栏布局。这两种布局方式的关键是怎么样才能使得在伸缩浏览器窗口的时候让中间的子元素宽度改变。可以适应浏览器的宽度变化使用百分比设置宽度再合适不过，所以我们要将中间子元素的宽度设置为 100%，左边和右边的子元素设置为固定的宽度。这里我们要注意的是，<strong>中间栏要在放在文档流前面以优先渲染</strong>。</p>
@@ -1304,43 +1318,6 @@ envelopes[i].length == 2
 <li>圣杯布局，为了中间 div 内容不被遮挡，将外层容器设置了左右 padding-left 和 padding-right 后，将左右两个 div 用相对布局position: relative 并分别配合 left 和 right 属性，以便左右两栏 div 移动后不遮挡中间 div 。</li>
 <li>双飞翼布局，为了中间 div 内容不被遮挡，直接在中间 div 内部创建子 div 用于放置内容，在该子 div 里用 margin-left 和margin-right 为左右两栏 div 留出位置。</li>
 </ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>双向数据绑定</title>
-    <url>/2020/09/27/%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue中的双向数据绑定"><a href="#Vue中的双向数据绑定" class="headerlink" title="Vue中的双向数据绑定"></a>Vue中的双向数据绑定</h2><p> Vue 最核心的功能有两个，一是响应式的数据绑定系统，二是组件化。来看下面的代码：<br> <a id="more"></a><br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">&quot;text&quot;</span> v-model=<span class="string">&quot;text&quot;</span>&gt;</span><br><span class="line">        &lt;span&gt;&#123;&#123;text&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;node_modules/vue/dist/vue.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el: <span class="string">&quot;#app&quot;</span>,</span><br><span class="line">            data: &#123;</span><br><span class="line">                text: <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br> 在浏览器中运行可以看到，随文本框输入文字的变化，span 中会同步显示相同的文字内容.这就是 Vue 中 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data.png" alt="alt"></p>
-<h2 id="实现简单的双向数据绑定"><a href="#实现简单的双向数据绑定" class="headerlink" title="实现简单的双向数据绑定"></a>实现简单的双向数据绑定</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">&quot;viewport&quot;</span> content=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> id=<span class="string">&quot;input&quot;</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">&quot;span&quot;</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">        <span class="keyword">let</span> inputEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">        <span class="keyword">let</span> spanEle = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;span&#x27;</span>);</span><br><span class="line">        <span class="comment">// 数据劫持</span></span><br><span class="line">        <span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;text&#x27;</span>, &#123;</span><br><span class="line">            configurable: <span class="literal">true</span>,</span><br><span class="line">            enumerable: <span class="literal">true</span>,</span><br><span class="line">            get() &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;获取数据了&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            set(newVal) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;数据更新了&#x27;</span>);</span><br><span class="line">                inputEle.value = newVal;</span><br><span class="line">                spanEle.innerHTML = newVal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">// 输入监听</span></span><br><span class="line">        inputEle.addEventListener(<span class="string">&#x27;keyup&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            obj.text = e.target.value;</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>在浏览器中运行此代码可以看到：随文本框输入文字的变化，span 中会同步显示相同的文字内容；在js或控制台显式的修改 obj.text 的值，视图会相应更新。这样就实现了 model =&gt; view 以及 view =&gt; model 的双向数据绑定，如下图所示：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/data2.png" alt="alt"></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何实现一个new</title>
-    <url>/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h2><p>官方的解释：</p>
-<a id="more"></a>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">new 关键字会进行如下的操作：</span><br><span class="line">1. 创建一个空的简单JavaScript对象（即&#123;&#125;）；</span><br><span class="line">2. 链接该对象（设置该对象的constructor）到另一个对象；</span><br><span class="line">3. 将步骤1新创建的对象作为this的上下文；</span><br><span class="line">4. 如果该函数没有返回对象，则返回this。</span><br><span class="line"></span><br><span class="line">当代码 new Foo(...) 执行时，会发生以下事情：</span><br><span class="line">1. 一个继承自 Foo.prototype 的新对象被创建；</span><br><span class="line">2. 使用指定的参数调用构造函数 Foo，并将 this 绑定到新创建的对象。new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况。</span><br><span class="line">3. 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）</span><br></pre></td></tr></table></figure>
-<p>即 new 操作符其实做了这些事情：</p>
-<ol>
-<li>创建一个新对象；</li>
-<li>将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；</li>
-<li>执行构造函数中的代码（为这个新对象添加属性） ；</li>
-<li>如果构造函数没有显式返回一个对象，就返回步骤1创建的新对象，否则返回构造函数的结果。<h2 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNew</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> constr = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(constr.prototype);</span><br><span class="line">    <span class="keyword">const</span> result = constr.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> result <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-测试如下：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// var person = new Person(&#x27;cxs&#x27;, 21, &#x27;Front-end developer&#x27;);</span></span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// cxs</span></span><br><span class="line">person.sayName();        <span class="comment">// cxs</span></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-显式返回对象的情况：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        love: <span class="string">&quot;前端&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.love); <span class="comment">// 前端</span></span><br></pre></td></tr></table></figure></li>
-</ol>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -1391,6 +1368,126 @@ envelopes[i].length == 2
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何实现一个new</title>
+    <url>/2020/10/27/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="new做了什么"><a href="#new做了什么" class="headerlink" title="new做了什么"></a>new做了什么</h2><p>官方的解释：</p>
+<a id="more"></a>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">new 关键字会进行如下的操作：</span><br><span class="line">1. 创建一个空的简单JavaScript对象（即&#123;&#125;）；</span><br><span class="line">2. 链接该对象（设置该对象的constructor）到另一个对象；</span><br><span class="line">3. 将步骤1新创建的对象作为this的上下文；</span><br><span class="line">4. 如果该函数没有返回对象，则返回this。</span><br><span class="line"></span><br><span class="line">当代码 new Foo(...) 执行时，会发生以下事情：</span><br><span class="line">1. 一个继承自 Foo.prototype 的新对象被创建；</span><br><span class="line">2. 使用指定的参数调用构造函数 Foo，并将 this 绑定到新创建的对象。new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况。</span><br><span class="line">3. 由构造函数返回的对象就是 new 表达式的结果。如果构造函数没有显式返回一个对象，则使用步骤1创建的对象。（一般情况下，构造函数不返回值，但是用户可以选择主动返回对象，来覆盖正常的对象创建步骤）</span><br></pre></td></tr></table></figure>
+<p>即 new 操作符其实做了这些事情：</p>
+<ol>
+<li>创建一个新对象；</li>
+<li>将构造函数的作用域赋给新对象（因此 this 就指向了这个新对象） ；</li>
+<li>执行构造函数中的代码（为这个新对象添加属性） ；</li>
+<li>如果构造函数没有显式返回一个对象，就返回步骤1创建的新对象，否则返回构造函数的结果。<h2 id="简单实现"><a href="#简单实现" class="headerlink" title="简单实现"></a>简单实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myNew</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> constr = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(constr.prototype);</span><br><span class="line">    <span class="keyword">const</span> result = constr.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> result <span class="keyword">instanceof</span> <span class="built_in">Object</span> ? result : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+测试如下：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// var person = new Person(&#x27;cxs&#x27;, 21, &#x27;Front-end developer&#x27;);</span></span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// cxs</span></span><br><span class="line">person.sayName();        <span class="comment">// cxs</span></span><br><span class="line"><span class="built_in">console</span>.log(person.__proto__ === Person.prototype); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+显式返回对象的情况：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.age = age;</span><br><span class="line">    <span class="built_in">this</span>.job = job;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        love: <span class="string">&quot;前端&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = myNew(Person, <span class="string">&#x27;cxs&#x27;</span>, <span class="number">21</span>, <span class="string">&#x27;Front-end developer&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(person.love); <span class="comment">// 前端</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字节面试题1</title>
+    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
+<ul>
+<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
+<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
+<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
+<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
+<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
+<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
+<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
+<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
+<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
+<li>传输层协议：TCP协议、UDP协议</li>
+<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
+<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
+<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
+<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
+<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
+<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
+<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
+<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
+<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
+<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
+<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
+<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
+<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
+<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
+<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
+<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
+</blockquote>
+</li>
+<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
+<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
+<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
+<p>注：需要服务器端的页面进行相应的配合</p>
+</blockquote>
+</li>
+<li>通过修改document.domain来跨子域</li>
+<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
+<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
+<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
+<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
+<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
+<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>成长</title>
+    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
+<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
+<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
+<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
+<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
+<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
+<ul>
+<li>初一，学习成绩前五，住校；</li>
+<li>初二，学习成绩第一，住校，物理课代表</li>
+<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
+</ul>
+<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
+<ul>
+<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
+<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
+<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
+<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
+<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
+</ul>
+<blockquote>
+<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
+</blockquote>
+<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
+<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
+<blockquote>
+<p>注：上面圆圈大小不代表城市规模和大小</p>
+</blockquote>
+<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -1467,60 +1564,25 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>字节面试题1</title>
-    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
-<ul>
-<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
-<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
-<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
-<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
-<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
-<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
-<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
-<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
-<li>传输层协议：TCP协议、UDP协议</li>
-<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
-<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
-<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
-<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
-<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
-<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
-<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
-<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
-<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
-<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
-<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
-<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
-<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
-<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
-<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
-<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
-<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
-</blockquote>
-</li>
-<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
-<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
-<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
-<p>注：需要服务器端的页面进行相应的配合</p>
-</blockquote>
-</li>
-<li>通过修改document.domain来跨子域</li>
-<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
-<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
-<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
-<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
-<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
-<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-</ul>
+    <title>排序</title>
+    <url>/2020/09/28/%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt;= <span class="number">2</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; j - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[i], arr[i + <span class="number">1</span>]] = [arr[i + <span class="number">1</span>], arr[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> minIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">                minIndex = j;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[j], arr[j - <span class="number">1</span>]] = [arr[j - <span class="number">1</span>], arr[j]];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> s = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> temp = arr.splice(s, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> left = [];</span><br><span class="line">    <span class="keyword">let</span> right = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; temp) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat(temp, quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="alt"><br>另一种快速排序：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Partition</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = p, j = r + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> x = arr[p];</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (arr[++i] &lt; x &amp;&amp; i &lt; r) ;</span><br><span class="line">        <span class="keyword">while</span> (arr[--j] &gt; x) ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</span><br><span class="line">        [arr[i], arr[j]] = [arr[j], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[p] = arr[j];</span><br><span class="line">    arr[j] = x;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &lt; r) &#123;</span><br><span class="line">        <span class="keyword">let</span> q = Partition(arr, p, r);</span><br><span class="line">        QuickSort(arr, p, q - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, q + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(QuickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>面试</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1569,84 +1631,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/09/28/%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt;= <span class="number">2</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; j - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[i], arr[i + <span class="number">1</span>]] = [arr[i + <span class="number">1</span>], arr[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> minIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">                minIndex = j;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[j], arr[j - <span class="number">1</span>]] = [arr[j - <span class="number">1</span>], arr[j]];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> s = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> temp = arr.splice(s, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> left = [];</span><br><span class="line">    <span class="keyword">let</span> right = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; temp) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat(temp, quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="alt"><br>另一种快速排序：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Partition</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = p, j = r + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> x = arr[p];</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (arr[++i] &lt; x &amp;&amp; i &lt; r) ;</span><br><span class="line">        <span class="keyword">while</span> (arr[--j] &gt; x) ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</span><br><span class="line">        [arr[i], arr[j]] = [arr[j], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[p] = arr[j];</span><br><span class="line">    arr[j] = x;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &lt; r) &#123;</span><br><span class="line">        <span class="keyword">let</span> q = Partition(arr, p, r);</span><br><span class="line">        QuickSort(arr, p, q - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, q + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(QuickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成长</title>
-    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
-<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
-<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
-<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
-<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
-<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
-<ul>
-<li>初一，学习成绩前五，住校；</li>
-<li>初二，学习成绩第一，住校，物理课代表</li>
-<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
-</ul>
-<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
-<ul>
-<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
-<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
-<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
-<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
-<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
-</ul>
-<blockquote>
-<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
-</blockquote>
-<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
-<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
-<blockquote>
-<p>注：上面圆圈大小不代表城市规模和大小</p>
-</blockquote>
-<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>散列表</title>
-    <url>/2020/09/21/%E6%95%A3%E5%88%97%E8%A1%A8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做<strong>散列函数</strong>，存放记录的数组叫做散列表。</p>
-<a id="more"></a>
-<h2 id="HashTable类的模拟实现"><a href="#HashTable类的模拟实现" class="headerlink" title="HashTable类的模拟实现"></a>HashTable类的模拟实现</h2><p>下面我们来模拟实现自己的HashTable类，也叫HashMap类。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultToString</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;NULL&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;UNDEFINED&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">&quot;string&quot;</span> || item <span class="keyword">instanceof</span> <span class="built_in">String</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;item&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> item.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValuePair</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(key, value) &#123;</span><br><span class="line">        <span class="built_in">this</span>.key = key;</span><br><span class="line">        <span class="built_in">this</span>.value = value;</span><br><span class="line">    &#125;</span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`[#<span class="subst">$&#123;<span class="built_in">this</span>.key&#125;</span>: <span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&#125;]`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashTable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>(toStrFn = defaultToString) &#123;</span><br><span class="line">        <span class="built_in">this</span>.toStrFn = toStrFn;</span><br><span class="line">        <span class="built_in">this</span>.table = &#123;&#125;;</span><br><span class="line">    &#125;            </span><br><span class="line">    <span class="comment">// 散列函数</span></span><br><span class="line">    loseloseHashCode(key) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> key === <span class="string">&quot;number&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> key;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> tableKey = <span class="built_in">this</span>.toStrFn(key);</span><br><span class="line">        <span class="keyword">let</span> hash = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tableKey.length; i++) &#123;</span><br><span class="line">            hash += tableKey.charCodeAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取某一个键的hash值</span></span><br><span class="line">    HashCode(key) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.loseloseHashCode(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将键和值加入散列表</span></span><br><span class="line">    put(key, value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key != <span class="literal">null</span> &amp;&amp; value != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> position = <span class="built_in">this</span>.HashCode(key);</span><br><span class="line">            <span class="built_in">this</span>.table[position] = <span class="keyword">new</span> ValuePair(key, value);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从散列表中获取一个值</span></span><br><span class="line">    get(key) &#123;</span><br><span class="line">        <span class="keyword">const</span> valuePair = <span class="built_in">this</span>.table[<span class="built_in">this</span>.HashCode(key)];</span><br><span class="line">        <span class="keyword">return</span> valuePair == <span class="literal">null</span> ? <span class="literal">undefined</span> : valuePair.value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从散列表移除一个值</span></span><br><span class="line">    remove(key) &#123;</span><br><span class="line">        <span class="keyword">const</span> hash = <span class="built_in">this</span>.HashCode(key);</span><br><span class="line">        <span class="keyword">const</span> valuePair = <span class="built_in">this</span>.table[hash];</span><br><span class="line">        <span class="keyword">if</span> (valuePair != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="built_in">this</span>.table[hash];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里就不再演示HashTable类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数组扁平化</title>
     <url>/2020/09/28/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="使用递归实现数组扁平化"><a href="#使用递归实现数组扁平化" class="headerlink" title="使用递归实现数组扁平化"></a>使用递归实现数组扁平化</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.flat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="built_in">this</span>.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(item)) &#123;</span><br><span class="line">            arr = arr.concat(item.flat());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [[<span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>]]];</span><br><span class="line"><span class="built_in">console</span>.log(arr.flat()); <span class="comment">//[2, 3, 4, 5, 6, 7, 8]</span></span><br></pre></td></tr></table></figure>
@@ -1664,24 +1648,19 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>新的征程</title>
-    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
+    <title>散列表</title>
+    <url>/2020/09/21/%E6%95%A3%E5%88%97%E8%A1%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做<strong>散列函数</strong>，存放记录的数组叫做散列表。</p>
 <a id="more"></a>
-<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
-<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
-<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
-<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
+<h2 id="HashTable类的模拟实现"><a href="#HashTable类的模拟实现" class="headerlink" title="HashTable类的模拟实现"></a>HashTable类的模拟实现</h2><p>下面我们来模拟实现自己的HashTable类，也叫HashMap类。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultToString</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (item === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;NULL&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;UNDEFINED&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">&quot;string&quot;</span> || item <span class="keyword">instanceof</span> <span class="built_in">String</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;item&#125;</span>`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> item.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValuePair</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(key, value) &#123;</span><br><span class="line">        <span class="built_in">this</span>.key = key;</span><br><span class="line">        <span class="built_in">this</span>.value = value;</span><br><span class="line">    &#125;</span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`[#<span class="subst">$&#123;<span class="built_in">this</span>.key&#125;</span>: <span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&#125;]`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HashTable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>(toStrFn = defaultToString) &#123;</span><br><span class="line">        <span class="built_in">this</span>.toStrFn = toStrFn;</span><br><span class="line">        <span class="built_in">this</span>.table = &#123;&#125;;</span><br><span class="line">    &#125;            </span><br><span class="line">    <span class="comment">// 散列函数</span></span><br><span class="line">    loseloseHashCode(key) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> key === <span class="string">&quot;number&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> key;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> tableKey = <span class="built_in">this</span>.toStrFn(key);</span><br><span class="line">        <span class="keyword">let</span> hash = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tableKey.length; i++) &#123;</span><br><span class="line">            hash += tableKey.charCodeAt(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hash % <span class="number">37</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取某一个键的hash值</span></span><br><span class="line">    HashCode(key) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.loseloseHashCode(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将键和值加入散列表</span></span><br><span class="line">    put(key, value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (key != <span class="literal">null</span> &amp;&amp; value != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> position = <span class="built_in">this</span>.HashCode(key);</span><br><span class="line">            <span class="built_in">this</span>.table[position] = <span class="keyword">new</span> ValuePair(key, value);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从散列表中获取一个值</span></span><br><span class="line">    get(key) &#123;</span><br><span class="line">        <span class="keyword">const</span> valuePair = <span class="built_in">this</span>.table[<span class="built_in">this</span>.HashCode(key)];</span><br><span class="line">        <span class="keyword">return</span> valuePair == <span class="literal">null</span> ? <span class="literal">undefined</span> : valuePair.value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从散列表移除一个值</span></span><br><span class="line">    remove(key) &#123;</span><br><span class="line">        <span class="keyword">const</span> hash = <span class="built_in">this</span>.HashCode(key);</span><br><span class="line">        <span class="keyword">const</span> valuePair = <span class="built_in">this</span>.table[hash];</span><br><span class="line">        <span class="keyword">if</span> (valuePair != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">delete</span> <span class="built_in">this</span>.table[hash];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里就不再演示HashTable类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1752,9 +1731,18 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+    <title>新的征程</title>
+    <url>/2020/09/20/%E6%96%B0%E7%9A%84%E5%BE%81%E7%A8%8B/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="大四"><a href="#大四" class="headerlink" title="大四"></a>大四</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;转眼间已经大四了，我的川大时间余额已不足一年，只觉三年的时光转瞬即逝，想抓住时间却已经悄悄溜走，仅剩的一年川大时光我一定会倍加珍惜。刚结束的大三，我觉得是我三年来最努力的一年，这一年，我积极备考英语六级，第一次把六级词汇书基本通背一遍，虽然最后成绩不是很理想，但终归好于裸考的四级，同样，在这一年，我大幅度压缩游戏时间，英雄联盟陪伴我好几年的游戏也最终放弃，上课时间也不断提醒自己少耍手机，这一年的奋斗也终于出了点效果，大三一年的成绩排名比大二进步多了，我也顺利申请了奖学金，虽然深知最多只有300元，但也觉得这来之不易的300元是对我积极努力的最好回报。如今，大四已经开学半月有余，我的生活学习节奏还算可以，紧追大三的步伐，努力学习知识不断充实自己。</p>
+<a id="more"></a>
+<h2 id="从放弃考研到学习前端"><a href="#从放弃考研到学习前端" class="headerlink" title="从放弃考研到学习前端"></a>从放弃考研到学习前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我最终下定决心放弃考研是在4月底，这时候，大三下的课程基本学完了，即使因为疫情没有返校，在家的这几个月也没有丝毫松懈，编译原理我大学生涯的最后一块难啃的专业必修课，也最终被拿下，虽然最后的成绩不尽人意，但我也无怨无悔，因为我知道，平时我真的是好好学了的。其实在大二暑假我才第一次接触前端，是在腾讯课堂上学习一门HTML和CSS入门课，那时候觉得做页面很炫酷，可以做出各种好看的效果，于是就深深爱上了前端，5月初，学校还是没有通知返校，我的内心开始逐渐焦虑，本想返校后开始好好学习前端，但学校迟迟不下通知，机不可失失不再来，我决定开始在家学习前端。5月，我重温了袁老师的HTML和CSS基础入门课，因为之前学过的缘故，所以看的很快，5月中旬，我开始学习javascript，跟着《javascript入门经典》把js基础知识过了一遍，这时候，我在微信上结识了陶务华，已经工作了的他给我发了很多教程，感谢他的帮助，我得以迅速入门前端，也认识到前端不只是学习HTML、CSS和javascript这么简单，还有很多的技术工具需要去学习。跟着陶大哥的视频教程，我逐渐学到了HTML5、CSS3、jQuery等稍微进阶的知识，我的前端水平也进一步提高，后来我又接触到了服务器端开发Node.js、Express和art-template模板，也开始学习前后端交互，学习Ajax和jQuery下的Ajax，然后接触到了MongoDB数据库，后来开始学习Vue框架以及webpack打包和Gulp构建，自己的前端水平继续提高，到现在，我基本上前端知识都接触到了，但是大都研究不深入，只是懂了点皮毛，后面我准备分专题开始逐渐深入了解前端世界。</p>
+<h2 id="简历和面试"><a href="#简历和面试" class="headerlink" title="简历和面试"></a>简历和面试</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前几天，我刚刚投出了人生的第一份简历，现在还再初筛中，面试对我来说是陌生的，尤其是技术面试，不过慢慢来嘛，再难也要一步一个脚印往前走，难道不是吗？</p>
+<h2 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可能很多人对前端很陌生，甚至不知道还有前端工程师这个职业，下面我就来简单介绍一下。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验，当然现在的前端也不仅仅限于PC电脑端，移动端如APP和微信小程序它们的前台页面也叫前端。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91">前端开发</a>是创建Web页面（也就是咱们常说的网页）或app（也就是咱们手机上的软件，如QQ、微信等）等前端界面呈现给用户的过程，通过HTML，CSS及JavaScript（这些都是开发网页所需的技术）以及衍生出来的各种技术、框架、解决方案，来实现互联网产品的用户界面交互。它从网页制作演变而来，名称上有很明显的时代特征。在互联网的演化进程中，网页制作是Web1.0时代的产物，早期网站主要内容都是静态，以图片和文字为主，用户使用网站的行为也以浏览为主。随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。移动互联网带来了大量高性能的移动终端设备以及快速的无线网络，HTML5、node.jS的广泛应用，各类框架类库层出不穷。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88">前端工程师</a>，顾名思义，是使用前端技术进行页面开发的一类职业，它是互联网时代软件产品研发中不可缺少的一种专业研发角色。从狭义上讲，前端工程师使用 HTML、CSS、JavaScript 等专业技能和工具将产品UI设计稿实现成网站产品，涵盖用户PC端、移动端网页，处理视觉和交互问题。从广义上来讲，所有用户终端产品与视觉和交互有关的部分，都是前端工程师的专业领域。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像我们熟知的一些公司，如阿里巴巴、腾讯、百度、美团、抖音（字节跳动旗下）等，他们都叫做互联网公司或者叫软件公司，这类公司是急需前端人才的，毕竟产品的好坏只有通过页面展示出来才能知晓。</p>
+<h2 id="新的征程"><a href="#新的征程" class="headerlink" title="新的征程"></a>新的征程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新的征程已经开始，唯有不断奋斗，追逐梦想才是人存在的意义，加油吧，少年，美好的未来在等着我们！</p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -1847,6 +1835,18 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
