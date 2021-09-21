@@ -20,41 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>async和defer</title>
-    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
-<a id="more"></a>
-<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
-<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React Hooks</title>
-    <url>/2021/01/27/React-Hooks/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="React-Hooks"><a href="#React-Hooks" class="headerlink" title="React Hooks"></a>React Hooks</h2><p>Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
-<a id="more"></a>
-<p>下面链接是我做的一个关于 Hooks 的 PPT ，较为全面的介绍了Hooks，希望帮助大家入门 Hooks。</p>
-<p><a href="https://raw.githubusercontent.com/cxs2018/blog/master/img/Hooks.pptx">Hooks</a></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>React</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML</title>
     <url>/2020/10/05/HTML/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h2><p>DOCTYPE 是一种标准通用标记语言（SGML）的文档类型声明，目的是告诉浏览器的解析器要使用什么样的文档类型定义（DTD）来解析文档。目前浏览器的文档解析类型有三种：</p>
@@ -182,21 +147,38 @@
       </tags>
   </entry>
   <entry>
-    <title>onward and upward</title>
-    <url>/2021/02/07/onward-and-upward/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
-<p>西平高中校号：</p>
-<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
-<p>2014级宏志班班号：</p>
-<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
-<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
-<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
+    <title>React Hooks</title>
+    <url>/2021/01/27/React-Hooks/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="React-Hooks"><a href="#React-Hooks" class="headerlink" title="React Hooks"></a>React Hooks</h2><p>Hooks 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
+<a id="more"></a>
+<p>下面链接是我做的一个关于 Hooks 的 PPT ，较为全面的介绍了Hooks，希望帮助大家入门 Hooks。</p>
+<p><a href="https://raw.githubusercontent.com/cxs2018/blog/master/img/Hooks.pptx">Hooks</a></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>技术</category>
       </categories>
       <tags>
-        <tag>人生</tag>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>async和defer</title>
+    <url>/2020/10/04/async%E5%92%8Cdefer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="普通script"><a href="#普通script" class="headerlink" title="普通script"></a>普通script</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
+<a id="more"></a>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。</p>
+<h2 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p>来看下面两张图，可以清晰的看到三种方式的区别：<br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.jpg" alt="alt"><br><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/defer.png" alt="alt"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>普通script会阻塞DOM的解析，async和defer都会并行下载，不会影响页面的解析，async 是下载完立即执行，而defer 则会按照顺序在 DOMContentLoaded 前按照页面出现顺序依次执行。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -251,6 +233,24 @@
       </tags>
   </entry>
   <entry>
+    <title>onward and upward</title>
+    <url>/2021/02/07/onward-and-upward/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="回忆"><a href="#回忆" class="headerlink" title="回忆"></a>回忆</h2><a id="more"></a>
+<p>西平高中校号：</p>
+<p><strong>相信自己，我是最好，追求卓越，成就自我。</strong></p>
+<p>2014级宏志班班号：</p>
+<p><strong>拼搏进取，斗志昂扬，全力以赴，宏志辉煌。</strong></p>
+<h2 id="onward-and-upward"><a href="#onward-and-upward" class="headerlink" title="onward and upward"></a>onward and upward</h2><p><strong>生如蝼蚁，当立鸿鹄之志；命薄似纸，应有不屈之心。</strong></p>
+<p><strong>乾坤未定，你我皆是黑马；以梦为马，不负豆蔻年华。</strong></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一株赶考的麦子</title>
     <url>/2021/02/21/%E4%B8%80%E6%A0%AA%E8%B5%B6%E8%80%83%E7%9A%84%E9%BA%A6%E5%AD%90/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><center><font color=#ccc>作者：洛水&emsp;来源：《意林》</font></center>
@@ -267,45 +267,6 @@
       </tags>
   </entry>
   <entry>
-    <title>从闭包说起</title>
-    <url>/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<p>输出结果为:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。</p>
-<a id="more"></a>
-<h2 id="追问1"><a href="#追问1" class="headerlink" title="追问1"></a>追问1</h2><p>如果我们约定，用箭头（-&gt;）表示其前后的两次输出之间有1秒的时间间隔，而逗号（,）表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</p>
-<ul>
-<li>A: 5-&gt;5-&gt;5-&gt;5-&gt;5-&gt;5</li>
-<li>B: 5-&gt;5,5,5,5,5</li>
-</ul>
-<p>选A还是选B呢，这就要求面试者对定时器的工作机制非常熟悉，在循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后同时触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B 。</p>
-<h2 id="追问2"><a href="#追问2" class="headerlink" title="追问2"></a>追问2</h2><p>如果期望代码的输出变成：5-&gt;0,1,2,3,4，该怎么改造代码？熟悉闭包的同学很快能给出下面的解决办法：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123; </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<p>巧妙的利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题。但这对于初学者来说可能不太好懂，有没有更直观的做法？当然有，我们只需要对循环体稍做手脚，让负责输出的那段代码能拿到每次循环的 i 值即可。该怎么做呢？利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征，不难改造出下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> output = <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    output(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
-<h2 id="追问3"><a href="#追问3" class="headerlink" title="追问3"></a>追问3</h2><p>还是最初的那道题，如果将var改成let，会发生什么？</p>
-<p>let是ES6块级作用域中的概念，用let代替var后，会发现代码在实际运行中报错，这是因为最后那个输出使用的 i 在其所在的作用域中并不存在，i 只存在于for循环内部。</p>
-<h2 id="追问4"><a href="#追问4" class="headerlink" title="追问4"></a>追问4</h2><p>如果期望代码的输出变成 0-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5，并且要求原有的代码块中的循环和两处console.log不变，该怎么改造代码？新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概是为了避免钻牛角尖的同学陷进去，因为 JS 中的定时器触发时机有可能是不确定的）。</p>
-<p>看到这里，有些同学会给出下面的可行解：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span> * j));  <span class="comment">// 这里修改 0~4 的定时器时间</span></span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 这里增加定时器，超时设置为 5 秒</span></span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;, <span class="number">1000</span> * i);</span><br></pre></td></tr></table></figure>
-<p>不得不承认，这种做法虽然粗暴有效，但是不算是能额外加分的方案。如果把这次的需求抽象为：在系列异步操作完成（每次循环都产生了 1 个异步操作）之后，再做其他的事情，代码该怎么组织？聪明的你是不是想起了什么？对，就是 Promise，来看下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;   <span class="comment">// 这里 i 的声明不能改成 let，如果要改该怎么做？</span></span><br><span class="line">    (<span class="function">(<span class="params">j</span>) =&gt;</span> &#123;</span><br><span class="line">        tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">                resolve();  <span class="comment">// 这里一定要 resolve，否则代码不会按预期 work</span></span><br><span class="line">            &#125;, <span class="number">1000</span> * j);   <span class="comment">// 定时器的超时时间逐步增加</span></span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);   </span><br></pre></td></tr></table></figure>
-<p>当然，上面的代码还能进一步简化，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 这里存放异步操作的 Promise</span></span><br><span class="line"><span class="keyword">const</span> output = <span class="function">(<span class="params">i</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 生成全部的异步操作</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步操作完成之后，输出最后的 i</span></span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这样看是不是逻辑清楚多了，使用 Promise 处理异步代码比回调机制让代码可读性更高，但是使用 Promise 的问题也很明显，即如果没有处理 Promise 的 reject，会导致错误被丢进黑洞，这显然是我们不愿看到的。</p>
-<h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉搜索树</title>
     <url>/2020/09/23/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><p>二叉树中的节点最多只能有两个子节点：一个是左侧子节点，另一个是右侧子节点。而二叉搜索树（BST）是二叉树的一种，但是只允许你在左侧节点存储（比父节点）小的值，在右侧节点存储（比父节点）大的值。</p>
@@ -318,29 +279,6 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣15天挑战赛结赛仪式</title>
-    <url>/2021/03/30/%E5%8A%9B%E6%89%A315%E5%A4%A9%E6%8C%91%E6%88%98%E8%B5%9B%E7%BB%93%E8%B5%9B%E4%BB%AA%E5%BC%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="力扣15天"><a href="#力扣15天" class="headerlink" title="力扣15天"></a>力扣15天</h2><a id="more"></a>
-<p>15天，做完了30道力扣题，主要由每日一题+随机一题+链表专题组成，涉及数组、链表、树等数据结构，二分查找、双指针、概率分析等方法，学到了很多，也深感自己的能力还不足，还有更多的算法思想需要我去探索，这条路可能很难，但我会不断学习，坚持下去。I can，I must！</p>
-<p>可能以后不会写专门针对力扣题目的文章了，这是我的力扣个人主页 <a href="https://leetcode-cn.com/u/cxs-happy/">苏御</a>，里面记录着我的刷题之路，一起成长吧！</p>
-<p>快乐学习，快乐生活，快乐工作！</p>
-<p>为了所有爱我和我爱的人，努力变优秀！</p>
-<p>就像刘宇从创造营 90 人中脱颖而出，17年舞蹈，只为成为最好的自己</p>
-<p>就像韩佩泉即使 4 次选拔被拒也坚持做自己，believe yourself</p>
-<p>就像赖耀翔拼尽全力却未被人看到但仍砥砺向前勇敢逐梦</p>
-<p>就像赞多、力丸毫不吝啬给予营员舞蹈的帮助，共同成长</p>
-<p>就像上官一翔永远保持一颗热忱真诚的心，面带微笑，给营员鼓励，给营员信心</p>
-<p>就像甘望星即使出身普通但仍努力学习，不断提高自己</p>
-<p>其实，<strong>我们所看到的惊艳，都曾被平庸历练</strong>。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
       </tags>
   </entry>
   <entry>
@@ -419,42 +357,60 @@
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第10天-No.456 132模式</title>
-    <url>/2021/03/24/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC10%E5%A4%A9-No-456-132%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i &lt; j &lt; k 和 nums[i] &lt; nums[k] &lt; nums[j] 。</p>
+    <title>从闭包说起</title>
+    <url>/2020/09/18/%E4%BB%8E%E9%97%AD%E5%8C%85%E8%AF%B4%E8%B5%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>输出结果为:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>只要对同步和异步的区别、变量块级作用域、闭包等关键知识理解到位，得出正确答案就不难，但这道题远没有这么简单，来看面试官的继续追问。</p>
 <a id="more"></a>
-<p>如果 nums 中存在 132 模式的子序列 ，返回 true ；否则，返回 false 。</p>
-<p>示例：</p>
-<pre>
-输入：nums = [1,2,3,4]
-输出：false
-解释：序列中不存在 132 模式的子序列。
-
-输入：nums = [3,1,4,2]
-输出：true
-解释：序列中有 1 个 132 模式的子序列： [1, 4, 2] 。
-
-输入：nums = [-1,3,2,0]
-输出：true
-解释：序列中有 3 个 132 模式的的子序列：[-1, 3, 2]、[-1, 3, 0] 和 [-1, 2, 0] 。
-</pre>
-
-<p>注意：</p>
-<pre>
-n == nums.length
-1 <= n <= 104
--10^9 <= nums[i] <= 10^9
-</pre>
-
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>暴力破解</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> find132pattern = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.length;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> min = nums[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (min &gt; nums[i]) &#123;</span><br><span class="line">      min = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (min &lt; nums[j] &amp;&amp; nums[i] &gt; nums[j]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>单调栈</p>
-<p>维护一个从栈底到栈顶单调递减的栈，对于遍历到的每一个元素，判断是否大于栈顶元素，是则持续弹出栈顶元素，直到栈顶元素小于等于正在遍历的元素，将弹出的元素记为 k，最后将遍历元素推入栈中，进行下一轮for循环。每轮for循环都将判断此时遍历的元素 i 是否小于 k，小于则说明找到了132模式的子序列。</p>
-<blockquote>
-<p>存在 k（<em>非-Infinity</em>） 则必然是由大于 k 的 j 将 k 弹出。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> find132pattern = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.length;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> stack = [];</span><br><span class="line">  <span class="keyword">let</span> k = -<span class="literal">Infinity</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[i] &lt; k) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (stack.length !== <span class="number">0</span> &amp;&amp; stack[stack.length - <span class="number">1</span>] &lt; nums[i]) &#123;</span><br><span class="line">      k = stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(nums[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="追问1"><a href="#追问1" class="headerlink" title="追问1"></a>追问1</h2><p>如果我们约定，用箭头（-&gt;）表示其前后的两次输出之间有1秒的时间间隔，而逗号（,）表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</p>
+<ul>
+<li>A: 5-&gt;5-&gt;5-&gt;5-&gt;5-&gt;5</li>
+<li>B: 5-&gt;5,5,5,5,5</li>
+</ul>
+<p>选A还是选B呢，这就要求面试者对定时器的工作机制非常熟悉，在循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后同时触发，而循环完的输出是立即执行的，显而易见，正确的描述是 B 。</p>
+<h2 id="追问2"><a href="#追问2" class="headerlink" title="追问2"></a>追问2</h2><p>如果期望代码的输出变成：5-&gt;0,1,2,3,4，该怎么改造代码？熟悉闭包的同学很快能给出下面的解决办法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123; </span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<p>巧妙的利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题。但这对于初学者来说可能不太好懂，有没有更直观的做法？当然有，我们只需要对循环体稍做手脚，让负责输出的那段代码能拿到每次循环的 i 值即可。该怎么做呢？利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征，不难改造出下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> output = <span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    output(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br></pre></td></tr></table></figure>
+<h2 id="追问3"><a href="#追问3" class="headerlink" title="追问3"></a>追问3</h2><p>还是最初的那道题，如果将var改成let，会发生什么？</p>
+<p>let是ES6块级作用域中的概念，用let代替var后，会发现代码在实际运行中报错，这是因为最后那个输出使用的 i 在其所在的作用域中并不存在，i 只存在于for循环内部。</p>
+<h2 id="追问4"><a href="#追问4" class="headerlink" title="追问4"></a>追问4</h2><p>如果期望代码的输出变成 0-&gt;1-&gt;2-&gt;3-&gt;4-&gt;5，并且要求原有的代码块中的循环和两处console.log不变，该怎么改造代码？新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5（这里使用大概是为了避免钻牛角尖的同学陷进去，因为 JS 中的定时器触发时机有可能是不确定的）。</p>
+<p>看到这里，有些同学会给出下面的可行解：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(j);</span><br><span class="line">        &#125;, <span class="number">1000</span> * j));  <span class="comment">// 这里修改 0~4 的定时器时间</span></span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 这里增加定时器，超时设置为 5 秒</span></span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;, <span class="number">1000</span> * i);</span><br></pre></td></tr></table></figure>
+<p>不得不承认，这种做法虽然粗暴有效，但是不算是能额外加分的方案。如果把这次的需求抽象为：在系列异步操作完成（每次循环都产生了 1 个异步操作）之后，再做其他的事情，代码该怎么组织？聪明的你是不是想起了什么？对，就是 Promise，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;   <span class="comment">// 这里 i 的声明不能改成 let，如果要改该怎么做？</span></span><br><span class="line">    (<span class="function">(<span class="params">j</span>) =&gt;</span> &#123;</span><br><span class="line">        tasks.push(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(j);</span><br><span class="line">                resolve();  <span class="comment">// 这里一定要 resolve，否则代码不会按预期 work</span></span><br><span class="line">            &#125;, <span class="number">1000</span> * j);   <span class="comment">// 定时器的超时时间逐步增加</span></span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);   </span><br></pre></td></tr></table></figure>
+<p>当然，上面的代码还能进一步简化，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> tasks = []; <span class="comment">// 这里存放异步操作的 Promise</span></span><br><span class="line"><span class="keyword">const</span> output = <span class="function">(<span class="params">i</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 生成全部的异步操作</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    tasks.push(output(i));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步操作完成之后，输出最后的 i</span></span><br><span class="line"><span class="built_in">Promise</span>.all(tasks).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样看是不是逻辑清楚多了，使用 Promise 处理异步代码比回调机制让代码可读性更高，但是使用 Promise 的问题也很明显，即如果没有处理 Promise 的 reject，会导致错误被丢进黑洞，这显然是我们不愿看到的。</p>
+<h2 id="追问5"><a href="#追问5" class="headerlink" title="追问5"></a>追问5</h2><p>既然Promise已经被拿下，能否使用 ES7 中的 async/await 特性来让这段代码变的更简洁？答案是肯定的，来看下面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 模拟其他语言中的 sleep，实际上可以是任何异步操作</span></span><br><span class="line"><span class="keyword">const</span> sleep = <span class="function">(<span class="params">timeountMS</span>) =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(resolve, timeountMS);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;  <span class="comment">// 声明即执行的 async 函数表达式</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>好了，到这里，这道经典面试题我们已经剖析完毕了，相信读到这里，你收获的不仅仅是用 JS 精确控制代码输出的各种技巧，更是对于前端工程师的成长期许：扎实的语言基础、与时俱进的能力、强大的技术自驱力。生命不息，学习不止，让我们用知识不断充实丰富自己，如果你有任何的问题，也欢迎评论区留言，你的支持是我前进的最大动力！</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣15天挑战赛结赛仪式</title>
+    <url>/2021/03/30/%E5%8A%9B%E6%89%A315%E5%A4%A9%E6%8C%91%E6%88%98%E8%B5%9B%E7%BB%93%E8%B5%9B%E4%BB%AA%E5%BC%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="力扣15天"><a href="#力扣15天" class="headerlink" title="力扣15天"></a>力扣15天</h2><a id="more"></a>
+<p>15天，做完了30道力扣题，主要由每日一题+随机一题+链表专题组成，涉及数组、链表、树等数据结构，二分查找、双指针、概率分析等方法，学到了很多，也深感自己的能力还不足，还有更多的算法思想需要我去探索，这条路可能很难，但我会不断学习，坚持下去。I can，I must！</p>
+<p>可能以后不会写专门针对力扣题目的文章了，这是我的力扣个人主页 <a href="https://leetcode-cn.com/u/cxs-happy/">苏御</a>，里面记录着我的刷题之路，一起成长吧！</p>
+<p>快乐学习，快乐生活，快乐工作！</p>
+<p>为了所有爱我和我爱的人，努力变优秀！</p>
+<p>就像刘宇从创造营 90 人中脱颖而出，17年舞蹈，只为成为最好的自己</p>
+<p>就像韩佩泉即使 4 次选拔被拒也坚持做自己，believe yourself</p>
+<p>就像赖耀翔拼尽全力却未被人看到但仍砥砺向前勇敢逐梦</p>
+<p>就像赞多、力丸毫不吝啬给予营员舞蹈的帮助，共同成长</p>
+<p>就像上官一翔永远保持一颗热忱真诚的心，面带微笑，给营员鼓励，给营员信心</p>
+<p>就像甘望星即使出身普通但仍努力学习，不断提高自己</p>
+<p>其实，<strong>我们所看到的惊艳，都曾被平庸历练</strong>。</p>
+]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -504,6 +460,50 @@ n == nums.length
 <h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>每个特殊等价字符串组中的字符串，它们的奇数位的字符其实都是一样的，只是顺序不同，偶数位也是。</p>
 <p>所以，我们可以提取出每个字符串的奇数位和偶数位字符，排序后进行拼接，然后使用 Set 去重。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string[]&#125;</span> <span class="variable">A</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> numSpecialEquivGroups = <span class="function"><span class="keyword">function</span> (<span class="params">A</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> list = A.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = item.split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> odd = arr.filter(<span class="function">(<span class="params">t, i</span>) =&gt;</span> i % <span class="number">2</span> === <span class="number">1</span>).sort().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> even = arr.filter(<span class="function">(<span class="params">t, i</span>) =&gt;</span> i % <span class="number">2</span> === <span class="number">0</span>).sort().join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> odd + even;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> [...new <span class="built_in">Set</span>(list)].length;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 耍个帅，一行搞定！</span></span><br><span class="line">  <span class="comment">// return [...new Set(A.map(item =&gt; item.split(&#x27;&#x27;).filter((t, i) =&gt; i % 2 === 1).sort().join(&#x27;&#x27;) + item.split(&#x27;&#x27;).filter((t, i) =&gt; i % 2 === 0).sort().join(&#x27;&#x27;)))].length;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第10天-No.456 132模式</title>
+    <url>/2021/03/24/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC10%E5%A4%A9-No-456-132%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i &lt; j &lt; k 和 nums[i] &lt; nums[k] &lt; nums[j] 。</p>
+<a id="more"></a>
+<p>如果 nums 中存在 132 模式的子序列 ，返回 true ；否则，返回 false 。</p>
+<p>示例：</p>
+<pre>
+输入：nums = [1,2,3,4]
+输出：false
+解释：序列中不存在 132 模式的子序列。
+
+输入：nums = [3,1,4,2]
+输出：true
+解释：序列中有 1 个 132 模式的子序列： [1, 4, 2] 。
+
+输入：nums = [-1,3,2,0]
+输出：true
+解释：序列中有 3 个 132 模式的的子序列：[-1, 3, 2]、[-1, 3, 0] 和 [-1, 2, 0] 。
+</pre>
+
+<p>注意：</p>
+<pre>
+n == nums.length
+1 <= n <= 104
+-10^9 <= nums[i] <= 10^9
+</pre>
+
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>暴力破解</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> find132pattern = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.length;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> min = nums[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (min &gt; nums[i]) &#123;</span><br><span class="line">      min = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (min &lt; nums[j] &amp;&amp; nums[i] &gt; nums[j]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>单调栈</p>
+<p>维护一个从栈底到栈顶单调递减的栈，对于遍历到的每一个元素，判断是否大于栈顶元素，是则持续弹出栈顶元素，直到栈顶元素小于等于正在遍历的元素，将弹出的元素记为 k，最后将遍历元素推入栈中，进行下一轮for循环。每轮for循环都将判断此时遍历的元素 i 是否小于 k，小于则说明找到了132模式的子序列。</p>
+<blockquote>
+<p>存在 k（<em>非-Infinity</em>） 则必然是由大于 k 的 j 将 k 弹出。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> find132pattern = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.length;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> stack = [];</span><br><span class="line">  <span class="keyword">let</span> k = -<span class="literal">Infinity</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums[i] &lt; k) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (stack.length !== <span class="number">0</span> &amp;&amp; stack[stack.length - <span class="number">1</span>] &lt; nums[i]) &#123;</span><br><span class="line">      k = stack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    stack.push(nums[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -1008,55 +1008,6 @@ s 由英文字母（大写和小写）、数字（0-9）、' '、'+'、'-' 和 '
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第3天-No.1227飞机座位分配概率</title>
-    <url>/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-1227%E9%A3%9E%E6%9C%BA%E5%BA%A7%E4%BD%8D%E5%88%86%E9%85%8D%E6%A6%82%E7%8E%87/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有 n 位乘客即将登机，飞机正好有 n 个座位。第一位乘客的票丢了，他随便选了一个座位坐下。</p>
-<a id="more"></a>
-<p>剩下的乘客将会：</p>
-<ul>
-<li>如果他们自己的座位还空着，就坐到自己的座位上，</li>
-<li>当他们自己的座位被占用时，随机选择其他座位</li>
-</ul>
-<p>第 n 位乘客坐在自己的座位上的概率是多少？</p>
-<p>示例：</p>
-<pre>
-输入：n = 1
-输出：1.00000
-解释：第一个人只会坐在自己的位置上。
-
-输入: n = 2
-输出: 0.50000
-解释：在第一个人选好座位坐下后，第二个人坐在自己的座位上的概率是 0.5。
-</pre>
-
-<p>注意：</p>
-<pre>
-1 <= n <= 10^5
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>推导过程：</p>
-<p>设第 n 位乘客坐在自己的座位上的概率为 f(n)</p>
-<p>第一位乘客因票丢失，面临如下情况：</p>
-<ul>
-<li>他有 1 / n 的概率坐到正确的座位，则后面的乘客都会坐到自己的座位上，所以 f(n)’ = 1 / n；</li>
-<li>他有 1 / n 的概率坐到第 n 位乘客的座位，则后面的乘客除了第 n 位都会坐到自己的座位上，而第 n 位乘客只能坐到第 1 位乘客的位置，所以 f(n)’ = 0；</li>
-<li>他有 1 / n 的概率坐到第 i 位乘客的座位，其中 2 &lt;= i &lt;= n - 1，则第 2 到 i - 1 位乘客都能坐到自己的座位上，而当第 i 位乘客来到客舱，发现自己的座位被人（第 1 位乘客）占了，这时他会从剩下的 n - i + 1 随机选择一个座位坐下，因此他面临的情况和第 1 位乘客一样，只不过此时的第一种情况下，正确的座位是第 1 位乘客的座位，所以 f(n)’ = f(n - i + 1)；</li>
-</ul>
-<p>由此可以得到递推式：</p>
-<p>f(n) = 1 / n * (1 + 0 + <strong>SUM[2, n-1] </strong>f(n - i + 1))，其中SUM[2, n-1]表示i从2到n-1对后面的式子进行求和</p>
-<p>令 n = n - 1，则</p>
-<p>f(n - 1) = 1 / (n - 1) * (1 + 0 + <strong>SUM[2, n-2] </strong>f(n - i))</p>
-<p>两式相减得：n * f(n) - (n - 1) * f(n - 1) = f(n - 1)，即 f(n) = f(n - 1) = …… = f(2)</p>
-<p>因此，对任意 n &gt;= 2，有 f(n) = f(2) = 0.5，当 n = 1，f(n) = 1</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> nthPersonGetsNthSeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n === <span class="number">1</span> ? <span class="number">1</span> : <span class="number">.5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第3天-No.115不同的子序列</title>
     <url>/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-115%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个字符串 s 和一个字符串 t ，计算在 s 的子序列中 t 出现的个数。</p>
@@ -1108,6 +1059,55 @@ dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j]  s[i] === s[j]
 
 <p>最终 dp[0][0] 即为在 s 的子序列中 t 出现的个数。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">t</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> numDistinct = <span class="function"><span class="keyword">function</span> (<span class="params">s, t</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> m = s.length;</span><br><span class="line">  <span class="keyword">const</span> n = t.length;</span><br><span class="line">  <span class="keyword">if</span> (m &lt; n) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(m + <span class="number">1</span>).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n + <span class="number">1</span>).fill(<span class="number">0</span>));</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">    dp[i][n] = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = n - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span> (s[i] === t[j]) &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j + <span class="number">1</span>] + dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        dp[i][j] = dp[i + <span class="number">1</span>][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第3天-No.1227飞机座位分配概率</title>
+    <url>/2021/03/17/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC3%E5%A4%A9-No-1227%E9%A3%9E%E6%9C%BA%E5%BA%A7%E4%BD%8D%E5%88%86%E9%85%8D%E6%A6%82%E7%8E%87/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有 n 位乘客即将登机，飞机正好有 n 个座位。第一位乘客的票丢了，他随便选了一个座位坐下。</p>
+<a id="more"></a>
+<p>剩下的乘客将会：</p>
+<ul>
+<li>如果他们自己的座位还空着，就坐到自己的座位上，</li>
+<li>当他们自己的座位被占用时，随机选择其他座位</li>
+</ul>
+<p>第 n 位乘客坐在自己的座位上的概率是多少？</p>
+<p>示例：</p>
+<pre>
+输入：n = 1
+输出：1.00000
+解释：第一个人只会坐在自己的位置上。
+
+输入: n = 2
+输出: 0.50000
+解释：在第一个人选好座位坐下后，第二个人坐在自己的座位上的概率是 0.5。
+</pre>
+
+<p>注意：</p>
+<pre>
+1 <= n <= 10^5
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>推导过程：</p>
+<p>设第 n 位乘客坐在自己的座位上的概率为 f(n)</p>
+<p>第一位乘客因票丢失，面临如下情况：</p>
+<ul>
+<li>他有 1 / n 的概率坐到正确的座位，则后面的乘客都会坐到自己的座位上，所以 f(n)’ = 1 / n；</li>
+<li>他有 1 / n 的概率坐到第 n 位乘客的座位，则后面的乘客除了第 n 位都会坐到自己的座位上，而第 n 位乘客只能坐到第 1 位乘客的位置，所以 f(n)’ = 0；</li>
+<li>他有 1 / n 的概率坐到第 i 位乘客的座位，其中 2 &lt;= i &lt;= n - 1，则第 2 到 i - 1 位乘客都能坐到自己的座位上，而当第 i 位乘客来到客舱，发现自己的座位被人（第 1 位乘客）占了，这时他会从剩下的 n - i + 1 随机选择一个座位坐下，因此他面临的情况和第 1 位乘客一样，只不过此时的第一种情况下，正确的座位是第 1 位乘客的座位，所以 f(n)’ = f(n - i + 1)；</li>
+</ul>
+<p>由此可以得到递推式：</p>
+<p>f(n) = 1 / n * (1 + 0 + <strong>SUM[2, n-1] </strong>f(n - i + 1))，其中SUM[2, n-1]表示i从2到n-1对后面的式子进行求和</p>
+<p>令 n = n - 1，则</p>
+<p>f(n - 1) = 1 / (n - 1) * (1 + 0 + <strong>SUM[2, n-2] </strong>f(n - i))</p>
+<p>两式相减得：n * f(n) - (n - 1) * f(n - 1) = f(n - 1)，即 f(n) = f(n - 1) = …… = f(2)</p>
+<p>因此，对任意 n &gt;= 2，有 f(n) = f(2) = 0.5，当 n = 1，f(n) = 1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> nthPersonGetsNthSeat = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n === <span class="number">1</span> ? <span class="number">1</span> : <span class="number">.5</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -1341,69 +1341,6 @@ tokens[i] 要么是一个算符（"+"、"-"、"*" 或 "/"），要么是一个�
       </tags>
   </entry>
   <entry>
-    <title>力扣挑战赛第7天-No.1701平均等待时间</title>
-    <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-1701%E5%B9%B3%E5%9D%87%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一个餐厅，只有一位厨师。你有一个顾客数组 customers ，其中 customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>] ：</p>
-<a id="more"></a>
-<p>arrival<sub>i</sub> 是第 i 位顾客到达的时间，到达时间按非递减顺序排列。<br>time<sub>i</sub> 是给第 i 位顾客做菜需要的时间。<br>当一位顾客到达时，他将他的订单给厨师，厨师一旦空闲的时候就开始做这位顾客的菜。每位顾客会一直等待到厨师完成他的订单。厨师同时只能做一个人的订单。厨师会严格按照订单给他的顺序做菜。</p>
-<p>请你返回所有顾客需要等待的平均时间。与标准答案误差在 10^-5 范围以内，都视为正确结果。</p>
-<p>示例：</p>
-<pre>
-输入：customers = [[5,2],[5,4],[10,3],[20,1]]
-输出：3.25000
-解释：
-1) 第一位顾客在时刻 5 到达，厨师拿到他的订单并在时刻 5 立马开始做菜，并在时刻 7 完成，第一位顾客等待时间为 7 - 5 = 2 。
-2) 第二位顾客在时刻 5 到达，厨师在时刻 7 开始为他做菜，并在时刻 11 完成，第二位顾客等待时间为 11 - 5 = 6 。
-3) 第三位顾客在时刻 10 到达，厨师在时刻 11 开始为他做菜，并在时刻 14 完成，第三位顾客等待时间为 14 - 10 = 4 。
-4) 第四位顾客在时刻 20 到达，厨师拿到他的订单并在时刻 20 立马开始做菜，并在时刻 21 完成，第四位顾客等待时间为 21 - 20 = 1 。
-平均等待时间为 (2 + 6 + 4 + 1) / 4 = 3.25 。
-</pre>
-
-<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>模拟</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">customers</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> averageWaitingTime = <span class="function"><span class="keyword">function</span> (<span class="params">customers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = customers.length;</span><br><span class="line">  <span class="keyword">let</span> done = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> waiting = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> arrival = customers[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> time = customers[i][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (arrival &lt;= done) &#123;</span><br><span class="line">      done += time;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      done = arrival + time;</span><br><span class="line">    &#125;</span><br><span class="line">    waiting += done - arrival;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> waiting / len;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣挑战赛第8天-No.191位1的个数</title>
-    <url>/2021/03/22/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC8%E5%A4%A9-No-191%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（汉明重量）。</p>
-<a id="more"></a>
-<p>示例：</p>
-<pre>
-输入：00000000000000000000000000001011
-输出：3
-解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 '1'。
-</pre>
-
-<p>注意：</p>
-<pre>
-输入必须是长度为 32 的 二进制串
-</pre>
-
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>位运算</p>
-<p>n &amp; n - 1，将会使 n 对应的二进制串的最低位 1 置为 0 </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (n) &#123;</span><br><span class="line">    n &amp;= n - <span class="number">1</span>;</span><br><span class="line">    ret++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>位运算 + 左移</p>
-<p>将 n 对应的二进制串的每一位与 1 进行 &amp; 运算</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &amp; (<span class="number">1</span> &lt;&lt; i)) &#123;</span><br><span class="line">      ret++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>懒蛋法</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n.toString(<span class="number">2</span>).split(<span class="string">&#x27;&#x27;</span>).filter(<span class="function">(<span class="params">item</span>) =&gt;</span> item === <span class="string">&#x27;1&#x27;</span>).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>力扣</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣挑战赛第7天-No.73矩阵置零</title>
     <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-73%E7%9F%A9%E9%98%B5%E7%BD%AE%E9%9B%B6/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用原地算法。</p>
@@ -1449,6 +1386,69 @@ n == matrix[0].length
 
 <h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>类似于解法二，不过只使用一个标记变量，记录第一列是否原本存在 0，而第一列的第一个元素用来记录第一行是否原本存在 0，注意，为防止每一列的第一个元素被提前更新，需要从最后一行开始，倒序地处理矩阵元素</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">matrix</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;void&#125;</span> </span>Do not return anything, modify matrix in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> setZeroes = <span class="function"><span class="keyword">function</span> (<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> m = matrix.length;</span><br><span class="line">  <span class="keyword">let</span> n = matrix[<span class="number">0</span>].length;</span><br><span class="line">  <span class="keyword">let</span> firstColumn = <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span>) &#123;</span><br><span class="line">      firstColumn = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][<span class="number">0</span>] = matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[i][<span class="number">0</span>] === <span class="number">0</span> || matrix[<span class="number">0</span>][j] === <span class="number">0</span>) &#123;</span><br><span class="line">        matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (firstColumn) &#123;</span><br><span class="line">      matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第8天-No.191位1的个数</title>
+    <url>/2021/03/22/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC8%E5%A4%A9-No-191%E4%BD%8D1%E7%9A%84%E4%B8%AA%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（汉明重量）。</p>
+<a id="more"></a>
+<p>示例：</p>
+<pre>
+输入：00000000000000000000000000001011
+输出：3
+解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 '1'。
+</pre>
+
+<p>注意：</p>
+<pre>
+输入必须是长度为 32 的 二进制串
+</pre>
+
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><p>位运算</p>
+<p>n &amp; n - 1，将会使 n 对应的二进制串的最低位 1 置为 0 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (n) &#123;</span><br><span class="line">    n &amp;= n - <span class="number">1</span>;</span><br><span class="line">    ret++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>位运算 + 左移</p>
+<p>将 n 对应的二进制串的每一位与 1 进行 &amp; 运算</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span> - a positive integer</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> ret = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &amp; (<span class="number">1</span> &lt;&lt; i)) &#123;</span><br><span class="line">      ret++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法三"><a href="#解法三" class="headerlink" title="解法三"></a>解法三</h2><p>懒蛋法</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> hammingWeight = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n.toString(<span class="number">2</span>).split(<span class="string">&#x27;&#x27;</span>).filter(<span class="function">(<span class="params">item</span>) =&gt;</span> item === <span class="string">&#x27;1&#x27;</span>).length;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>力扣</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣挑战赛第7天-No.1701平均等待时间</title>
+    <url>/2021/03/21/%E5%8A%9B%E6%89%A3%E6%8C%91%E6%88%98%E8%B5%9B%E7%AC%AC7%E5%A4%A9-No-1701%E5%B9%B3%E5%9D%87%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一个餐厅，只有一位厨师。你有一个顾客数组 customers ，其中 customers[i] = [arrival<sub>i</sub>, time<sub>i</sub>] ：</p>
+<a id="more"></a>
+<p>arrival<sub>i</sub> 是第 i 位顾客到达的时间，到达时间按非递减顺序排列。<br>time<sub>i</sub> 是给第 i 位顾客做菜需要的时间。<br>当一位顾客到达时，他将他的订单给厨师，厨师一旦空闲的时候就开始做这位顾客的菜。每位顾客会一直等待到厨师完成他的订单。厨师同时只能做一个人的订单。厨师会严格按照订单给他的顺序做菜。</p>
+<p>请你返回所有顾客需要等待的平均时间。与标准答案误差在 10^-5 范围以内，都视为正确结果。</p>
+<p>示例：</p>
+<pre>
+输入：customers = [[5,2],[5,4],[10,3],[20,1]]
+输出：3.25000
+解释：
+1) 第一位顾客在时刻 5 到达，厨师拿到他的订单并在时刻 5 立马开始做菜，并在时刻 7 完成，第一位顾客等待时间为 7 - 5 = 2 。
+2) 第二位顾客在时刻 5 到达，厨师在时刻 7 开始为他做菜，并在时刻 11 完成，第二位顾客等待时间为 11 - 5 = 6 。
+3) 第三位顾客在时刻 10 到达，厨师在时刻 11 开始为他做菜，并在时刻 14 完成，第三位顾客等待时间为 14 - 10 = 4 。
+4) 第四位顾客在时刻 20 到达，厨师拿到他的订单并在时刻 20 立马开始做菜，并在时刻 21 完成，第四位顾客等待时间为 21 - 20 = 1 。
+平均等待时间为 (2 + 6 + 4 + 1) / 4 = 3.25 。
+</pre>
+
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>模拟</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[][]&#125;</span> <span class="variable">customers</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">let</span> averageWaitingTime = <span class="function"><span class="keyword">function</span> (<span class="params">customers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = customers.length;</span><br><span class="line">  <span class="keyword">let</span> done = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> waiting = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> arrival = customers[i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> time = customers[i][<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (arrival &lt;= done) &#123;</span><br><span class="line">      done += time;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      done = arrival + time;</span><br><span class="line">    &#125;</span><br><span class="line">    waiting += done - arrival;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> waiting / len;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -1689,63 +1689,6 @@ envelopes[i].length == 2
       </tags>
   </entry>
   <entry>
-    <title>字节面试题1</title>
-    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
-<ul>
-<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
-<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
-<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
-<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
-<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
-<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
-<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
-<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
-<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
-<li>传输层协议：TCP协议、UDP协议</li>
-<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
-<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
-<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
-<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
-<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
-<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
-<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
-<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
-<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
-<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
-<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
-<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
-<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
-<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
-<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
-<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
-<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
-</blockquote>
-</li>
-<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
-<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
-<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
-<p>注：需要服务器端的页面进行相应的配合</p>
-</blockquote>
-</li>
-<li>通过修改document.domain来跨子域</li>
-<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
-<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
-<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
-<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
-<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
-<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>字典</title>
     <url>/2020/09/21/%E5%AD%97%E5%85%B8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><p>我们已经知道，集合表示一组互不相同的元素（不重复的元素）。在字典中，存储的是[键, 值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值, 值]的形式存储元素，字典则以[键, 值]的形式来存储元素。字典也称作<strong>映射</strong>、<strong>符号表</strong>或<strong>关联数组</strong>。</p>
@@ -1759,46 +1702,6 @@ envelopes[i].length == 2
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>成长</title>
-    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
-<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
-<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
-<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
-<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
-<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
-<ul>
-<li>初一，学习成绩前五，住校；</li>
-<li>初二，学习成绩第一，住校，物理课代表</li>
-<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
-</ul>
-<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
-<ul>
-<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
-<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
-<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
-<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
-<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
-</ul>
-<blockquote>
-<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
-</blockquote>
-<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
-<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
-<blockquote>
-<p>注：上面圆圈大小不代表城市规模和大小</p>
-</blockquote>
-<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -1875,25 +1778,43 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/09/28/%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt;= <span class="number">2</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; j - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[i], arr[i + <span class="number">1</span>]] = [arr[i + <span class="number">1</span>], arr[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> minIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">                minIndex = j;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[j], arr[j - <span class="number">1</span>]] = [arr[j - <span class="number">1</span>], arr[j]];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> s = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> temp = arr.splice(s, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> left = [];</span><br><span class="line">    <span class="keyword">let</span> right = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; temp) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat(temp, quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="alt"><br>另一种快速排序：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Partition</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = p, j = r + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> x = arr[p];</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (arr[++i] &lt; x &amp;&amp; i &lt; r) ;</span><br><span class="line">        <span class="keyword">while</span> (arr[--j] &gt; x) ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</span><br><span class="line">        [arr[i], arr[j]] = [arr[j], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[p] = arr[j];</span><br><span class="line">    arr[j] = x;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &lt; r) &#123;</span><br><span class="line">        <span class="keyword">let</span> q = Partition(arr, p, r);</span><br><span class="line">        QuickSort(arr, p, q - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, q + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(QuickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
-
+    <title>成长</title>
+    <url>/2021/02/07/%E6%88%90%E9%95%BF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="我的二十二年"><a href="#我的二十二年" class="headerlink" title="我的二十二年"></a>我的二十二年</h2><a id="more"></a>
+<p><strong>宋集·宋集卫生院</strong>：1999.10.30（公历）1999.9.22（农历）出生</p>
+<p><strong>崔庄·家</strong>：农村，没有什么玩具，啥也没玩过，但很幸福，一直到04年开始上学</p>
+<p><strong>宋集·宋集幼儿园</strong>： 在镇上，04年和05年断断续续地上，其实没咋学，都在玩，被幼儿园校车接走时总是会哭，不能离开妈妈，呜呜呜</p>
+<p><strong>崔庄·崔敬小学</strong>：2005.9~2011.6，农村小学，周围都是麦田，走路上下学，学习成绩一般，喜欢玩</p>
+<p><strong>宋集·宋集中学</strong>：2011.9~2014.6</p>
+<ul>
+<li>初一，学习成绩前五，住校；</li>
+<li>初二，学习成绩第一，住校，物理课代表</li>
+<li>初三，学习成绩第二，走读，上学期当物理课代表，下学期当数学课代表</li>
+</ul>
+<p><strong>西平·西平高中</strong>：2014.9~2017.6，前两个月住校，后面走读</p>
+<ul>
+<li>高一：按照中考成绩，进入29班（火箭班），倒数，第一次月考，前70/2000，上学期中期根据前五次成绩进行文理分班，选择理科，进入30班（宏志班），倒数第三，此后成绩一直在班级倒数，学校一百多名</li>
+<li>高二：开始逆袭，用一年时间从班级倒数到班级前列</li>
+<li>高三：上学期某次考试取得三年最好成绩，班级前五，学校前十，也得到了高中时代唯一的一个奖状，此后成绩逐渐稳定，维持在班级中上游，全年担任生物课代表</li>
+<li>高考611，河南省前5000/86.58万，最终选择四川大学计算机类</li>
+<li>高中三年，身体和心理状态不佳，经常感冒，焦虑，常常请假，感谢妈妈的三年陪伴和班主任的照顾</li>
+</ul>
+<blockquote>
+<p>从小学到高中，没培养什么爱好，对音乐有兴趣，但是没有条件和时间学习</p>
+</blockquote>
+<p><strong>成都·四川大学</strong>：2017.9~2021.6，目前（写这篇文章时，2021.2.7）大四在读，6月份毕业，大学四年，成绩中等，200/400，学习之余，空闲时间很多，参加很多课外活动，喜欢旅游，去了都江堰、青城山、熊猫基地等，也去了重庆、杭州，懂得了 <strong><em>人生不只有学习，还有远方</em></strong>。后面准备秋招拿到小米offer，做前端。</p>
+<p><strong>北京·小米</strong>：目前在小米实习，我的工作生涯也从小米开始，加油啊，前端工程师。<strong>永远相信美好的事情即将发生</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/city.png" alt="city"></p>
+<blockquote>
+<p>注：上面圆圈大小不代表城市规模和大小</p>
+</blockquote>
+<p>从小到大，视野越来越开阔，也发现自己不知道的事情也越来越多，愿我们<strong>不负韶华，砥砺前行</strong>。</p>
 ]]></content>
       <categories>
-        <category>技术</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -1942,6 +1863,85 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
+    <title>排序</title>
+    <url>/2020/09/28/%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bubbleSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = len; j &gt;= <span class="number">2</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; j - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[i], arr[i + <span class="number">1</span>]] = [arr[i + <span class="number">1</span>], arr[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">let</span> minIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">                minIndex = j;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = i; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[j - <span class="number">1</span>]) &#123;</span><br><span class="line">                [arr[j], arr[j - <span class="number">1</span>]] = [arr[j - <span class="number">1</span>], arr[j]];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.gif" alt="alt"></p>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr.length &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> s = <span class="built_in">Math</span>.floor(arr.length / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> temp = arr.splice(s, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> left = [];</span><br><span class="line">    <span class="keyword">let</span> right = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; temp) &#123;</span><br><span class="line">            left.push(arr[i]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> quickSort(left).concat(temp, quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/cxs2018/blog/master/img/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.gif" alt="alt"><br>另一种快速排序：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Partition</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = p, j = r + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> x = arr[p];</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (arr[++i] &lt; x &amp;&amp; i &lt; r) ;</span><br><span class="line">        <span class="keyword">while</span> (arr[--j] &gt; x) ;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</span><br><span class="line">        [arr[i], arr[j]] = [arr[j], arr[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[p] = arr[j];</span><br><span class="line">    arr[j] = x;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">QuickSort</span>(<span class="params">arr, p, r</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &lt; r) &#123;</span><br><span class="line">        <span class="keyword">let</span> q = Partition(arr, p, r);</span><br><span class="line">        QuickSort(arr, p, q - <span class="number">1</span>);</span><br><span class="line">        QuickSort(arr, q + <span class="number">1</span>, r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(QuickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>字节面试题1</title>
+    <url>/2020/09/16/%E5%AD%97%E8%8A%82%E9%9D%A2%E8%AF%95%E9%A2%981/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="用css2和css3分别写一下垂直居中和水平居中"><a href="#用css2和css3分别写一下垂直居中和水平居中" class="headerlink" title="用css2和css3分别写一下垂直居中和水平居中"></a>用css2和css3分别写一下垂直居中和水平居中</h2><p>css3新增了一些属性，像flex，这是css3中很重要的改变，所以除了flex以外的垂直水平居中的技巧都是属于css2的。</p>
+<ul>
+<li>css2的水平居中技巧<br>将元素display为行内元素，再text-align:center;即可<br>或者<br>将块级元素定义一个宽度，再margin: 0 auto;即可</li>
+<li>css3的水平居中技巧<br>将元素display设为flex，再通过justify-content: center; 实现居中。</li>
+<li>css2的垂直居中技巧<br>单行内容的垂直居中可以通过设置相同height值和line-height值来实现。<br>多行内容的垂直居中且高度可变可以通过设置上下相同的padding值来实现。<br>行级盒子：小图标和标题对齐设置vertical-align: middle。<br>绝对定位：top:50%; left:50%;的方法，需要已知块级的宽高</li>
+<li>css3的垂直居中技巧<br>将元素display设为flex，再通过align-items:center;来实现。<a id="more"></a>
+<h2 id="计算机网络的七层"><a href="#计算机网络的七层" class="headerlink" title="计算机网络的七层"></a>计算机网络的七层</h2>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层<br><img src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9128db37af494d42874fed85870f57ac~tplv-k3u1fbpfcp-zoom-1.image" alt="alt"><h2 id="TCP和UDP的区别是什么"><a href="#TCP和UDP的区别是什么" class="headerlink" title="TCP和UDP的区别是什么"></a>TCP和UDP的区别是什么</h2></li>
+<li>TCP：面向连接、传输可靠(保证数据正确性,保证数据顺序)、用于传输大量数据(流模式)、速度慢，建立连接需要开销较多(时间，系统资源)</li>
+<li>UDP：面向非连接、传输不可靠、用于传输少量数据(数据包模式)、速度快</li>
+<li>TCP和UDP协议的一些应用例子：TCP一般用于文件传输（FTP HTTP 对数据准确性要求高，速度可以相对慢），发送或接收邮件（POP IMAP SMTP 对数据准确性要求高，非紧急应用），远程登录（TELNET SSH 对数据准确性有一定要求，有连接的概念）等等；UDP一般用于即时通信（QQ聊天 对数据准确性和丢包要求比较低，但速度必须快），在线视频（RTSP 速度一定要快，保证视频连续，但是偶尔花了一个图像帧，人们还是能接受的），网络语音电话（VoIP 语音数据包一般比较小，需要高速发送，偶尔断音或串音也没有问题）等等。<h2 id="TCP和UDP属于计算机网络的哪一层"><a href="#TCP和UDP属于计算机网络的哪一层" class="headerlink" title="TCP和UDP属于计算机网络的哪一层"></a>TCP和UDP属于计算机网络的哪一层</h2></li>
+<li>网络层协议：IP协议、ICMP协议、ARP协议、RARP协议</li>
+<li>传输层协议：TCP协议、UDP协议</li>
+<li>应用层协议：FTP、Telnet、SMTP、HTTP、RIP、NFS、DNS<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2>HTTPS即加密的HTTP，HTTPS并不是一个新协议，而是HTTP+SSL（TLS）。原本HTTP先和TCP（假定传输层是TCP协议）直接通信，而加了SSL后，就变成HTTP先和SSL通信，再由SSL和TCP通信，相当于SSL被嵌在了HTTP和TCP之间。<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2></li>
+<li>2XX系列：代表请求已成功被服务器接收、理解、并接受。</li>
+<li>200状态码：表示请求已成功，请求所希望的响应头或数据体将随此响应返回</li>
+<li>201状态码：表示请求成功并且服务器创建了新的资源，且其 URI 已经随Location 头信息返回。</li>
+<li>3XX系列：代表需要客户端采取进一步的操作才能完成请求，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</li>
+<li>301状态码：被请求的资源已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
+<li>302状态码：请求的资源临时从不同的URI响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>304状态码：自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
+<li>4XX系列：表示请求错误。代表了客户端看起来可能发生了错误，妨碍了服务器的处理。</li>
+<li>401状态码：请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
+<li>403状态码：服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。</li>
+<li>404状态码：请求失败，请求所希望得到的资源未被在服务器上发现。</li>
+<li>5xx系列：代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
+<li>500状态码：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。</li>
+<li>503状态码：由于临时的服务器维护或者过载，服务器当前无法处理请求。<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2>闭包就是能够读取其他函数内部变量的函数。闭包的用途：可以读取函数内部的变量，并且让这些变量的值始终保持在内存中。<h2 id="NaN是什么，用typeof会输出什么"><a href="#NaN是什么，用typeof会输出什么" class="headerlink" title="NaN是什么，用typeof会输出什么"></a>NaN是什么，用typeof会输出什么</h2>Not a Number，Number。<h2 id="js的隐性转换和显性转换"><a href="#js的隐性转换和显性转换" class="headerlink" title="js的隐性转换和显性转换"></a>js的隐性转换和显性转换</h2></li>
+<li>隐性转换： 1 + ‘1’ = ‘11’， 1 - ‘1’ = 0</li>
+<li>显性转换：<br>Number(“24 cccc”);//结果：NaN<br>ParseInt(“24 cccc”);//结果：24<blockquote>
+<p>注：Number的显性转换比较严格，若无法强转则直接报错</p>
+</blockquote>
+</li>
+<li>1 + -‘1’ + 1 等于 0 ，’1’前面的负号把其数字化，变为-1，则后值为1</li>
+<li>‘A’ - ‘B’ 等于 NaN<h2 id="跨域问题如何解决"><a href="#跨域问题如何解决" class="headerlink" title="跨域问题如何解决"></a>跨域问题如何解决</h2>同源策略：浏览器安全策略，同协议、ip、端口的脚本才会执行。只要协议、域名、端口有任何一个不同，都被当作是不同的域,js跨域是指通过js在不同的域之间进行数据传输或通信。</li>
+<li>通过jsonp跨域：jsonp在页面上引入不同域上的js脚本文件实现请求不同域上的数据<br>(1) 通过script标签引入一个js文件<br>(2) js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入<blockquote>
+<p>注：需要服务器端的页面进行相应的配合</p>
+</blockquote>
+</li>
+<li>通过修改document.domain来跨子域</li>
+<li>使用window.name来进行跨域: window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置。<h2 id="babel是什么"><a href="#babel是什么" class="headerlink" title="babel是什么"></a>babel是什么</h2>可以实现将ES6编译为ES5代码。<h2 id="用js实现判断一个变量是否为整数的函数"><a href="#用js实现判断一个变量是否为整数的函数" class="headerlink" title="用js实现判断一个变量是否为整数的函数"></a>用js实现判断一个变量是否为整数的函数</h2>实现思路：先判断该变量是否为Number类型，以此来缩小范围，再判断该变量除以1后是否与原值全等，若全等则返回true，若不全等则返回false。<h2 id="进程和线程是什么"><a href="#进程和线程是什么" class="headerlink" title="进程和线程是什么"></a>进程和线程是什么</h2></li>
+<li>线程是最小的执行单元，是操作系统能够进行运算调度的最小单位，而进程由至少一个线程组成。如何调度进程和线程，完全由操作系统决定，程序自己不能决定什么时候执行，执行多长时间。</li>
+<li>进程指计算机中已运行的程序。<h2 id="死锁是什么"><a href="#死锁是什么" class="headerlink" title="死锁是什么"></a>死锁是什么</h2>当两个以上的运算单元，双方都在等待对方停止运行，以获取系统资源，但是没有一方提前退出时，就称为死锁。<h2 id="Left-Join、Right-Join、Inner-Join-指的是什么"><a href="#Left-Join、Right-Join、Inner-Join-指的是什么" class="headerlink" title="Left Join、Right Join、Inner Join 指的是什么"></a>Left Join、Right Join、Inner Join 指的是什么</h2></li>
+<li>Left Join关键字会从左表那里返回所有的行，即使在右表中没有匹配的行</li>
+<li>Right Join关键字会右表那里返回所有的行，即使在左表中没有匹配的行</li>
+<li>在表中存在至少一个匹配时，Inner Join关键字返回行<h2 id="js快速排序"><a href="#js快速排序" class="headerlink" title="js快速排序"></a>js快速排序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if(arr.length&lt;&#x3D;1) &#123;</span><br><span class="line">  	return arr;</span><br><span class="line">  &#125;</span><br><span class="line">  var s &#x3D; Math.floor(arr.length&#x2F;2);</span><br><span class="line">  var temp &#x3D; arr.splice(s,1);</span><br><span class="line">  var left&#x3D;[];</span><br><span class="line">  var right&#x3D;[];</span><br><span class="line">  for(var i&#x3D;0;i&lt;arr.length;i++) &#123;</span><br><span class="line">    if(arr[i]&lt;temp) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    if(arr[i]&gt;&#x3D;temp) &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(temp,quickSort(right));  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>散列表</title>
     <url>/2020/09/21/%E6%95%A3%E5%88%97%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做<strong>散列函数</strong>，存放记录的数组叫做散列表。</p>
@@ -1955,6 +1955,23 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组扁平化</title>
+    <url>/2020/09/28/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="使用递归实现数组扁平化"><a href="#使用递归实现数组扁平化" class="headerlink" title="使用递归实现数组扁平化"></a>使用递归实现数组扁平化</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.flat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="built_in">this</span>.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(item)) &#123;</span><br><span class="line">            arr = arr.concat(item.flat());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [[<span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>]]];</span><br><span class="line"><span class="built_in">console</span>.log(arr.flat()); <span class="comment">//[2, 3, 4, 5, 6, 7, 8]</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="递归扩展：爬楼梯"><a href="#递归扩展：爬楼梯" class="headerlink" title="递归扩展：爬楼梯"></a>递归扩展：爬楼梯</h2><p>有一楼梯共M级，刚开始时你在第一级，若每次只能跨上一级或二级，要走上第M级，共有多少种走法？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">climbStairs</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(climbStairs(<span class="number">5</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h2 id="递归扩展：二分查找"><a href="#递归扩展：二分查找" class="headerlink" title="递归扩展：二分查找"></a>递归扩展：二分查找</h2><p>二分查找，是在一个有序的序列里查找某一个值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">binarySearch</span>(<span class="params">arr, target, low = <span class="number">0</span>, high = arr.length - <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; high) <span class="keyword">return</span> <span class="string">`没有找到<span class="subst">$&#123;target&#125;</span>`</span>;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="built_in">Math</span>.floor((low + high) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> current = arr[n];</span><br><span class="line">    <span class="keyword">if</span> (current === target) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`找到了<span class="subst">$&#123;target&#125;</span>, 在第<span class="subst">$&#123;n+<span class="number">1</span>&#125;</span>个`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (current &lt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(arr, target, n + <span class="number">1</span>, high);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (current &gt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(arr, target, low, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// return `没有找到$&#123;target&#125;`;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">35</span>, <span class="number">55</span>];</span><br><span class="line"><span class="built_in">console</span>.log(binarySearch(arr, <span class="number">9</span>)); <span class="comment">// 找到了9, 在第5个</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch(arr, <span class="number">7</span>)); <span class="comment">// 没有找到7</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -1976,6 +1993,22 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>栈</title>
+    <url>/2020/09/21/%E6%A0%88/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈是一种遵从<strong>后进先出</strong>（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。</p>
+<a id="more"></a>
+<h2 id="创建一个基于数组的Stack类"><a href="#创建一个基于数组的Stack类" class="headerlink" title="创建一个基于数组的Stack类"></a>创建一个基于数组的Stack类</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向栈添加元素</span></span><br><span class="line">    push(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从栈移除元素</span></span><br><span class="line">    pop() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看栈顶元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.items.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查栈是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.length === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取栈的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空栈元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建一个基于JavaScript对象的Stack类"><a href="#创建一个基于JavaScript对象的Stack类" class="headerlink" title="创建一个基于JavaScript对象的Stack类"></a>创建一个基于JavaScript对象的Stack类</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向栈中插入元素</span></span><br><span class="line">    push(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取栈的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查栈是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从栈中弹出元素</span></span><br><span class="line">    pop() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.count--;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看栈顶元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空栈元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="number">0</span>]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>, <span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里就不再演示Stack类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -2030,36 +2063,15 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>栈</title>
-    <url>/2020/09/21/%E6%A0%88/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>栈是一种遵从<strong>后进先出</strong>（LIFO）原则的有序集合。新添加或待删除的元素都保存在栈的同一端，称作栈顶，另一端就叫栈底。在栈里，新元素都靠近栈顶，旧元素都接近栈底。</p>
-<a id="more"></a>
-<h2 id="创建一个基于数组的Stack类"><a href="#创建一个基于数组的Stack类" class="headerlink" title="创建一个基于数组的Stack类"></a>创建一个基于数组的Stack类</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向栈添加元素</span></span><br><span class="line">    push(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items.push(element);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从栈移除元素</span></span><br><span class="line">    pop() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看栈顶元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.items.length - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查栈是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.length === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取栈的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items.length;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空栈元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = [];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="创建一个基于JavaScript对象的Stack类"><a href="#创建一个基于JavaScript对象的Stack类" class="headerlink" title="创建一个基于JavaScript对象的Stack类"></a>创建一个基于JavaScript对象的Stack类</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向栈中插入元素</span></span><br><span class="line">    push(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取栈的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查栈是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从栈中弹出元素</span></span><br><span class="line">    pop() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.count--;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看栈顶元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空栈元素</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="number">0</span>]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>, <span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里就不再演示Stack类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
+    <title>欢迎</title>
+    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
 ]]></content>
       <categories>
-        <category>技术</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数组扁平化</title>
-    <url>/2020/09/28/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="使用递归实现数组扁平化"><a href="#使用递归实现数组扁平化" class="headerlink" title="使用递归实现数组扁平化"></a>使用递归实现数组扁平化</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.flat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = [];</span><br><span class="line">    <span class="built_in">this</span>.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(item)) &#123;</span><br><span class="line">            arr = arr.concat(item.flat());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            arr.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [[<span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>, <span class="number">5</span>, [<span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>]]];</span><br><span class="line"><span class="built_in">console</span>.log(arr.flat()); <span class="comment">//[2, 3, 4, 5, 6, 7, 8]</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="递归扩展：爬楼梯"><a href="#递归扩展：爬楼梯" class="headerlink" title="递归扩展：爬楼梯"></a>递归扩展：爬楼梯</h2><p>有一楼梯共M级，刚开始时你在第一级，若每次只能跨上一级或二级，要走上第M级，共有多少种走法？</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">climbStairs</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> climbStairs(n - <span class="number">1</span>) + climbStairs(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(climbStairs(<span class="number">5</span>)); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-<h2 id="递归扩展：二分查找"><a href="#递归扩展：二分查找" class="headerlink" title="递归扩展：二分查找"></a>递归扩展：二分查找</h2><p>二分查找，是在一个有序的序列里查找某一个值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">binarySearch</span>(<span class="params">arr, target, low = <span class="number">0</span>, high = arr.length - <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (low &gt; high) <span class="keyword">return</span> <span class="string">`没有找到<span class="subst">$&#123;target&#125;</span>`</span>;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="built_in">Math</span>.floor((low + high) / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> current = arr[n];</span><br><span class="line">    <span class="keyword">if</span> (current === target) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`找到了<span class="subst">$&#123;target&#125;</span>, 在第<span class="subst">$&#123;n+<span class="number">1</span>&#125;</span>个`</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (current &lt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(arr, target, n + <span class="number">1</span>, high);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (current &gt; target) &#123;</span><br><span class="line">        <span class="keyword">return</span> binarySearch(arr, target, low, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// return `没有找到$&#123;target&#125;`;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">35</span>, <span class="number">55</span>];</span><br><span class="line"><span class="built_in">console</span>.log(binarySearch(arr, <span class="number">9</span>)); <span class="comment">// 找到了9, 在第5个</span></span><br><span class="line"><span class="built_in">console</span>.log(binarySearch(arr, <span class="number">7</span>)); <span class="comment">// 没有找到7</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -2160,18 +2172,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>欢迎</title>
-    <url>/2020/09/16/%E6%AC%A2%E8%BF%8E/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="欢迎大家来到我的个人网站"><a href="#欢迎大家来到我的个人网站" class="headerlink" title="欢迎大家来到我的个人网站"></a>欢迎大家来到我的个人网站</h1><p>希望和大家一起交流前端，有什么问题可以随时联系我，不管是技术还是生活，希望大家每天都能开开心心的学习，开开心心的生活！</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>跨域</title>
     <url>/2020/09/30/%E8%B7%A8%E5%9F%9F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略是一种约定，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSRF等攻击。所谓同源是指“协议，域名，端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
@@ -2258,23 +2258,6 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </tags>
   </entry>
   <entry>
-    <title>队列</title>
-    <url>/2020/09/21/%E9%98%9F%E5%88%97/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列是遵循<strong>先进先出</strong>（FIFO，也称为先来先服务）原则的一组有序的项。队列在尾部添加新元素，并从顶部移除元素。最新添加的元素必须排在队列的末尾。</p>
-<a id="more"></a>
-<h2 id="Queue类的模拟实现"><a href="#Queue类的模拟实现" class="headerlink" title="Queue类的模拟实现"></a>Queue类的模拟实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向队列添加元素</span></span><br><span class="line">    enqueue(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从队列移除元素 </span></span><br><span class="line">    dequeue() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="built_in">this</span>.lowestCount++;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看队列头元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查队列是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取队列的长度</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空队列</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.lowestCount + <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>, <span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列是一种允许我们同时从前端和后端添加和删除元素的特殊队列。</p>
-<h2 id="Deque类的模拟实现"><a href="#Deque类的模拟实现" class="headerlink" title="Deque类的模拟实现"></a>Deque类的模拟实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Deque</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的前端添加元素</span></span><br><span class="line">    addFront(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="built_in">this</span>.addBack(element);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.lowestCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount--;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount] = element;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.count; i &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">                <span class="built_in">this</span>.items[i] = <span class="built_in">this</span>.items[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.count++;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="number">0</span>] = element;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的后端添加元素</span></span><br><span class="line">    addBack(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的前端移除元素</span></span><br><span class="line">    removeFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="built_in">this</span>.lowestCount++;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的后端移除元素</span></span><br><span class="line">    removeBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.count--;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列前端头元素</span></span><br><span class="line">    peekFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列后端头元素</span></span><br><span class="line">    peekBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取双端队列的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查双端队列是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.size() === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空双端队列</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.lowestCount + <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>,<span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里就不再演示Queue类和Deque类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>链表</title>
     <url>/2020/09/21/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><p>链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用（也称指针或链接）组成。相比于传统的数组，链表的一个好处在于，添加或删除元素的时候不需要移动其他元素。然而，链表需要使用指针，因此实现链表时需要额外注意。在数组中，我们可以直接访问任何位置的任何元素，而想要访问链表中间的一个元素，则需要从起点（表头）开始迭代链表直到找到所需的元素。</p>
@@ -2337,6 +2320,23 @@ g() 是尾调用，因为上述写法和下面的写法等效：<figure class="h
       </categories>
       <tags>
         <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>队列</title>
+    <url>/2020/09/21/%E9%98%9F%E5%88%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>队列是遵循<strong>先进先出</strong>（FIFO，也称为先来先服务）原则的一组有序的项。队列在尾部添加新元素，并从顶部移除元素。最新添加的元素必须排在队列的末尾。</p>
+<a id="more"></a>
+<h2 id="Queue类的模拟实现"><a href="#Queue类的模拟实现" class="headerlink" title="Queue类的模拟实现"></a>Queue类的模拟实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向队列添加元素</span></span><br><span class="line">    enqueue(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从队列移除元素 </span></span><br><span class="line">    dequeue() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="built_in">this</span>.lowestCount++;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看队列头元素</span></span><br><span class="line">    peek() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查队列是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取队列的长度</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空队列</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.lowestCount + <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>, <span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h2><p>双端队列是一种允许我们同时从前端和后端添加和删除元素的特殊队列。</p>
+<h2 id="Deque类的模拟实现"><a href="#Deque类的模拟实现" class="headerlink" title="Deque类的模拟实现"></a>Deque类的模拟实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Deque</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数</span></span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的前端添加元素</span></span><br><span class="line">    addFront(element) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="built_in">this</span>.addBack(element);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.lowestCount &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount--;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount] = element;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.count; i &gt; <span class="number">0</span>; i++) &#123;</span><br><span class="line">                <span class="built_in">this</span>.items[i] = <span class="built_in">this</span>.items[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">this</span>.count++;</span><br><span class="line">            <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">this</span>.items[<span class="number">0</span>] = element;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 向双端队列的后端添加元素</span></span><br><span class="line">    addBack(element) &#123;</span><br><span class="line">        <span class="built_in">this</span>.items[<span class="built_in">this</span>.count] = element;</span><br><span class="line">        <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的前端移除元素</span></span><br><span class="line">    removeFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">        <span class="built_in">this</span>.lowestCount++;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 从双端队列的后端移除元素</span></span><br><span class="line">    removeBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.count--;</span><br><span class="line">        <span class="keyword">const</span> result = <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count];</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列前端头元素</span></span><br><span class="line">    peekFront() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查看双端队列后端头元素</span></span><br><span class="line">    peekBack() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.items[<span class="built_in">this</span>.count - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取双端队列的大小</span></span><br><span class="line">    size() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.count - <span class="built_in">this</span>.lowestCount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 检查双端队列是否为空</span></span><br><span class="line">    isEmpty() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.size() === <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 清空双端队列</span></span><br><span class="line">    clear() &#123;</span><br><span class="line">        <span class="built_in">this</span>.items = &#123;&#125;;</span><br><span class="line">        <span class="built_in">this</span>.count = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lowestCount = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建toString方法</span></span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="built_in">this</span>.items[<span class="built_in">this</span>.lowestCount]&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="built_in">this</span>.lowestCount + <span class="number">1</span>; i &lt; <span class="built_in">this</span>.count; i++) &#123;</span><br><span class="line">            objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>,<span class="subst">$&#123;<span class="built_in">this</span>.items[i]&#125;</span>`</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里就不再演示Queue类和Deque类中方法的使用了，有兴趣的可以自己做个demo测试一下，如果有任何的问题，欢迎评论区留言。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
