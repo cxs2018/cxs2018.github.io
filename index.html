@@ -2,15 +2,785 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>电子烟花</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            overflow: hidden; height: 100vh; font-family: Arial, sans-serif;
+            /* 移动端优化 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            /* 移动端性能优化 */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: auto;
+        }
+        #canvas { 
+            position: absolute; top: 0; left: 0; z-index: 1;
+            /* 移动端Canvas优化 */
+            touch-action: none;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /* 硬件加速优化 */
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        .love-text {
+            position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
+            color: #ff1493; font-weight: bold;
+            text-shadow: 0 0 30px #ff69b4; z-index: 10; opacity: 0;
+            animation: loveGlow 2s ease-in-out infinite alternate;
+            /* 响应式文字尺寸 */
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            white-space: nowrap;
+            text-align: center;
+            /* 移动端性能优化 */
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform, opacity;
+        }
+        @keyframes loveGlow {
+            0% { 
+                text-shadow: 0 0 20px #ff69b4; 
+                transform: translateX(-50%) scale(1); 
+            }
+            100% { 
+                text-shadow: 0 0 40px #ff69b4; 
+                transform: translateX(-50%) scale(1.05); 
+            }
+        }
+        
+        /* 移动端和低性能设备优化 */
+        @media (max-width: 768px) {
+            .love-text {
+                font-size: clamp(2rem, 6vw, 3.5rem);
+                top: 25%;
+                /* 简化动画 */
+                animation: loveGlowSimple 3s ease-in-out infinite;
+            }
+            
+            body {
+                /* 移动端背景简化 */
+                background: #0c0c0c;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .love-text {
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+                top: 20%;
+            }
+        }
+        
+        /* 低性能设备简化动画 */
+        @keyframes loveGlowSimple {
+            0% { 
+                opacity: 0.8;
+                transform: translateX(-50%) scale(1); 
+            }
+            100% { 
+                opacity: 1;
+                transform: translateX(-50%) scale(1.05); 
+            }
+        }
+    </style>
 </head>
 <body>
-<div>
-    <div>电子烟花</div>
-    <div>崔学森和毛凯丽</div>
-</div>
+    <canvas id="canvas"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // 桌面端性能检测和优化配置
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isLowEndDevice = navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4;
+        const isHighEndDesktop = !isMobile && navigator.hardwareConcurrency >= 8 && (navigator.deviceMemory >= 8 || !navigator.deviceMemory);
+        const devicePixelRatio = Math.min(window.devicePixelRatio || 1, isMobile ? 2 : (isHighEndDesktop ? 3 : 2.5));
+        
+        // Canvas尺寸设置和移动端优化
+        function resizeCanvas() {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = window.innerWidth * devicePixelRatio;
+            canvas.height = window.innerHeight * devicePixelRatio;
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.scale(devicePixelRatio, devicePixelRatio);
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // 对象池优化 - 减少垃圾回收卡顿
+        const particlePool = [];
+        const fireworkPool = [];
+        
+        function getParticle() {
+            return particlePool.length > 0 ? particlePool.pop() : {};
+        }
+        
+        function recycleParticle(particle) {
+            if (particlePool.length < 200) {
+                particlePool.push(particle);
+            }
+        }
+        
+        function getFirework() {
+            return fireworkPool.length > 0 ? fireworkPool.pop() : {};
+        }
+        
+        function recycleFirework(firework) {
+            if (fireworkPool.length < 50) {
+                fireworkPool.push(firework);
+            }
+        }
+        
+        // 优化颜色配置
+        const colors = ['#ff0000', '#ff4444', '#ffd700', '#ff8c00', '#ff1493', '#ff69b4'];
+        let fireworks = [];
+        let particles = [];
+        let lastTime = 0;
+        let fireworkTimer = 0;
+        
+        // 极速烟花配置 - 符合加密烟花特效规范
+        const config = {
+            // 极速发射频率 - 主发射器65ms间隔
+            fireworkInterval: 65, // 符合规范的65ms间隔
+            maxFireworks: 6, // 增加到6个烟花支持更密集效果
+            
+            // 超密集粒子系统 - 同屏180个粒子
+            maxParticles: 30, // 主爆炸30个粒子
+            particleCount: 30, // 符合规范
+            
+            // 三重爆炸连击增强 - 符合规范
+            burstParticles: 20, // 二次爆炸20个粒子
+            thirdBurst: 12, // 白光闪爆12个粒子
+            
+            // 极速渲染配置
+            renderQuality: 'enhanced', 
+            frameSkip: 0, // 确保流畅度
+            speedMultiplier: 2.0, // 2.0倍速 - 符合规范
+            useOptimizedRender: false, 
+            trailLength: 4, 
+            shadowIntensity: 4, 
+            glowEffect: true, 
+            
+            // 高性能模式开关
+            useObjectPool: true,
+            useBatchRender: false, 
+            useWebWorker: false,
+            maxParticleLifetime: 1.0, 
+            
+            // 极速性能控制 - 支持180个粒子
+            maxTotalParticles: 180, // 超密集粒子云
+            cleanupInterval: 2000, 
+            targetFPS: 50, // 50 FPS帧率控制
+            emergencyMode: false,
+            
+            // 极速连发模式配置
+            burstInterval: 50, // 50ms极速连发
+            superBurstInterval: 40, // 40ms超级爆发
+            auxInterval: 30 // 辅助发射器30ms连续发射
+        };
+
+        class Firework {
+            constructor() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                
+                this.x = screenWidth / 2 + (Math.random() - 0.5) * 180;
+                this.y = screenHeight;
+                this.targetX = screenWidth / 2 + (Math.random() - 0.5) * 120;
+                this.targetY = Math.random() * screenHeight * 0.5 + screenHeight * 0.1;
+                this.speed = (7 + Math.random() * 5) * config.speedMultiplier;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.trail = [];
+                this.maxTrailLength = config.trailLength; // 统一拖尾长度
+            }
+
+            update() {
+                // 统一拖尾管理
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > this.maxTrailLength) {
+                    this.trail.shift();
+                }
+                
+                const dx = this.targetX - this.x;
+                const dy = this.targetY - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 8) {
+                    this.explode();
+                    return false;
+                }
+                
+                this.x += (dx / distance) * this.speed;
+                this.y += (dy / distance) * this.speed;
+                return true;
+            }
+
+            draw() {
+                // 增强视觉效果渲染模式
+                if (config.useOptimizedRender) {
+                    this.drawOptimized();
+                    return;
+                }
+                
+                ctx.save();
+                
+                // 增强拖尾效果 - 恢复阴影和复杂效果
+                ctx.globalCompositeOperation = 'screen';
+                this.trail.forEach((point, index) => {
+                    const alpha = (index / this.trail.length) * 0.7;
+                    ctx.globalAlpha = alpha;
+                    ctx.fillStyle = this.color;
+                    
+                    // 恢复阴影效果
+                    if (config.glowEffect) {
+                        ctx.shadowColor = this.color;
+                        ctx.shadowBlur = 3;
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // 内层亮光
+                    if (alpha > 0.5) {
+                        ctx.globalAlpha = alpha * 0.6;
+                        ctx.fillStyle = '#ffffff';
+                        ctx.shadowBlur = 1;
+                        ctx.beginPath();
+                        ctx.arc(point.x, point.y, 1.2, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+                
+                // 增强主体渲染
+                ctx.globalAlpha = 1;
+                ctx.fillStyle = this.color;
+                if (config.glowEffect) {
+                    ctx.shadowColor = this.color;
+                    ctx.shadowBlur = config.shadowIntensity;
+                }
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // 白色内核增强
+                ctx.globalAlpha = 0.8;
+                ctx.fillStyle = '#ffffff';
+                ctx.shadowBlur = 2;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+            
+            drawOptimized() {
+                // 极简渲染模式 - 只渲染核心
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            explode() {
+                // 极速三重爆炸连击 - 符合加密烟花规范
+                const particleCount = Math.min(config.particleCount + Math.random() * 15, 45); // 最多45个粒子
+                
+                // 主爆炸 - 30个粒子增强散布
+                for (let i = 0; i < particleCount; i++) {
+                    const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.8;
+                    const particle = new Particle(this.targetX, this.targetY, angle, this.color, false);
+                    particles.push(particle);
+                }
+                
+                // 二次爆炸 - 20个粒子，加快速度到30ms
+                setTimeout(() => {
+                    const burstCount = Math.min(config.burstParticles + Math.random() * 10, 30);
+                    for (let i = 0; i < burstCount; i++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const particle = new Particle(
+                            this.targetX + (Math.random() - 0.5) * 35, 
+                            this.targetY + (Math.random() - 0.5) * 35, 
+                            angle, 
+                            this.color,
+                            true
+                        );
+                        particles.push(particle);
+                    }
+                }, 30); // 加快到30ms
+                
+                // 白光闪爆 - 12个粒子，超快速度
+                setTimeout(() => {
+                    const thirdCount = Math.min(config.thirdBurst + Math.random() * 8, 20);
+                    for (let i = 0; i < thirdCount; i++) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const particle = new Particle(
+                            this.targetX + (Math.random() - 0.5) * 45, 
+                            this.targetY + (Math.random() - 0.5) * 45, 
+                            angle, 
+                            '#ffffff',
+                            true
+                        );
+                        particles.push(particle);
+                    }
+                }, 50); // 超快50ms
+            }
+        }
+
+        class Particle {
+        // 增强粒子类构造函数
+            constructor(x, y, angle, color, isBurst = false) {
+                // 增强初始化 - 提升视觉效果
+                this.x = x || 0;
+                this.y = y || 0;
+                this.color = color || '#ffffff';
+                this.isBurst = isBurst || false;
+                this.burstType = isBurst ? (color === '#ffffff' ? 'flash' : 'second') : 'main';
+                
+                // 增强速度计算
+                const speedMultiplier = (isBurst ? 1.3 : 1.6) * config.speedMultiplier;
+                this.vx = Math.cos(angle || 0) * (3 + Math.random() * 4) * speedMultiplier;
+                this.vy = Math.sin(angle || 0) * (3 + Math.random() * 4) * speedMultiplier;
+                
+                this.life = config.maxParticleLifetime || 1.0;
+                this.decay = 0.012 + Math.random() * 0.008; // 适中衰减速度
+                this.size = (2 + Math.random() * 2.5) * (isBurst ? 1.3 : 1.1); // 增大粒子尺寸
+                this.gravity = 0.07;
+                this.resistance = 0.99;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += this.gravity;
+                this.vx *= this.resistance;
+                this.life -= this.decay;
+                
+                return this.life > 0;
+            }
+
+            draw() {
+                if (this.life <= 0) return;
+                
+                // 使用增强渲染模式
+                if (config.useBatchRender) {
+                    return; // 由批量渲染系统处理
+                }
+                
+                this.renderEnhanced();
+            }
+            
+            renderEnhanced() {
+                ctx.save();
+                
+                // 增强粒子渲染 - 恢复视觉效果
+                ctx.globalCompositeOperation = 'screen';
+                ctx.globalAlpha = this.life;
+                
+                const currentSize = Math.max(this.size * this.life * (this.isBurst ? 1.4 : 1.2), 1.8);
+                
+                // 增强粒子主体
+                ctx.fillStyle = this.color;
+                if (config.glowEffect) {
+                    ctx.shadowColor = this.color;
+                    ctx.shadowBlur = this.isBurst ? 6 : 4;
+                }
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentSize, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // 增强内核效果
+                if (this.life > 0.4) {
+                    ctx.globalAlpha = (this.life - 0.4) * 0.9;
+                    ctx.fillStyle = '#ffffff';
+                    ctx.shadowBlur = 2;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, currentSize * 0.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                // 白光闪爆特效增强
+                if (this.burstType === 'flash') {
+                    ctx.globalAlpha = this.life * 1.1;
+                    ctx.fillStyle = '#ffff88';
+                    ctx.shadowBlur = 8;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, currentSize * 0.7, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                ctx.restore();
+            }
+            
+            // 对象池回收
+            recycle() {
+                if (config.useObjectPool) {
+                    recycleParticle(this);
+                }
+            }
+        }
+
+        // 高效批量渲染系统 - 优化版
+        function batchRenderParticles() {
+            if (!config.useBatchRender || particles.length === 0) return;
+            
+            // 简化批量渲染 - 去除复杂效果
+            particles.forEach(particle => {
+                if (particle.life <= 0) return;
+                
+                ctx.globalAlpha = particle.life * 0.7;
+                ctx.fillStyle = particle.color;
+                
+                const size = Math.max(particle.size * particle.life * 0.6, 1);
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+        let frameCount = 0;
+        let skipFrame = 0;
+        let renderTime = 0;
+        let performanceBuffer = [];
+        let particleBuffer = []; // 粒子缓存
+        
+        function animate(currentTime) {
+            frameCount++;
+            const startRender = performance.now();
+            
+            // 极速帧率控制 - 50 FPS（符合规范）
+            const targetFrameTime = 1000 / config.targetFPS;
+            
+            if (currentTime - lastTime < targetFrameTime) {
+                requestAnimationFrame(animate);
+                return;
+            }
+            
+            // 关闭跳帧保证最大流畅度
+            if (config.frameSkip > 0 && frameCount % (config.frameSkip + 1) !== 0) {
+                requestAnimationFrame(animate);
+                return;
+            }
+            
+            lastTime = currentTime;
+            
+            // 精细画布清理 - 优化拖尾效果
+            ctx.fillStyle = 'rgba(12, 12, 12, 0.06)'; // 降低透明度增强拖尾
+            ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+            // 极速烟花数量控制
+            if (fireworks.length > config.maxFireworks) {
+                const excess = fireworks.splice(0, fireworks.length - config.maxFireworks);
+                excess.forEach(fw => fw.recycle && fw.recycle());
+            }
+            
+            // 烟花更新和渲染
+            fireworks = fireworks.filter(firework => {
+                const alive = firework.update();
+                if (alive) {
+                    firework.draw();
+                } else {
+                    firework.recycle && firework.recycle();
+                }
+                return alive;
+            });
+
+            // 超密集粒子控制 - 180个粒子
+            if (particles.length > config.maxTotalParticles) {
+                const excess = particles.splice(config.maxTotalParticles);
+                excess.forEach(p => p.recycle && p.recycle());
+            }
+            
+            // 粒子更新和渲染
+            particles = particles.filter(particle => {
+                const alive = particle.update();
+                if (alive) {
+                    particle.draw();
+                } else {
+                    particle.recycle && particle.recycle();
+                }
+                return alive;
+            });
+            
+            // 批量渲染（如果启用）
+            batchRenderParticles();
+
+            // 性能监控
+            const endRender = performance.now();
+            renderTime = endRender - startRender;
+            performanceBuffer.push(renderTime);
+            if (performanceBuffer.length > 30) {
+                performanceBuffer.shift();
+            }
+            
+            performanceMonitor.checkPerformance();
+
+            requestAnimationFrame(animate);
+        }
+        
+        // 高效性能监控系统 - 适配极速模式
+        let performanceMonitor = {
+            frameCount: 0,
+            lastCheck: Date.now(),
+            lowPerformanceCount: 0,
+            emergencyMode: false,
+            avgRenderTime: 0,
+            
+            checkPerformance() {
+                this.frameCount++;
+                const now = Date.now();
+                
+                // 计算平均渲染时间
+                if (performanceBuffer.length > 10) {
+                    this.avgRenderTime = performanceBuffer.reduce((a, b) => a + b, 0) / performanceBuffer.length;
+                }
+                
+                // 极速模式性能监控 - 45 FPS阈值（符合规范）
+                const targetFPS = 45; // 性能监控阈值 45 FPS
+                const renderTimeThreshold = 22; // 适度放宽渲染时间阈值
+                
+                if (now - this.lastCheck > 3000) { // 3秒检查一次
+                    const fps = this.frameCount / 3;
+                    
+                    // 综合FPS和渲染时间判断性能
+                    const fpsLow = fps < targetFPS - 5;
+                    const renderSlow = this.avgRenderTime > renderTimeThreshold;
+                    
+                    if (fpsLow || renderSlow) {
+                        this.lowPerformanceCount++;
+                        
+                        if (this.lowPerformanceCount >= 2) {
+                            // 保持高性能同时适度降级
+                            config.maxFireworks = Math.max(4, config.maxFireworks - 1);
+                            config.maxTotalParticles = Math.max(120, config.maxTotalParticles - 20);
+                            config.frameSkip = Math.min(1, config.frameSkip + 1);
+                            config.emergencyMode = true;
+                        }
+                    } else if (fps > targetFPS + 5 && this.avgRenderTime < renderTimeThreshold * 0.8) {
+                        // 性能优秀，逐步恢复
+                        if (this.lowPerformanceCount > 0) {
+                            this.lowPerformanceCount = Math.max(0, this.lowPerformanceCount - 1);
+                            
+                            if (this.lowPerformanceCount === 0) {
+                                this.emergencyMode = false;
+                                config.frameSkip = Math.max(0, config.frameSkip - 1);
+                            }
+                        }
+                    }
+                    
+                    this.frameCount = 0;
+                    this.lastCheck = now;
+                }
+            }
+        };
+
+        // 修复烟花发射系统
+        function createFirework() {
+            console.log('创建烟花:', fireworks.length, '/', config.maxFireworks);
+            const firework = new Firework();
+            fireworks.push(firework);
+            return firework;
+        }
+
+        // 极速发射系统 - 符合加密烟花规范
+        function startFireworks() {
+            console.log('启动极速烟花发射系统');
+            
+            // 立即发射第一发烟花
+            createFirework();
+            
+            // 主发射器 - 65ms间隔（符合规范）
+            const mainInterval = config.fireworkInterval;
+            console.log('设置主发射器间隔:', mainInterval + 'ms');
+            
+            setInterval(() => {
+                if (fireworks.length < config.maxFireworks) {
+                    createFirework();
+                }
+            }, mainInterval);
+            
+            // 辅助发射器 - 30ms连续发射（符合规范）
+            setInterval(() => {
+                if (fireworks.length < config.maxFireworks - 1) {
+                    createFirework();
+                    // 30ms连续发射
+                    setTimeout(() => {
+                        if (fireworks.length < config.maxFireworks) {
+                            createFirework();
+                        }
+                    }, config.auxInterval); // 30ms连续发射
+                }
+            }, mainInterval * 1.5);
+            
+            // 50ms极速连发模式 - 5连发（符合规范）
+            setInterval(() => {
+                const burstCount = 5; // 5连发
+                console.log('触发极速连发模式:', burstCount);
+                
+                for (let i = 0; i < burstCount; i++) {
+                    setTimeout(() => {
+                        if (fireworks.length < config.maxFireworks) {
+                            createFirework();
+                        }
+                    }, i * config.burstInterval); // 50ms极速连发
+                }
+            }, 2000 + Math.random() * 1500); // 增加频率
+            
+            // 40ms超级爆发模式 - 8连发（符合规范）
+            setInterval(() => {
+                if (Math.random() < 0.8) {
+                    const superBurst = 8; // 8连发
+                    console.log('触发超级爆发模式:', superBurst);
+                    
+                    for (let i = 0; i < superBurst; i++) {
+                        setTimeout(() => {
+                            if (fireworks.length < config.maxFireworks) {
+                                createFirework();
+                            }
+                        }, i * config.superBurstInterval); // 40ms超级爆发
+                    }
+                }
+            }, 3500 + Math.random() * 2000); // 增加频率
+        }
+
+        // 巨型告白文字显示 - 符合规范的增强效果
+        function showLoveMessage() {
+            const messages = ['亲爱的毛凯丽女士', '你愿意做我女朋友吗'];
+            
+            messages.forEach((msg, index) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = 'love-text';
+                    div.innerHTML = msg;
+                    
+                    // 巨型字体和位置设置 - 符合规范
+                    div.style.top = (20 + index * 15) + '%';
+                    div.style.fontSize = 'clamp(3rem, 8vw, 5.5rem)'; // 5.5rem超大字体
+                    div.style.color = '#ffffff'; // 白色文字
+                    div.style.textShadow = `
+                        0 0 20px #ff00cc,
+                        0 0 40px #ff69b4, 
+                        0 0 60px #ff1493,
+                        0 0 80px #dc143c
+                    `; // 四层发光效果（渐变发光）
+                    
+                    document.body.appendChild(div);
+                    
+                    // 动态渐显动画 - 1.5s持续时间
+                    setTimeout(() => {
+                        div.style.opacity = '1';
+                        div.style.transition = 'opacity 1.5s ease-in-out, transform 1.5s ease-in-out';
+                        
+                        // 1.15倍动态缩放动画
+                        setTimeout(() => {
+                            div.style.transform = 'translateX(-50%) scale(1.15)';
+                        }, 400);
+                    }, 100);
+                }, index * 1000); // 适度间隔显示
+            });
+        }
+
+        // 简化但可靠的初始化系统
+        function init() {
+            console.log('初始化烟花系统...', {
+                isMobile,
+                isLowEndDevice,
+                isHighEndDesktop,
+                config
+            });
+            
+            // 移动端触摸优化
+            if (isMobile) {
+                document.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+                
+                document.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+            }
+            
+            // 立即启动动画循环
+            console.log('启动动画循环');
+            requestAnimationFrame(animate);
+            
+            // 立即启动烟花发射
+            startFireworks();
+            
+            // 高性能启动 - 减少初始烟花数量
+            for (let i = 0; i < 2; i++) { // 减少初始烟花数量
+                setTimeout(() => {
+                    createFirework();
+                    console.log('初始烟花', i + 1, '创建完成');
+                }, i * 500); // 增加间隔
+            }
+            
+            // 可选显示文字
+            const messageDelay = 6000; // 延后显示
+            setTimeout(() => {
+                console.log('显示告白文字');
+                showLoveMessage();
+            }, messageDelay);
+            
+            // 高效内存管理
+            setInterval(() => {
+                if (particles.length > config.maxTotalParticles) {
+                    particles = particles.slice(-Math.floor(config.maxTotalParticles * 0.8));
+                }
+                if (fireworks.length > config.maxFireworks) {
+                    fireworks = fireworks.slice(-config.maxFireworks);
+                }
+            }, config.cleanupInterval);
+            
+            // 监控烟花状态
+            setInterval(() => {
+                if (fireworks.length === 0 && particles.length === 0) {
+                    console.warn('检测到烟花效果消失，重新启动');
+                    createFirework();
+                }
+            }, 8000); // 增加检查间隔
+        }
+
+        // 确保页面完全加载后启动
+        console.log('页面状态:', document.readyState);
+        
+        if (document.readyState === 'loading') {
+            console.log('等待DOM加载完成...');
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log('DOM加载完成，启动init');
+                init();
+            });
+        } else {
+            console.log('页面已加载，直接启动init');
+            // 直接启动
+            init();
+        }
+        
+        // 备用启动机制 - 确保烟花一定会启动
+        setTimeout(() => {
+            console.log('备用启动检查...');
+            if (fireworks.length === 0 && particles.length === 0) {
+                console.warn('检测到烟花未启动，强制启动');
+                init();
+            }
+        }, 3000);
+    </script>
 </body>
 </html>
