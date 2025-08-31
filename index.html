@@ -717,12 +717,17 @@
             }, config.loopInterval); // 每8秒一个循环
         }
 
-        // 巨型告白文字显示 - 支持自动循环显示
+        // 巨型告白文字显示 - 永久保留模式
+        let loveTextDisplayed = false; // 标记文字是否已显示
+        
         function showLoveMessage() {
-            const messages = ['亲爱的毛凯丽女士', '你愿意做我女朋友吗'];
+            // 如果文字已经显示，就不再重复显示
+            if (loveTextDisplayed) {
+                console.log('告白文字已显示，跳过重复显示');
+                return;
+            }
             
-            // 清理之前的文字元素
-            document.querySelectorAll('.love-text').forEach(el => el.remove());
+            const messages = ['亲爱的毛凯丽女士', '你愿意做我女朋友吗'];
             
             messages.forEach((msg, index) => {
                 setTimeout(() => {
@@ -753,27 +758,28 @@
                             div.style.transform = 'translateX(-50%) scale(1.15)';
                         }, 400);
                     }, 100);
+                    
+                    // 标记文字已显示（当最后一个文字显示完成后）
+                    if (index === messages.length - 1) {
+                        setTimeout(() => {
+                            loveTextDisplayed = true;
+                            console.log('告白文字显示完成，设置为永久保留');
+                        }, 1500); // 等待动画完成
+                    }
                 }, index * 1000); // 适度间隔显示
             });
         }
         
-        // 新增：自动循环显示告白文字 - 永久模式
+        // 新增：自动循环显示告白文字 - 永久模式（只显示一次）
         function startAutoLoveMessages() {
-            if (config.autoLoop) {
+            if (config.autoLoop && !loveTextDisplayed) {
                 // 第一次显示
                 setTimeout(() => {
                     showLoveMessage();
                 }, 6000);
                 
-                // 自动循环显示文字 - 移除定时器管理，直接永久运行
-                setInterval(() => {
-                    try {
-                        console.log('自动循环显示告白文字');
-                        showLoveMessage();
-                    } catch(e) {
-                        console.log('文字显示异常，继续运行:', e);
-                    }
-                }, config.loopInterval + 2000); // 每10秒循环显示
+                // 不再循环显示，只显示一次即永久保留
+                console.log('设置为一次性显示模式，文字将永久保留');
             }
         }
         
